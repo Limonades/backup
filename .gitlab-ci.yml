@@ -1,13 +1,13 @@
 variables:
-    DOCKER_IMAGE: registry.gitlab.com/skyrkt/[TODO]
+    DOCKER_IMAGE: registry.gitlab.com/skyrkt/alterna-haircare-craft
     DOCKERFILE_LOCATION: ./
-    DOCKER_VERSION: [TODO e.g. docker-17.09.1-ce]
+    DOCKER_VERSION: Docker-17.12.1-ce
 
-    AWS_REGION: [TODO]
-    EB_APP_NAME: [TODO]
-    EB_QA_ENVIRONMENT_NAME: [TODO]
-    EB_STAGING_ENVIRONMENT_NAME: [TODO]
-    EB_PROD_ENVIRONMENT_NAME: [TODO]
+    AWS_REGION: us-east-1
+    EB_APP_NAME: alterna-haircare-craft
+    EB_QA_ENVIRONMENT_NAME: haircare-qa
+    EB_STAGING_ENVIRONMENT_NAME: haircare-staging
+    EB_PROD_ENVIRONMENT_NAME: haircare-production
 
 stages:
   - build

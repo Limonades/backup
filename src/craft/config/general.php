@@ -17,6 +17,7 @@ return [
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
         'allowUpdates' => false,
+        'siteUrl' => 'http://alternahaircare.com'
     ],
 
     // Dev environment settings
@@ -26,14 +27,23 @@ return [
         'siteUrl' => 'alterna.docker'
     ],
 
+    // QA environment settings
+    'qa' => [
+        'devMode' => true,
+        'allowAdminChanges' => false,
+        'siteUrl' => 'http://qa.alternahaircare.com'
+    ],
+
     // Staging environment settings
     'staging' => [
         'allowAdminChanges' => false,
+        'siteUrl' => 'http://staging.alternahaircare.com'
     ],
 
     // Production environment settings
     'production' => [
         'allowAdminChanges' => false,
+        'siteUrl' => 'http://prod.alternahaircare.com'
     ],
 ];
 
