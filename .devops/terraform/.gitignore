@@ -1,0 +1,5 @@
+secrets.tf
+*.tfstate
+*.tfstate.backup
+.terraform/*
+auth-for-container-registry

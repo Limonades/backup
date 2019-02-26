@@ -1,0 +1,39 @@
+:root {
+  /**
+   * Application Theme Colors
+   */
+  --colorTyrianPurple: #7a003d;
+  --colorPrimary: #7a003d;
+  --colorTyrianPurpleAlpha: rgba(122, 0, 61, 0.1);
+  --colorMorningGlory: rgb(151, 204, 202);
+  --colorAccent: rgb(151, 204, 202);
+  --colorMorningGloryAlpha: rgba(151, 204, 202, 0.1);
+
+  /**
+   * Alert Colors
+   */
+  --colorInfo: #5bc0de;
+  --colorSuccess: #4caf50;
+  --colorWarning: #ffc107;
+  --colorError: #f44336;
+
+  /**
+   * Shades
+   */
+  --colorNightRider: #333333;
+  --colorNightRiderAlpha: rgba(51, 51, 51, 0.6);
+  --colorVeryLightGrey: #cccccc;
+  --colorVeryLightGreyAlpha: rgba(204, 204, 204, 0.4);
+  --colorWhite: #ffffff;
+
+  /**
+   * Transparents
+   */
+  --colorTransparent: #00000000;
+
+  /**
+   * Base var colors
+   */
+  --colorBody: var(--colorBlack);
+  --colorBackground: var(--colorWhite);
+}

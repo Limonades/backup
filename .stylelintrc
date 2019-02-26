@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "selector-combinator-space-before": null,
+    "selector-combinator-space-after": null,
+    "color-hex-length": "long",
+  },
+  "ignoreFiles": [
+    "src/**/icon-fonts/**",
+    "src/app/styleguide/styles/reset.css"
+  ]
+}

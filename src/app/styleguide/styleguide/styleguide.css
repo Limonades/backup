@@ -1,0 +1,123 @@
+@import 'styleguide/styles/variables';
+
+.style-guide {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  & .collections {
+    display: block;
+    overflow: hidden;
+    transition: all 1s ease;
+  }
+
+  & h1.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 72px;
+    line-height: 72px;
+    margin-bottom: 18px;
+    padding-top: 18px;
+    color: rgba(0, 0, 0, 0.8);
+    border-top: 1px dotted rgba(0, 0, 0, 0.2);
+  }
+
+  & h1.title:first-child small {
+    color: rgba(0, 0, 0, 0.4);
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 18px;
+    margin-bottom: 18px;
+    font-weight: normal;
+    letter-spacing: normal;
+  }
+
+  & h2.category {
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+    margin-top: 48px;
+    color: rgba(0, 0, 0, 0.65);
+    cursor: pointer;
+  }
+
+  & section {
+    position: relative;
+    left: -24px;
+    display: inline-block;
+    min-width: 320px;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    margin-top: 48px;
+    margin-bottom: 18px;
+    margin-left: 24px;
+    padding-top: 18px;
+    line-height: 18px;
+    vertical-align: top;
+
+    & h3.subtitle {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      color: rgba(0, 0, 0, 0.65);
+      font-weight: bold;
+    }
+
+    & i {
+      font-size: 14px;
+      display: block;
+      color: rgba(0, 0, 0, 0.4);
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+
+      &::before {
+        content: attr(label);
+        display: inline-block;
+        min-width: 72px;
+        margin-right: 12px;
+        color: rgba(0, 0, 0, 0.65);
+      }
+    }
+
+    & div:first-of-type {
+      margin-top: 18px !important;
+
+      & span.color {
+        display: block;
+        height: 96px;
+        width: 96px;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+
+  & h1 {
+    @apply --typeHeading1;
+  }
+
+  & .color-tyrian-purple {
+    background: var(--colorTyrianPurple);
+  }
+
+  & .color-tyrian-purple-alpha {
+    background: var(--colorTyrianPurpleAlpha);
+  }
+
+  & .color-morning-glory {
+    background: var(--colorMorningGlory);
+  }
+
+  & .color-morning-glory-alpha {
+    background: var(--colorMorningGloryAlpha);
+  }
+
+  & .color-night-rider {
+    background: var(--colorNightRider);
+  }
+
+  & .color-night-rider-alpha {
+    background: var(--colorNightRiderAlpha);
+  }
+
+  & .color-very-light-grey {
+    background: var(--colorVeryLightGrey);
+  }
+}

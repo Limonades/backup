@@ -1,0 +1,37 @@
+version: '2'
+services:
+  craft:
+    build: ./
+    ports:
+     - 9000:80
+    volumes:
+     - ./src/craft/config/general.php:/usr/share/nginx/config/general.php
+     - ./src/craft/config/redactor:/usr/share/nginx/config/redactor
+    #  - ./src/craft/plugins:/usr/share/nginx/craft/plugins
+     - ./src/app:/usr/share/nginx/templates
+     - ./src/public:/usr/share/nginx/web
+     - ./.devops/docker-files/php.ini:/etc/php/7.0/fpm/php.ini
+     - ./.devops/docker-files/01-301.conf:/opt/docker/etc/nginx/vhost.common.d/01-301.conf
+     - ./.devops/docker-files/15-expires.conf:/opt/docker/etc/nginx/vhost.common.d/15-expires.conf
+     - ./.devops/docker-files/vhost.conf:/opt/docker/etc/nginx/vhost.conf
+    links:
+      - db
+    environment:
+      - VIRTUAL_HOST=alterna.docker
+      - VIRTUAL_PORT=80
+      - ENVIRONMENT=dev
+      - DB_HOST=db
+      - DB_USER=craft_user
+      - DB_DATABASE=craft
+      - DB_PASSWORD=password
+
+  db:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      - VIRTUAL_HOST=db.alterna.docker
+      - MYSQL_DATABASE=craft
+      - MYSQL_USER=craft_user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password

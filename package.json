@@ -1,0 +1,60 @@
+{
+  "name": "alternahaircare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -fr src/public/compiled && rm -fr src/public/service-worker.js && NODE_ENV='local' webpack --watch --progress --profile --colors",
+    "build": "rm -fr src/public/compiled && rm -fr src/public/service-worker.js && NODE_ENV='production' webpack -p --progress --colors --devtool=false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Skyrkt/craft-template.git"
+  },
+  "author": "Ethan Zhang <ethan@skyrocket.is>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Skyrkt/Code-System/skycli/issues"
+  },
+  "homepage": "https://gitlab.com/Skyrkt/Code-System/skycli",
+  "browserslist": [
+    "> 1% in CA",
+    "> 1% in US",
+    "last 3 versions"
+  ],
+  "devDependencies": {
+    "ajv": "4.10.0",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.22.0",
+    "caniuse-db": "^1.0.30000652",
+    "clipboard": "^1.5.16",
+    "core-js": "^2.4.1",
+    "css-loader": "^0.26.1",
+    "cssnano": "^3.8.0",
+    "eslint": "^3.9.0",
+    "eslint-loader": "^1.6.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.10.0",
+    "gsap": "^2.1.1",
+    "html-webpack-plugin": "^2.26.0",
+    "imports-loader": "^0.8.0",
+    "normalize.css": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^1.3.0",
+    "postcss": "5.0.0",
+    "postcss-cssnext": "^2.8.0",
+    "postcss-loader": "^1.3.0",
+    "postcss-smart-import": "^0.6.3",
+    "postcss-syntax": "^0.10.0",
+    "scrollmagic": "^2.0.6",
+    "style-loader": "^0.13.1",
+    "stylelint": "^9.2.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "sw-precache-webpack-plugin": "^0.9.0",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "dependencies": {
+    "colors": "^1.2.3"
+  }
+}

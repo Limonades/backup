@@ -1,0 +1,209 @@
+{% extends 'layout/skeleton/default' %}
+
+{% block content %}
+  {% set brandPrimary = 'rgba*(0, 0, 0, 0.65)' %}
+  {% set brandAccent = 'rgba*(0, 0, 0, 0.65)' %}
+
+  <style type="text/css">
+    body {
+      background: #fafafa;
+      margin: 0;
+      padding: 0;
+      margin-top: 24px;
+      margin-bottom: 48px;
+    }
+  </style>
+
+  <div class="style-guide">
+    <h1 class="title">
+        Alterna Haircare - Styleguide <small>Comprehensive Mixin and Component CSS Style Guide</small>
+    </h1>
+
+    <h2 class="category category-colors">Colors</h2>
+    <div class="section-colors collections">
+        <section>
+            <h3>Tyrian Purple</h3>
+            <i label="Mixin">--colorTyrianPurple</i>
+            <div>
+            <span class="color color-tyrian-purple"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Tyrian Purple Alpha</h3>
+            <i label="Mixin">--colorTyrianPurpleAlpha</i>
+            <div>
+            <span class="color color-tyrian-purple-alpha"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Morning Glory</h3>
+            <i label="Mixin">--colorMorningGlory</i>
+            <div>
+            <span class="color color-morning-glory"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Morning Glory Alpha</h3>
+            <i label="Mixin">--colorMorningGloryAlpha</i>
+            <div>
+            <span class="color color-morning-glory-alpha"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Night Rider</h3>
+            <i label="Mixin">--colorNightRider</i>
+            <div>
+            <span class="color color-night-rider"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Night Rider Alpha</h3>
+            <i label="Mixin">--colorNightRiderAlpha</i>
+            <div>
+            <span class="color color-night-rider-alpha"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Very Light Grey</h3>
+            <i label="Mixin">--colorVeryLightGrey</i>
+            <div>
+            <span class="color color-very-light-grey"></span>
+            </div>
+        </section>
+    </div>
+
+
+    <h2 class="category category-typography">Typography</h2>
+    <div class="section-typography collections">
+        <section>
+            <h3 class="subtitle">Heading 1</h3>
+            <i label="Mixin">--typeHeading1</i>
+            <i label="Selector">.h1, h1</i>
+            <div>
+            <h1 class="h1">Heading 1</h1>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="subtitle">Heading 2</h3>
+            <i label="Mixin">--typeHeading2</i>
+            <i label="Selector">.h2, h2</i>
+            <div>
+            <h2>Heading 2</h2>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="subtitle">Heading 3</h3>
+            <i label="Mixin">--typeHeading3</i>
+            <i label="Selector">.h3, h3</i>
+            <div>
+            <h3>Heading 3</h3>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="subtitle">Heading 4</h3>
+            <i label="Mixin">--typeHeading4</i>
+            <i label="Selector">.h4, h4</i>
+            <div>
+            <h4>Heading 4</h4>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="subtitle">Body</h3>
+            <i label="Mixin">--typeBody</i>
+            <i label="Selector">.p, p</i>
+            <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing</p>
+            </div>
+        </section>
+    </div>
+
+
+    <h2 class="category category-buttons">Buttons</h2>
+    <div class="section-buttons collections">
+        <section>
+            <h3>Button Primary</h3>
+            <i label="Selector">.button.primary</i>
+            <div>
+                <a href="#" class="button primary">Button Primary</a>
+            </div>
+            </section>
+
+            <section>
+            <h3>Button Secondary</h3>
+            <i label="Selector">.button</i>
+            <div>
+                <a href="#" class="button">Button Secondary</a>
+            </div>
+            </section>
+
+            <section>
+            <h3>Button Primary Dark</h3>
+            <i label="Selector">.button.primary.dark</i>
+            <div class="color-night-rider" style="padding: 20px;">
+                <a href="#" class="button primary dark">Button Primary</a>
+            </div>
+            </section>
+
+            <section>
+            <h3>Button Secondary Dark</h3>
+            <i label="Selector">.button.dark</i>
+            <div class="color-night-rider" style="padding: 20px;">
+                <a href="#" class="button dark">Button Secondary</a>
+            </div>
+        </section>
+    </div>
+
+    <h2 class="category category-icons">Icons</h2>
+    <div class="section-icons collections">
+        <section>
+            <h3>Icon Skyrocket</h3>
+            <i label="Selector">.icon-skyrocket</i>
+            <div>
+                <span class="icon-skyrocket"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Icon Home</h3>
+            <i label="Selector">.icon-home</i>
+            <div>
+                <span class="icon-home"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Icon Behance</h3>
+            <i label="Selector">.icon-behance</i>
+            <div>
+                <span class="icon-behance"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Icon Heart</h3>
+            <i label="Selector">.icon-heart</i>
+            <div>
+                <span class="icon-heart"></span>
+            </div>
+        </section>
+
+        <section>
+            <h3>Icon Twitter</h3>
+            <i label="Selector">.icon-twitter</i>
+            <div>
+                <span class="icon-twitter"></span>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

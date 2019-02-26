@@ -1,0 +1,12 @@
+{
+  "buttons": [
+    "bold",
+    "italic",
+    "link"
+  ],
+  "removeEmpty": ["p","strong","em","span","a"],
+  "formatting": [
+    "p"
+  ],
+  "toolbarFixed": true
+}

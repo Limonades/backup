@@ -1,0 +1,30 @@
+@import 'styleguide/styles/variables';
+
+:root {
+  --fontSizeRootSm: 10px;
+
+  /* To calc the VW: 100 / (breakpoint * pixel-to-rem-unit ) */
+  --fontSizeRootLg: 0.588vw;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 62.5%;
+  font-size: var(--fontSizeRootSm);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  @media (width >= 1700px) {
+    font-size: var(--fontSizeRootLg);
+  }
+}
+
+body {
+  background-color: var(--colorWhite);
+  color: var(--colorNightRider);
+}
+
+main {
+  overflow: hidden;
+}

@@ -1,0 +1,46 @@
+{% extends 'layout/skeleton/base' %}
+
+{# {% set domain = craft.request.url | split('/')[2] %}
+{% set isProd = domain == 'template.com' %}
+
+{% block headerScripts %}
+    {% if generalScripts.headerScripts|length %}
+        \{{ generalScripts.headerScripts|raw }}
+    {% endif %}
+    {% if isProd and productionScripts.headerScripts|length %}
+        \{{ productionScripts.headerScripts|raw }}
+    {% endif %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {% if generalScripts.bodyScripts|length %}
+        \{{ generalScripts.bodyScripts|raw }}
+    {% endif %}
+    {% if isProd and productionScripts.bodyScripts|length %}
+        \{{ productionScripts.bodyScripts|raw }}
+    {% endif %}
+{% endblock %}
+
+{% block footerScripts %}
+    {% if generalScripts.footerScripts|length %}
+        \{{ generalScripts.footerScripts|raw }}
+    {% endif %}
+    {% if isProd and productionScripts.footerScripts|length %}
+        \{{ productionScripts.footerScripts|raw }}
+    {% endif %}
+{% endblock %} #}
+
+{% block bodyContent %}
+    {% include 'layout/header' %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'layout/footer' %}
+{% endblock %}
+
+
+

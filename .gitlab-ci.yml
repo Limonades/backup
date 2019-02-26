@@ -1,0 +1,107 @@
+variables:
+    DOCKER_IMAGE: registry.gitlab.com/skyrkt/[TODO]
+    DOCKERFILE_LOCATION: ./
+    DOCKER_VERSION: [TODO e.g. docker-17.09.1-ce]
+
+    AWS_REGION: [TODO]
+    EB_APP_NAME: [TODO]
+    EB_QA_ENVIRONMENT_NAME: [TODO]
+    EB_STAGING_ENVIRONMENT_NAME: [TODO]
+    EB_PROD_ENVIRONMENT_NAME: [TODO]
+
+stages:
+  - build
+  - deploy
+
+###############
+#   Builds    #
+###############
+
+build-docker-latest:
+  stage: build
+  image: skyrkt/dind-node
+  script:
+    - mv .devops/robots/dev.txt src/public/robots.txt
+    - yarn
+    - yarn build
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t $DOCKER_IMAGE:latest $DOCKERFILE_LOCATION
+    - docker push $DOCKER_IMAGE:latest
+  only:
+    - /^develop.*$/
+
+build-docker-release:
+  stage: build
+  image: skyrkt/dind-node
+  script:
+    - mv .devops/robots/dev.txt src/public/robots.txt
+    - yarn
+    - yarn build
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t $DOCKER_IMAGE:${CI_BUILD_REF_NAME#release/} $DOCKERFILE_LOCATION
+    - docker push $DOCKER_IMAGE:${CI_BUILD_REF_NAME#release/}
+  only:
+    - master
+
+build-docker-tag:
+  stage: build
+  image: skyrkt/dind-node
+  script:
+    - mv .devops/robots/prod.txt src/public/robots.txt
+    - yarn
+    - yarn build
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t $DOCKER_IMAGE:$CI_COMMIT_TAG $DOCKERFILE_LOCATION
+    - docker push $DOCKER_IMAGE:$CI_COMMIT_TAG
+  only:
+    - tags
+
+###############
+#   Deploy    #
+###############
+
+deploy-eb-qa:
+  stage: deploy
+  image: coxauto/aws-ebcli
+  environment:
+    name: qa
+  script:
+    - cd .devops/elastic-beanstalk/
+    - sed -i'' -e "s;%BUILD_VERSION%;latest;g" ./Dockerrun.aws.json
+    - DATE=`date +%Y-%m-%d--%H-%M-%S`
+    - git add *
+    - eb init -r $AWS_REGION -p $DOCKER_VERSION $EB_APP_NAME
+    - eb deploy --staged -l $EB_APP_NAME-$DATE $EB_QA_ENVIRONMENT_NAME
+  only:
+    - /^develop.*$/
+
+deploy-eb-staging:
+  stage: deploy
+  image: coxauto/aws-ebcli
+  environment:
+    name: staging
+  script:
+    - cd .devops/elastic-beanstalk/
+    - sed -i'' -e "s;%BUILD_VERSION%;${CI_BUILD_REF_NAME#release/};g" ./Dockerrun.aws.json
+    - DATE=`date +%Y-%m-%d--%H-%M-%S`
+    - git add *
+    - eb init -r $AWS_REGION -p $DOCKER_VERSION $EB_APP_NAME
+    - eb deploy --staged -l $EB_APP_NAME-$DATE $EB_STAGING_ENVIRONMENT_NAME
+  only:
+    - master
+
+deploy-eb-production:
+  stage: deploy
+  image: coxauto/aws-ebcli
+  environment:
+    name: production
+  script:
+    - cd .devops/elastic-beanstalk/
+    - sed -i'' -e "s;%BUILD_VERSION%;$CI_COMMIT_TAG;g" ./Dockerrun.aws.json
+    - DATE=`date +%Y-%m-%d--%H-%M-%S`
+    - git add *
+    - eb init -r $AWS_REGION -p $DOCKER_VERSION $EB_APP_NAME
+    - eb deploy --staged -l $EB_APP_NAME-$DATE $EB_PROD_ENVIRONMENT_NAME
+  when: manual
+  only:
+    - tags

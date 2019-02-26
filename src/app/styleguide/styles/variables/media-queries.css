@@ -1,0 +1,40 @@
+/* *******************************
+ * ** if you have tablet design **
+ ******************************* */
+
+/* Phone (mobile first so no @phone rule) */
+@custom-media --notPhone (width >= 375px);
+@custom-media --underPhone (width < 375px);
+
+/* Tablet */
+@custom-media --tablet (width >= 500px);
+@custom-media --notTablet (width < 500px);
+
+/* Desktop */
+@custom-media --desktop (width >= 1024px);
+@custom-media --notDesktop (width < 1024px);
+
+/* Television */
+@custom-media --desktopXL (width >= 1440px);
+@custom-media --notDesktopXL (width < 1440px);
+
+/* Aspect Ratios */
+@custom-media --minAspect (min-aspect-ratio: 16/9);
+@custom-media --maxAspect (max-aspect-ratio: 16/9);
+
+/* *******************************
+  if you don't have tablet design
+ ******************************* */
+
+/* @custom-media --desktop (width > 768px);
+@custom-media --phone (width <= 768px); */
+
+/* Television */
+
+/* @custom-media --desktopXL (width >= 1440px);
+@custom-media --notDesktopXL (width < 1440px); */
+
+/* Aspect Ratios */
+
+/* @custom-media --minAspect (min-aspect-ratio: 16/9);
+@custom-media --maxAspect (max-aspect-ratio: 16/9); */

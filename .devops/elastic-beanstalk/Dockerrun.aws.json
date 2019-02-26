@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Authentication": {
+    "Bucket": "craft-private-storage",
+    "Key": "auth-for-container-registry"
+  },
+  "Image": {
+    "Name": "registry.gitlab.com/skyrkt/[TODO: Repo Name]:%BUILD_VERSION%",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "80"
+    }
+  ],
+  "Logging": "/var/log/nginx"
+}

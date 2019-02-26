@@ -1,0 +1,32 @@
+@import 'styleguide/styles/variables';
+
+html {
+  & body {
+    @apply --typeBody;
+  }
+
+  & p,
+  & .p {
+    @apply --typeBody;
+  }
+
+  & h1,
+  & .h1 {
+    @apply --typeHeading1;
+  }
+
+  & h2,
+  & .h2 {
+    @apply --typeHeading2;
+  }
+
+  & h3,
+  & .h3 {
+    @apply --typeHeading3;
+  }
+
+  & h4,
+  & .h4 {
+    @apply --typeHeading4;
+  }
+}

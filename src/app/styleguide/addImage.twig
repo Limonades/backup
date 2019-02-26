@@ -1,0 +1,109 @@
+{#
+
+// Basic Use - add an img tag
+{% include "/styleguide/addImage.twig" with { 'image': entry.yourImage.first() } %}
+
+// Add a background image
+{% include "/styleguide/addImage.twig" with {
+    'image': entry.yourImage.first(),
+    'bgImage': true,
+    'selector': '.header'
+} %}
+
+// Add multiple background image in a loop
+{% for item in items %}
+    <div class="items-{{ loop.index }}"></div>
+    {% include "functions/addImage.twig" with {
+        'image': image,
+        'bgImage': true,
+        'preset': 'card',
+        'selector': '.projects__link.client-landing-items-' ~ loop.index
+    } %}
+{% endfor %}
+
+// Use aspect ratio & class
+{% include "/styleguide/addImage.twig" with {
+    'image': entry.yourImage.first(),
+    'class': 'my-image-class',
+    'aspectRatio': 1/2
+} %}
+
+#}
+
+{% set finalMode = 'crop' %}
+{% set finalMobileWidth = 480 %}
+{% set finalTabletWidth = 780 %}
+{% set finalDesktopWidth = 1280 %}
+
+{% if mode is defined %}
+    {% set finalMode = mode %}
+{% endif %}
+
+{% if preset is defined %}
+    {% if preset == 'banner' %}
+        {% set finalMobileWidth  = 600 %}
+        {% set finalTabletWidth  = 1024 %}
+        {% set finalDesktopWidth = 1440 %}
+    {% elseif preset == 'card' %}
+        {% set finalMobileWidth  = 320 %}
+        {% set finalTabletWidth  = 600 %}
+        {% set finalDesktopWidth = 720 %}
+    {% endif %}
+{% endif %}
+
+{% if quality is defined and quality matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
+    {% set finalQuality = quality %}
+{% else %}
+    {% set finalQuality = 90 %}
+{% endif %}
+
+{% if format is defined and format in ['png', 'jpg', 'gif'] | keys %}
+    {% set finalFormat = format %}
+{% else %}
+    {% set finalFormat = 'jpg' %}
+{% endif %}
+
+{% set mobile  = { mode: finalMode, width: finalMobileWidth,  quality: finalQuality, format: finalFormat } %}
+{% set tablet  = { mode: finalMode, width: finalTabletWidth,  quality: finalQuality, format: finalFormat } %}
+{% set desktop = { mode: finalMode, width: finalDesktopWidth, quality: finalQuality, format: finalFormat } %}
+
+{# aspect ratio should be width/height #}
+{% if aspectRatio is defined %}
+    {% set mobile = mobile|merge({height: finalMobileWidth / aspectRatio}) %}
+    {% set tablet = mobile|merge({position: finalTabletWidth / aspectRatio}) %}
+    {% set desktop = mobile|merge({position: finalDesktopWidth / aspectRatio}) %}
+{% endif %}
+
+{% if finalMode == 'crop' and position is defined %}
+    {% set finalPosition = position %}
+    {% set mobile = mobile|merge({position: finalPosition}) %}
+    {% set tablet = mobile|merge({position: finalPosition}) %}
+    {% set desktop = mobile|merge({position: finalPosition}) %}
+{% endif %}
+
+
+{% if bgImage is defined and selector is defined %}
+    <style type="text/css" scoped>
+        {{ selector }} {
+            background-image: url({{ image.getUrl(mobile) }});
+        }
+        @media (min-width: 600px) {
+            {{ selector }} {
+                background-image: url({{ image.getUrl(tablet) }});
+            }
+        }
+        @media (min-width: 1023px) {
+            {{ selector }} {
+                background-image: url({{ image.getUrl(desktop) }});
+            }
+        }
+    </style>
+{% else %}
+    <picture>
+        <source srcset="{{ image.getUrl(mobile) }}" media="(max-width: 600px)">
+        <source srcset="{{ image.getUrl(tablet) }}" media="(max-width: 1023px)">
+        <source srcset="{{ image.getUrl(desktop) }}" media="(min-width: 1024px)">
+        <img src="{{ image.getUrl(desktop) }}" {% if class is defined %}class="{{ class }}"{% endif %} alt="{{ image.title }}">
+    </picture>
+{% endif %}
+
