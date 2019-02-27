@@ -7,7 +7,7 @@ services:
     volumes:
      - ./src/craft/config/general.php:/usr/share/nginx/config/general.php
      - ./src/craft/config/redactor:/usr/share/nginx/config/redactor
-    #  - ./src/craft/plugins:/usr/share/nginx/craft/plugins
+     - ./src/craft/vendor:/usr/share/nginx/vendor
      - ./src/app:/usr/share/nginx/templates
      - ./src/public:/usr/share/nginx/web
      - ./.devops/docker-files/php.ini:/etc/php/7.0/fpm/php.ini
