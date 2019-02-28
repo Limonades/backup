@@ -19,7 +19,7 @@ stages:
 
 build-docker-latest:
   stage: build
-  image: skyrkt/dind-node
+  image: skyrkt/dind-node:8.1.0
   script:
     - mv .devops/robots/dev.txt src/public/robots.txt
     - yarn
@@ -32,7 +32,7 @@ build-docker-latest:
 
 build-docker-release:
   stage: build
-  image: skyrkt/dind-node
+  image: skyrkt/dind-node:8.1.0
   script:
     - mv .devops/robots/dev.txt src/public/robots.txt
     - yarn
@@ -45,7 +45,7 @@ build-docker-release:
 
 build-docker-tag:
   stage: build
-  image: skyrkt/dind-node
+  image: skyrkt/dind-node:8.1.0
   script:
     - mv .devops/robots/prod.txt src/public/robots.txt
     - yarn
