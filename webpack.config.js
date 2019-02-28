@@ -78,7 +78,8 @@ const webpackConfig = {
       'TweenLite': 'gsap/src/minified/TweenLite.min.js',
       'TweenMax': 'gsap/src/minified/TweenMax.min.js',
       'TimelineLite': 'gsap/src/minified/TimelineLite.min.js',
-      'TimelineMax': 'gsap/src/minified/TimelineMax.min.js'
+      'TimelineMax': 'gsap/src/minified/TimelineMax.min.js',
+      'ScrollMagic': 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'
     }
   },
 
