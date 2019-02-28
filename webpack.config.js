@@ -1,24 +1,22 @@
-/* global require module process __dirname */
+const webpack = require('webpack')
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-
-const productionMode = process.env.NODE_ENV === 'production'
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const WebpackShellPlugin = require('webpack-shell-plugin')
 
 const webpackConfig = {
 
-  mode: productionMode ? 'production' :  'development',
-
-  entry: path.join(__dirname, 'src/app/index.js'),
+  entry: {
+    app: path.join(__dirname, 'src/app/index.js')
+  },
 
   output: {
-    path: path.resolve(__dirname, 'src/public/compiled'),
-    filename: '[name].js',
-    publicPath: '/compiled/'
+    path: path.join(__dirname, 'src/public/compiled'),
+    publicPath: '/compiled/',
+    filename: '[name].js'
   },
 
   devtool: 'cheap-module-eval-source-map',
@@ -28,42 +26,29 @@ const webpackConfig = {
       {
         enforce: 'pre',
         test: /\.js$/,
-        exclude: /node_modules|src\/craft\/vendor/,
-        use: {
-          loader: 'eslint-loader',
-          options: {
-            emitWarning: true
-          }
-        }
+        loader: 'eslint-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
-        exclude: /node_modules|src\/craft\/vendor/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015']
         }
+      },
+      { test: /\.js$/,
+        loader: 'imports-loader?define=>false'
       },
       {
         test: /\.css$/,
-        use: [
-          productionMode ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          loader: [
+            'css-loader?sourcemap&importLoaders=1',
+            'postcss-loader'
+          ]
+        })
       },
       {
         test: /\.(jpg|png|gif|svg|woff|ttf|otf|woff2|tiff|webp|jpeg|eot)$/,
@@ -73,61 +58,62 @@ const webpackConfig = {
   },
 
   resolve: {
-    modules: [path.resolve(__dirname, 'src/app'), 'node_modules'],
-    alias: {
-      'TweenLite': 'gsap/src/minified/TweenLite.min.js',
-      'TweenMax': 'gsap/src/minified/TweenMax.min.js',
-      'TimelineLite': 'gsap/src/minified/TimelineLite.min.js',
-      'TimelineMax': 'gsap/src/minified/TimelineMax.min.js',
-      'ScrollMagic': 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'
-    }
+    // alias: {
+    //   config: 'src/assets/js/config',
+    //   js: 'src/assets/js'
+    // },
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'src/app')
+    ]
   },
 
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src/app/layout/skeleton/base-template.twig'),
-      filename:  path.join(__dirname, 'src/app/layout/skeleton/base.twig')
-    }),
-    new CleanWebpackPlugin(['src/public/compiled', 'src/public/service-worker.js']),
+      filename: path.join(__dirname, 'src/app/layout/skeleton/base.twig')
+    })
   ]
 }
 
-if (productionMode) {
-  webpackConfig.output.filename = '[name].[chunkhash].js';
+if (process.env.NODE_ENV === 'production') {
+  webpackConfig.output.filename = '[name].[chunkhash].js'
   webpackConfig.plugins.push(
-    new MiniCssExtractPlugin({
+    new StyleLintPlugin({
+      files: ['src/app/**/*.css'],
+      failOnError: true,
+      configBasedir: __dirname
+    })
+  )
+  webpackConfig.plugins.push(
+    new ExtractTextPlugin({
       filename: '[name].[chunkhash].css'
     })
   )
   webpackConfig.plugins.push(
-    new StyleLintPlugin({
-      files: ['src/app/**/*.css'],
-      failOnError: true
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false
     })
   )
-  webpackConfig.optimization = {
-    minimizer: [
-      new TerserPlugin({
-        parallel: true
-      }),
-      new OptimizeCssAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: { removeAll: true },
-          zindex: false
-        }
-      })
-    ]
-  }
+  webpackConfig.plugins.push(
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: {
+        discardComments: { removeAll: true },
+        zindex: false
+      }
+    })
+  )
 } else {
   webpackConfig.plugins.push(
-    new MiniCssExtractPlugin({
+    new ExtractTextPlugin({
       filename: '[name].css'
     })
   )
   webpackConfig.plugins.push(
     new StyleLintPlugin({
       files: ['src/app/**/*.css'],
-      failOnError: false
+      failOnError: false,
+      configBasedir: __dirname
     })
   )
 }

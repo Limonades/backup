@@ -2,8 +2,8 @@ import './index.css'
 import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
-import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'
-import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 
 if (document.querySelector('.homepage')) {
   let scrollTimer
@@ -42,7 +42,7 @@ if (document.querySelector('.homepage')) {
     }
   }
 
-  // // page 2 Image 1
+  // page 2 Image 1
   new ScrollMagic.Scene({
     triggerElement: '#page1',
     offset: halfViewHeight,
@@ -54,20 +54,19 @@ if (document.querySelector('.homepage')) {
 
   new ScrollMagic.Scene({
     triggerElement: '#page2',
-    duration: halfViewHeight + 1
+    duration: halfViewHeight
   })
-    .setPin('.page2-image1', {pushFollowers: false})
+    .setPin('.page2-image1')
     .addIndicators({ name: 'page2-image1-pin' })
-    .addTo(controller);
+    .addTo(controller)
 
   // Page 2 Copy
-  const testAnimation = new TweenLite('.page2-copy', 1, { y: -100, opacity: 1 })
   new ScrollMagic.Scene({
     triggerElement: '#page2',
     offset: 250,
     duration: halfViewHeight - 250
   })
-    .setTween(testAnimation)
+    .setTween('.page2-copy', 1, { opacity: 1, y: -100 })
     .addIndicators({ name: 'page2-copy' })
     .addTo(controller);
 
@@ -76,8 +75,8 @@ if (document.querySelector('.homepage')) {
       triggerElement: '#page2',
       offset: halfViewHeight
     })
-      .addIndicators({ name: 'page2-pin' })
       .setPin(element)
+      .addIndicators({ name: 'page2-pin' })
       .addTo(controller)
   })
 

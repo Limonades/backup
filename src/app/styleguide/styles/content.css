@@ -2,80 +2,31 @@
 
 html {
   & body {
-    font-family: var(--sansSerifPrimaryFont);
-    font-size: 1.6rem;
-    color: var(--colorNightRider);
-    line-height: 2.6rem;
-
-    @media (--desktop) {
-      font-size: 1.8rem;
-      line-height: 2.8rem;
-    }
-
-    & a {
-      text-decoration: none;
-      transition: color 0.75s ease;
-
-      &:hover {
-        transition: color 0.15s ease;
-      }
-    }
+    @apply --typeBody;
   }
 
   & p,
   & .p {
-    font-family: var(--sansSerifPrimaryFont);
-    font-size: 1.6rem;
-    color: var(--colorNightRider);
-    line-height: 2.6rem;
-
-    @media (--desktop) {
-      font-size: 1.8rem;
-      line-height: 2.8rem;
-    }
+    @apply --typeBody;
   }
 
   & h1,
   & .h1 {
-    font-family: var(--serifSecondaryFont);
-    font-size: 3.2rem;
-    line-height: 3.8rem;
-    font-weight: 100;
-
-    @media (--desktop) {
-      font-size: 4.8rem;
-      line-height: 6rem;
-    }
+    @apply --typeHeading1;
   }
 
   & h2,
   & .h2 {
-    font-family: var(--serifPrimaryFont);
-    font-size: 2.4rem;
-
-    @media (--desktop) {
-      font-size: 3.2rem;
-    }
+    @apply --typeHeading2;
   }
 
   & h3,
   & .h3 {
-    font-family: var(--sansSerifPrimaryFont);
-    font-size: 1.4rem;
-    text-transform: uppercase;
-
-    @media (--desktop) {
-      font-size: 1.8rem;
-    }
+    @apply --typeHeading3;
   }
 
   & h4,
   & .h4 {
-    font-family: var(--serifPrimaryFont);
-    font-size: 1.3rem;
-
-    @media (--desktop) {
-      font-size: 1.6rem;
-    }
+    @apply --typeHeading4;
   }
 }

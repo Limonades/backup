@@ -11,4 +11,116 @@
   --serifPrimaryFont: 'butlerultralight', Times, serif;
   --serifSecondaryFont: 'butler_stencilultralight', Times, serif;
   --sansSerifPrimaryFont: 'brandongrotesque', Helvetica, sans-serif;
+
+  /**
+  * FONT FAMILY MIXINS
+  */
+
+  --fontSerifPrimary: {
+    font-family: var(--serifSecondaryFont);
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    line-height: 1;
+  }
+
+  /**
+  * Anchor Mixin
+  */
+
+  --typeA: {
+    text-decoration: none;
+    transition: color 0.75s ease;
+
+    &:hover {
+      transition: color 0.15s ease;
+    }
+  }
+
+  /**
+  * HEADING TYPOOGRAPHY STYLES
+  */
+  --typeHeading1: {
+    font-family: var(--serifSecondaryFont);
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+    font-weight: 100;
+
+    @media (--desktop) {
+      font-size: 4.8rem;
+      line-height: 6rem;
+    }
+  }
+
+  --typeHeading2: {
+    font-family: var(--serifPrimaryFont);
+    font-size: 2.4rem;
+
+    @media (--desktop) {
+      font-size: 3.2rem;
+    }
+  }
+
+  --typeHeading3: {
+    font-family: var(--sansSerifPrimaryFont);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+
+    @media (--desktop) {
+      font-size: 1.8rem;
+    }
+  }
+
+  --typeHeading4: {
+    font-family: var(--serifPrimaryFont);
+    font-size: 1.3rem;
+
+    @media (--desktop) {
+      font-size: 1.6rem;
+    }
+  }
+
+  --typeBlockquote: {
+    font-family: var(--serifPrimaryFont);
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+  }
+
+  /**
+  * BODY STYLES
+  */
+
+  --typeBody: {
+    font-family: var(--sansSerifPrimaryFont);
+    font-size: 1.6rem;
+    color: var(--colorNightRider);
+    line-height: 2.6rem;
+
+    @media (--desktop) {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
+
+    & a {
+      @apply --typeA;
+    }
+  }
+
+  /**
+  * ADDITIONAL STYLES
+  */
+
+  --typeNavigation: {
+    font-family: var(--serifPrimaryFont);
+    font-size: 3.2rem;
+
+    @media (--desktop) {
+      font-size: 2rem;
+    }
+
+    & a {
+      @apply --typeA;
+    }
+  }
 }
