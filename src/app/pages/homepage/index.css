@@ -40,7 +40,7 @@
 
       & .page2-image1 {
         width: 15%;
-        margin-left: 5%;
+        margin: 0 5% 0 !important;
         display: block;
         opacity: 0;
       }
@@ -48,11 +48,14 @@
       & .page2-image2 {
         background-image: url(../../../public/assets/test-vh-image.png);
         background-size: 110%;
-        width: 75vw;
+        width: 75vw !important;
         display: block;
         position: absolute;
-        right: 0;
-        bottom: 0;
+        left: auto !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
         height: 100%;
         opacity: 0;
       }
