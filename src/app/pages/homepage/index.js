@@ -1,9 +1,9 @@
 import './index.css'
 import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
-import ScrollMagic from 'ScrollMagic'
-import 'ScrollMagic/scrollmagic/minified/plugins/animation.gsap.min.js'
-import 'ScrollMagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
+import ScrollMagic from 'scrollmagic'
+import 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'
+import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'
 
 if (document.querySelector('.homepage')) {
   let scrollTimer
