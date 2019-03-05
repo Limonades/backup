@@ -1,4 +1,4 @@
-import './styleguide.css'
+import './inedx.css'
 
 import FoldCollection from './FoldCollection'
 
