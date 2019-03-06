@@ -31,19 +31,19 @@ return [
     'qa' => [
         'devMode' => true,
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://qa.alternahaircare.com'
+        'siteUrl' => 'http://haircare-qa.us-east-1.elasticbeanstalk.com'
     ],
 
     // Staging environment settings
     'staging' => [
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://staging.alternahaircare.com'
+        'siteUrl' => 'http://haircare-staging.us-east-1.elasticbeanstalk.com'
     ],
 
     // Production environment settings
     'production' => [
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://prod.alternahaircare.com'
+        'siteUrl' => 'http://haircare-production.us-east-1.elasticbeanstalk.com'
     ],
 ];
 
