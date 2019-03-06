@@ -1,0 +1,90 @@
+/** TODO make it postCSS **/
+.video__content {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 10rem;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.video__play-btn {
+  width: 33%;
+  padding: 7rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.video__description {
+  width: 67%;
+  padding: 7rem 0;
+  max-width: 70rem;
+}
+
+.detail__copy {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.detail__photo-description {
+  width: 33%;
+  padding-right: 5rem;
+  position: relative;
+}
+
+.detail__photo {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  left: 0;
+  right: 3rem;
+  top: 3rem;
+  margin: 0 auto;
+}
+
+.detail__photo img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.video__img-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  height: 30rem;
+  z-index: 10;
+}
+
+.video__img-bg img {
+  max-height: 100%;
+}
+
+.detail__img-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail__txt-description {
+  width: 67%;
+}
+
+.detail__txt-description h4 {
+  max-width: 46rem;
+}
+
+.detail__txt-description h5 {
+  max-width: 46rem;
+}

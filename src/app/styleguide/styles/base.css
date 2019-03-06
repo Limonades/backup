@@ -28,3 +28,7 @@ body {
 main {
   overflow: hidden;
 }
+
+section {
+  background-color: #171416;
+}

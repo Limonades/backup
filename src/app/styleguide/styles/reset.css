@@ -304,3 +304,8 @@ q::after {
   content: '';
   content: none;
 }
+
+img {
+  max-width: 100%;
+}
+
