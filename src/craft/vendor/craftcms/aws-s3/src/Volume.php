@@ -17,6 +17,7 @@ use Aws\S3\S3Client;
 use Aws\Sts\StsClient;
 use Craft;
 use craft\base\FlysystemVolume;
+use craft\behaviors\EnvAttributeParserBehavior;
 use craft\helpers\ArrayHelper;
 use craft\helpers\Assets;
 use craft\helpers\DateTimeHelper;
@@ -149,6 +150,27 @@ class Volume extends FlysystemVolume
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['parser'] = [
+            'class' => EnvAttributeParserBehavior::class,
+            'attributes' => [
+                'keyId',
+                'secret',
+                'bucket',
+                'region',
+                'subfolder',
+                'cfDistributionId',
+                'cfPrefix',
+            ],
+        ];
+        return $behaviors;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         $rules = parent::rules();
@@ -194,15 +216,18 @@ class Volume extends FlysystemVolume
 
         foreach ($buckets as $bucket) {
             try {
-                $location = $client->determineBucketRegion($bucket['Name']);
+                $region = $client->determineBucketRegion($bucket['Name']);
             } catch (S3Exception $exception) {
+
+                // If a bucket cannot be accessed by the current policy, move along:
+                // https://github.com/craftcms/aws-s3/pull/29#issuecomment-468193410
                 continue;
             }
 
             $bucketList[] = [
                 'bucket' => $bucket['Name'],
-                'urlPrefix' => 'http://' . $bucket['Name'] . '.s3.amazonaws.com/',
-                'region' => $location ?? ''
+                'urlPrefix' => 'https://s3.'.$region.'.amazonaws.com/'.$bucket['Name'].'/',
+                'region' => $region
             ];
         }
 

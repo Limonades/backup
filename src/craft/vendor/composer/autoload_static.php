@@ -53,6 +53,7 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         array (
             'creocoder\\nestedsets\\' => 21,
             'craftcms\\oauth2\\client\\' => 23,
+            'craft\\redactor\\' => 15,
             'craft\\composer\\' => 15,
             'craft\\awss3\\' => 12,
             'craft\\' => 6,
@@ -212,6 +213,10 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'craftcms\\oauth2\\client\\' => 
         array (
             0 => __DIR__ . '/..' . '/craftcms/oauth2-craftid/src',
+        ),
+        'craft\\redactor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/craftcms/redactor/src',
         ),
         'craft\\composer\\' => 
         array (
@@ -475,6 +480,8 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'Aws\\AwsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClient.php',
         'Aws\\AwsClientInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientInterface.php',
         'Aws\\AwsClientTrait' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientTrait.php',
+        'Aws\\Backup\\BackupClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Backup/BackupClient.php',
+        'Aws\\Backup\\Exception\\BackupException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Backup/Exception/BackupException.php',
         'Aws\\Batch\\BatchClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/BatchClient.php',
         'Aws\\Batch\\Exception\\BatchException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/Exception/BatchException.php',
         'Aws\\Budgets\\BudgetsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Budgets/BudgetsClient.php',
@@ -916,6 +923,8 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'Aws\\Waiter' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waiter.php',
         'Aws\\WorkDocs\\Exception\\WorkDocsException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkDocs/Exception/WorkDocsException.php',
         'Aws\\WorkDocs\\WorkDocsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkDocs/WorkDocsClient.php',
+        'Aws\\WorkLink\\Exception\\WorkLinkException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkLink/Exception/WorkLinkException.php',
+        'Aws\\WorkLink\\WorkLinkClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkLink/WorkLinkClient.php',
         'Aws\\WorkMail\\Exception\\WorkMailException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkMail/Exception/WorkMailException.php',
         'Aws\\WorkMail\\WorkMailClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkMail/WorkMailClient.php',
         'Aws\\WorkSpaces\\Exception\\WorkSpacesException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WorkSpaces/Exception/WorkSpacesException.php',
@@ -2492,6 +2501,7 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'craft\\awss3\\migrations\\Install' => __DIR__ . '/..' . '/craftcms/aws-s3/src/migrations/Install.php',
         'craft\\awss3\\migrations\\m180929_165000_remove_storageclass_setting' => __DIR__ . '/..' . '/craftcms/aws-s3/src/migrations/m180929_165000_remove_storageclass_setting.php',
         'craft\\awss3\\migrations\\m190131_214300_cleanup_config' => __DIR__ . '/..' . '/craftcms/aws-s3/src/migrations/m190131_214300_cleanup_config.php',
+        'craft\\awss3\\migrations\\m190305_133000_cleanup_expires_config' => __DIR__ . '/..' . '/craftcms/aws-s3/src/migrations/m190305_133000_cleanup_expires_config.php',
         'craft\\base\\ApplicationTrait' => __DIR__ . '/..' . '/craftcms/cms/src/base/ApplicationTrait.php',
         'craft\\base\\ClonefixTrait' => __DIR__ . '/..' . '/craftcms/cms/src/base/ClonefixTrait.php',
         'craft\\base\\Component' => __DIR__ . '/..' . '/craftcms/cms/src/base/Component.php',
@@ -3076,6 +3086,16 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'craft\\records\\Volume' => __DIR__ . '/..' . '/craftcms/cms/src/records/Volume.php',
         'craft\\records\\VolumeFolder' => __DIR__ . '/..' . '/craftcms/cms/src/records/VolumeFolder.php',
         'craft\\records\\Widget' => __DIR__ . '/..' . '/craftcms/cms/src/records/Widget.php',
+        'craft\\redactor\\Field' => __DIR__ . '/..' . '/craftcms/redactor/src/Field.php',
+        'craft\\redactor\\FieldData' => __DIR__ . '/..' . '/craftcms/redactor/src/FieldData.php',
+        'craft\\redactor\\Plugin' => __DIR__ . '/..' . '/craftcms/redactor/src/Plugin.php',
+        'craft\\redactor\\assets\\field\\FieldAsset' => __DIR__ . '/..' . '/craftcms/redactor/src/assets/field/FieldAsset.php',
+        'craft\\redactor\\assets\\redactor\\RedactorAsset' => __DIR__ . '/..' . '/craftcms/redactor/src/assets/redactor/RedactorAsset.php',
+        'craft\\redactor\\controllers\\DefaultController' => __DIR__ . '/..' . '/craftcms/redactor/src/controllers/DefaultController.php',
+        'craft\\redactor\\events\\RegisterLinkOptionsEvent' => __DIR__ . '/..' . '/craftcms/redactor/src/events/RegisterLinkOptionsEvent.php',
+        'craft\\redactor\\events\\RegisterPluginPathsEvent' => __DIR__ . '/..' . '/craftcms/redactor/src/events/RegisterPluginPathsEvent.php',
+        'craft\\redactor\\migrations\\Install' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/Install.php',
+        'craft\\redactor\\migrations\\m180430_204710_remove_old_plugins' => __DIR__ . '/..' . '/craftcms/redactor/src/migrations/m180430_204710_remove_old_plugins.php',
         'craft\\search\\SearchQuery' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQuery.php',
         'craft\\search\\SearchQueryTerm' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTerm.php',
         'craft\\search\\SearchQueryTermGroup' => __DIR__ . '/..' . '/craftcms/cms/src/search/SearchQueryTermGroup.php',

@@ -30,19 +30,19 @@ return [
     // QA environment settings
     'qa' => [
         'devMode' => true,
-        'allowAdminChanges' => false,
+        'allowAdminChanges' => true,
         'siteUrl' => 'http://qa.alternahaircare.com'
     ],
 
     // Staging environment settings
     'staging' => [
-        'allowAdminChanges' => false,
+        'allowAdminChanges' => true,
         'siteUrl' => 'http://staging.alternahaircare.com'
     ],
 
     // Production environment settings
     'production' => [
-        'allowAdminChanges' => false,
+        'allowAdminChanges' => true,
         'siteUrl' => 'http://prod.alternahaircare.com'
     ],
 ];
