@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ craft.app.locale|split('-')[0] }}">
+<html lang="\{{ craft.i18n.getCurrentLocale()|split('_')[0] }}">
     <head>
         {% include 'layout/skeleton/head/head' %}
 
         {% block headerScripts %}{% endblock %}
-    <link href="/compiled/app.css" rel="stylesheet"></head>
+    </head>
 
     <body>
         {% block bodyScripts %}{% endblock %}
@@ -14,5 +14,5 @@
         </div>
 
         {% block footerScripts %}{% endblock %}
-    <script type="text/javascript" src="/compiled/app.js"></script></body>
+    <script type="text/javascript" src="/compiled/main.js"></script></body>
 </html>

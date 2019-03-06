@@ -1,0 +1,63 @@
+/** TODO make it postCSS **/
+.detail__content {
+  display: flex;
+  flex-grow: 1;
+}
+
+.detail__copy {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.detail__photo-description {
+  width: 33%;
+  padding-right: 5rem;
+  position: relative;
+}
+
+.detail__photo {
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  left: 0;
+  right: 3rem;
+  top: 3rem;
+  margin: 0 auto;
+}
+
+.detail__photo img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.detail__img-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  z-index: -1;
+}
+
+.detail__img-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail__txt-description {
+  width: 67%;
+}
+
+.detail__txt-description h4 {
+  max-width: 46rem;
+}
+
+.detail__txt-description h5 {
+  max-width: 46rem;
+}

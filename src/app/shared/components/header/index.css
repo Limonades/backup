@@ -1,0 +1,61 @@
+/** TODO make it postCSS **/
+.header {
+  background-color: #171416;
+}
+
+.header__copy {
+  height: 100%;
+  display: flex;
+  padding: 0 !important;
+}
+
+.header__year-wrap {
+  width: 33%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header__title-wrap {
+  width: 67%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.header__title {
+  text-align: center;
+  font-size: 6.4rem;
+  line-height: 6.4rem;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.header__year-photo {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__year-photo img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.header__year-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  font-size: 6.4rem;
+  line-height: 6.4rem;
+}
