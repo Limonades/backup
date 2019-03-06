@@ -20,8 +20,8 @@ class FoldCollection {
 
   init () {
     const originalHeight = this.collection.clientHeight
-    this.collection.style.height = '0px';
-    this.collection.style.height = originalHeight + 'px';
+    this.collection.style.height = '0px'
+    this.collection.style.height = originalHeight + 'px'
 
     this.category.addEventListener('click', () => {
       const targetHeight = this.collection.clientHeight === originalHeight ? 0 : originalHeight

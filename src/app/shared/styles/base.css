@@ -1,4 +1,4 @@
-@import 'styleguide/styles/variables';
+@import 'shared/styles/variables';
 
 :root {
   --fontSizeRootSm: 10px;
