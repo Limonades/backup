@@ -19,6 +19,16 @@
                 <h3>
                     Imagine a line of premium hair products free of additives and harsh ingredients resulting in an effective and healthy look.
                 </h3>
+
+                {#if video anchor#}
+                    {#<div class="detail__video-bg-wrap">#}
+                        {#<video muted loop autoplay class="detail__video-bg">#}
+                            {#<source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">#}
+                            {#Your browser does not support the video tag.#}
+                        {#</video>#}
+                    {#</div>#}
+                {#endif video anchor#}
+
                 <picture class="detail__photo">
                     <img src="/assets/test-collections-3.png" alt="">
                 </picture>

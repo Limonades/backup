@@ -14,7 +14,16 @@
             </div>
         </div>
 
-        <div class="video__content" style="background-image: url('/assets/test-video-banner.png');"">
+        <div class="video__content" style="background-image: url('/assets/test-video-banner.png');">
+        {#if video anchor#}
+        <div class="video__video-bg">
+            <video muted loop autoplay >
+                <source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {#endif video anchor#}
+
             <a class="video__play-btn" href="#">
                 Watch the video.
             </a>
