@@ -1,6 +1,6 @@
 import './layout'
 import './pages'
-import './styleguide'
+import './shared'
 
 // import Helper from './helper'
 

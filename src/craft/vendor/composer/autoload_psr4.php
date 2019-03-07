@@ -27,6 +27,7 @@ return array(
     'enshrined\\svgSanitize\\' => array($vendorDir . '/enshrined/svg-sanitize/src'),
     'creocoder\\nestedsets\\' => array($vendorDir . '/creocoder/yii2-nested-sets/src'),
     'craftcms\\oauth2\\client\\' => array($vendorDir . '/craftcms/oauth2-craftid/src'),
+    'craft\\redactor\\' => array($vendorDir . '/craftcms/redactor/src'),
     'craft\\composer\\' => array($vendorDir . '/craftcms/plugin-installer/src'),
     'craft\\awss3\\' => array($vendorDir . '/craftcms/aws-s3/src'),
     'craft\\' => array($vendorDir . '/craftcms/cms/src'),

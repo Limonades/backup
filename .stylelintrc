@@ -7,6 +7,6 @@
   },
   "ignoreFiles": [
     "src/**/icon-fonts/**",
-    "src/app/styleguide/styles/reset.css"
+    "src/app/shared/styles/reset.css"
   ]
 }

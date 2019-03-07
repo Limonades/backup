@@ -20,7 +20,7 @@ services:
       - VIRTUAL_HOST=alterna.docker
       - VIRTUAL_PORT=80
       - ENVIRONMENT=dev
-      - DB_HOST=db
+      - DB_SERVER=db
       - DB_USER=craft_user
       - DB_DATABASE=craft
       - DB_PASSWORD=password

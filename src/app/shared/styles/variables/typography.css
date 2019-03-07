@@ -101,10 +101,6 @@
       font-size: 1.8rem;
       line-height: 2.8rem;
     }
-
-    & a {
-      @apply --typeA;
-    }
   }
 
   /**
@@ -117,10 +113,6 @@
 
     @media (--desktop) {
       font-size: 2rem;
-    }
-
-    & a {
-      @apply --typeA;
     }
   }
 }

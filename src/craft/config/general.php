@@ -30,20 +30,20 @@ return [
     // QA environment settings
     'qa' => [
         'devMode' => true,
-        'allowAdminChanges' => false,
-        'siteUrl' => 'http://qa.alternahaircare.com'
+        'allowAdminChanges' => true,
+        'siteUrl' => 'http://haircare-qa.us-east-1.elasticbeanstalk.com'
     ],
 
     // Staging environment settings
     'staging' => [
-        'allowAdminChanges' => false,
-        'siteUrl' => 'http://staging.alternahaircare.com'
+        'allowAdminChanges' => true,
+        'siteUrl' => 'http://haircare-staging.us-east-1.elasticbeanstalk.com'
     ],
 
     // Production environment settings
     'production' => [
-        'allowAdminChanges' => false,
-        'siteUrl' => 'http://prod.alternahaircare.com'
+        'allowAdminChanges' => true,
+        'siteUrl' => 'http://haircare-production.us-east-1.elasticbeanstalk.com'
     ],
 ];
 

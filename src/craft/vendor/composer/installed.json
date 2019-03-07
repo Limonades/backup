@@ -1,19 +1,18 @@
 [
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.85.2",
-        "version_normalized": "3.85.2.0",
+        "version": "3.87.23",
+        "version_normalized": "3.87.23.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c113c8008dedb257d1f47770aab1963acf4be092",
-            "reference": "c113c8008dedb257d1f47770aab1963acf4be092",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4f042410335c06aa7ab81365194782a30c144bc2",
+            "reference": "4f042410335c06aa7ab81365194782a30c144bc2",
             "shasum": ""
         },
         "require": {
             "ext-json": "*",
             "ext-pcre": "*",
             "ext-simplexml": "*",
-            "ext-spl": "*",
             "guzzlehttp/guzzle": "^5.3.3|^6.2.1",
             "guzzlehttp/promises": "~1.0",
             "guzzlehttp/psr7": "^1.4.1",
@@ -27,7 +26,7 @@
             "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2019-01-14T23:06:17+00:00",
+        "time": "2019-03-04T19:19:05+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -69,11 +68,6 @@
         "name": "cebe/markdown",
         "version": "1.2.1",
         "version_normalized": "1.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cebe/markdown.git",
-            "reference": "9bac5e971dd391e2802dca5400bbeacbaea9eb86"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/cebe/markdown/zipball/9bac5e971dd391e2802dca5400bbeacbaea9eb86",
@@ -131,11 +125,6 @@
         "name": "composer/ca-bundle",
         "version": "1.1.4",
         "version_normalized": "1.1.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/composer/ca-bundle.git",
-            "reference": "558f321c52faeb4828c03e7dc0cfe39a09e09a2d"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/composer/ca-bundle/zipball/558f321c52faeb4828c03e7dc0cfe39a09e09a2d",
@@ -378,25 +367,24 @@
     },
     {
         "name": "craftcms/aws-s3",
-        "version": "1.2.0",
-        "version_normalized": "1.2.0.0",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/0997e1908e5abfb110c5a43d4fe2691c9ec5a685",
-            "reference": "0997e1908e5abfb110c5a43d4fe2691c9ec5a685",
+            "url": "https://api.github.com/repos/craftcms/aws-s3/zipball/28be795560da08bd415895ffb7daae3a21c6e429",
+            "reference": "28be795560da08bd415895ffb7daae3a21c6e429",
             "shasum": ""
         },
         "require": {
             "craftcms/cms": "^3.1.5",
             "league/flysystem-aws-s3-v3": "^1.0.13"
         },
-        "time": "2019-02-22T00:50:35+00:00",
+        "time": "2019-03-05T11:53:00+00:00",
         "type": "craft-plugin",
         "extra": {
             "name": "Amazon S3",
             "handle": "aws-s3",
-            "changelogUrl": "https://raw.githubusercontent.com/craftcms/aws-s3/master/CHANGELOG.md",
-            "downloadUrl": "https://github.com/craftcms/aws-s3/archive/master.zip"
+            "documentationUrl": "https://github.com/craftcms/aws-s3/blob/master/README.md"
         },
         "installation-source": "dist",
         "autoload": {
@@ -426,7 +414,7 @@
             "email": "support@craftcms.com",
             "issues": "https://github.com/craftcms/aws-s3/issues?state=open",
             "source": "https://github.com/craftcms/aws-s3",
-            "docs": "https://github.com/craftcms/aws-s3",
+            "docs": "https://github.com/craftcms/aws-s3/blob/master/README.md",
             "rss": "https://github.com/craftcms/aws-s3/commits/master.atom"
         }
     },
@@ -602,14 +590,58 @@
         ]
     },
     {
+        "name": "craftcms/redactor",
+        "version": "2.3.2",
+        "version_normalized": "2.3.2.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/craftcms/redactor/zipball/e4d96d805af031f4a80e5742e5651f30b55e6bca",
+            "reference": "e4d96d805af031f4a80e5742e5651f30b55e6bca",
+            "shasum": ""
+        },
+        "require": {
+            "craftcms/cms": "^3.1.0"
+        },
+        "time": "2019-02-21T13:34:33+00:00",
+        "type": "craft-plugin",
+        "extra": {
+            "name": "Redactor",
+            "handle": "redactor"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "craft\\redactor\\": "src/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Pixel & Tonic",
+                "homepage": "https://pixelandtonic.com/"
+            }
+        ],
+        "description": "Edit rich text content in Craft CMS using Redactor by Imperavi.",
+        "keywords": [
+            "cms",
+            "craftcms",
+            "html",
+            "redactor",
+            "yii2"
+        ],
+        "support": {
+            "email": "support@craftcms.com",
+            "issues": "https://github.com/craftcms/redactor/issues?state=open",
+            "source": "https://github.com/craftcms/redactor",
+            "docs": "https://github.com/craftcms/redactor"
+        }
+    },
+    {
         "name": "craftcms/server-check",
         "version": "1.1.7",
         "version_normalized": "1.1.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/craftcms/server-check.git",
-            "reference": "b379bbcdd32f2db78d204bc4d6f3f97e63fa8e04"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/craftcms/server-check/zipball/b379bbcdd32f2db78d204bc4d6f3f97e63fa8e04",
@@ -1186,11 +1218,6 @@
         "name": "league/flysystem",
         "version": "1.0.50",
         "version_normalized": "1.0.50.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thephpleague/flysystem.git",
-            "reference": "dab4e7624efa543a943be978008f439c333f2249"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dab4e7624efa543a943be978008f439c333f2249",
@@ -1270,12 +1297,12 @@
     },
     {
         "name": "league/flysystem-aws-s3-v3",
-        "version": "1.0.21",
-        "version_normalized": "1.0.21.0",
+        "version": "1.0.22",
+        "version_normalized": "1.0.22.0",
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/43523fec10a831ea48bedb3277e3f3fa218f4e49",
-            "reference": "43523fec10a831ea48bedb3277e3f3fa218f4e49",
+            "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/883b02c80ca9cd68cf58a9b4b2185beef24b836b",
+            "reference": "883b02c80ca9cd68cf58a9b4b2185beef24b836b",
             "shasum": ""
         },
         "require": {
@@ -1283,7 +1310,7 @@
             "league/flysystem": "^1.0.40",
             "php": ">=5.5.0"
         },
-        "time": "2018-10-08T07:53:55+00:00",
+        "time": "2019-01-31T15:07:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2399,11 +2426,6 @@
         "name": "vlucas/phpdotenv",
         "version": "v2.6.1",
         "version_normalized": "2.6.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
@@ -2452,11 +2474,6 @@
         "name": "yii2tech/ar-softdelete",
         "version": "1.0.3",
         "version_normalized": "1.0.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yii2tech/ar-softdelete.git",
-            "reference": "3e29cb1865a7df66de42f6f888b99d2797a80204"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/yii2tech/ar-softdelete/zipball/3e29cb1865a7df66de42f6f888b99d2797a80204",
@@ -2601,11 +2618,6 @@
         "name": "yiisoft/yii2-bootstrap",
         "version": "2.0.9",
         "version_normalized": "2.0.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-            "reference": "4677951dda712dd99d5bf2a127eaee118dfea860"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/4677951dda712dd99d5bf2a127eaee118dfea860",
@@ -2928,11 +2940,6 @@
         "name": "zendframework/zend-feed",
         "version": "2.11.0",
         "version_normalized": "2.11.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/zendframework/zend-feed.git",
-            "reference": "5248e9fffa760e5c36092aeff02c3797e4a8a690"
-        },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/5248e9fffa760e5c36092aeff02c3797e4a8a690",
