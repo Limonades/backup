@@ -92,3 +92,30 @@
   background-color: white;
   margin: 2rem 0;
 }
+
+.section-header {
+  display: flex;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid white;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+
+  &__year {
+    width: 33%;
+    margin-bottom: 0.6rem;
+
+    & h2 {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+
+  &__title {
+    width: 67%;
+
+    & h2 {
+      line-height: 3.2rem;
+      max-width: 46rem;
+    }
+  }
+}

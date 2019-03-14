@@ -1,0 +1,36 @@
+.slideshow {
+  &__title {
+    margin-bottom: 2.5rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    overflow-y: scroll;
+  }
+
+  &__item {
+    margin-right: 3rem;
+    width: 32%;
+    flex-shrink: 0;
+  }
+
+  &__item-photo {
+    display: block;
+    width: 100%;
+    height: 30rem;
+    margin-bottom: 1rem;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__item-txt {
+    padding: 0 3rem;
+    color: white;
+    text-align: center;
+  }
+}
