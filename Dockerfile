@@ -1,6 +1,6 @@
 FROM skyrkt/craft3:3.1.14
 
-RUN sudo apt-get update && apt-get install -y mysql-client
+RUN apt-get update && apt-get install -y mysql-client
 
 COPY src/craft/config/general.php /usr/share/nginx/config/general.php
 # COPY src/craft/config/license.key /usr/share/nginx/config/license.key
