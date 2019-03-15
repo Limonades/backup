@@ -4,6 +4,23 @@
 
     <div class="homepage">
 
+        <section class="page" id="page1">
+            <h1>Alterna Video/Feature<br/>Section</h1>
+        </section>
+
+        <section class="page page2" id="page2">
+            <div class="copy page2-copy page2-pin">
+                <h2>2019</h2>
+                <div class="divider"></div>
+                <div class="page2-copy-content">
+                    <h4>Alterna<br/>Brand History</h4>
+                    <p>Nisi vero cumque voluptatem deserunt autem nihil inventore. Excepturi soluta assumenda autem aut totam debitis dolor. Voluptas sequi architecto autem nemo. Aut est consectetur ut nemo ut. Aut dolores excepturi aut est optio suscipit. Minus aut dignissimos ullam est. Iusto maxime velit veniam iste voluptate consequuntur qui.</p>
+                </div>
+            </div>
+            <img class="page2-image1" src="assets/test-anchor-image.png">
+            <div class="page2-image2 page2-pin"></div>
+        </section>
+
         {% set years = craft.entries().section('year').level(1).all() %}
 
         {% nav year in years %}
