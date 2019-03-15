@@ -23,7 +23,7 @@ if (document.querySelector('.homepage')) {
       // console.log('view height: ', viewHeight)
       // console.log('current height: ', currentHeight)
       // console.log('delta', delta)
-      console.log('currentPage', currentPage)
+      // console.log('currentPage', currentPage)
       // console.log('nextPage', nextPage)
       // console.log('scrollInCurrentPage', scrollInCurrentPage)
       if (scrollInCurrentPage < 300) {
