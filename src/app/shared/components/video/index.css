@@ -3,11 +3,13 @@
     display: flex;
     flex-grow: 1;
     margin-top: 10rem;
+    left: -100vw;
     background-size: cover;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
+    opacity: 0;
   }
 
   &__video-bg {
@@ -59,7 +61,7 @@
     align-items: center;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -50vh;
     width: 60%;
     height: 30rem;
     z-index: 10;

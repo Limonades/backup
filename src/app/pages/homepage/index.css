@@ -99,6 +99,7 @@
   border-bottom: 0.1rem solid white;
   align-items: flex-end;
   margin-bottom: 3rem;
+  opacity: 0;
 
   &__year {
     width: 33%;

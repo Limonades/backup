@@ -18,16 +18,18 @@ if (document.querySelector('.homepage')) {
       const delta = Math.sign(e.deltaY)
       const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
       const currentPage = Math.round(currentHeight / viewHeight)
-      const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+      // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
       const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
       // console.log('view height: ', viewHeight)
       // console.log('current height: ', currentHeight)
       // console.log('delta', delta)
-      // console.log( delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight))
+      console.log('currentPage', currentPage)
+      // console.log('nextPage', nextPage)
+      // console.log('scrollInCurrentPage', scrollInCurrentPage)
       if (scrollInCurrentPage < 300) {
-        TweenLite.to(window, 2, { scrollTo: currentPage * viewHeight })
+        TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
       } else {
-        TweenLite.to(window, 2, { scrollTo: nextPage * viewHeight })
+        TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
       }
     })
   })
@@ -54,11 +56,20 @@ if (document.querySelector('.homepage')) {
 
   new ScrollMagic.Scene({
     triggerElement: '#page2',
-    duration: halfViewHeight
+    duration: halfViewHeight,
   })
     .setPin('.page2-image1')
     .addIndicators({ name: 'page2-image1-pin' })
-    .addTo(controller)
+    .addTo(controller);
+
+  // Page 2 Image 2
+  new ScrollMagic.Scene({
+    triggerElement: '#page2',
+    offset: halfViewHeight
+  })
+    .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
+    .addIndicators({ name: 'page2-image2' })
+    .addTo(controller);
 
   // Page 2 Copy
   new ScrollMagic.Scene({
@@ -73,19 +84,100 @@ if (document.querySelector('.homepage')) {
   [...document.querySelectorAll('.page2-pin')].forEach(element => {
     new ScrollMagic.Scene({
       triggerElement: '#page2',
-      offset: halfViewHeight
+      offset: halfViewHeight,
     })
       .setPin(element)
       .addIndicators({ name: 'page2-pin' })
       .addTo(controller)
+  });
+
+  // // TODO debug - need to return original position
+  [...document.querySelectorAll('.page2-pin')].forEach(element => {
+    new ScrollMagic.Scene({
+      triggerElement: '#page2',
+      offset: halfViewHeight * 1.5,
+    })
+      .setTween(element, 2, { opacity: 0 })
+      .addIndicators({ name: 'page2-pin' })
+      .removePin(element)
+      .addTo(controller)
   })
 
-  // Page 2 Image 2
+  // page 3 Image 1
   new ScrollMagic.Scene({
     triggerElement: '#page2',
-    offset: halfViewHeight
+    offset: viewHeight,
   })
-    .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
-    .addIndicators({ name: 'page2-image2' })
+    .setTween('.detail__photo', .6, { top: 3 + 'rem' })
+    .addIndicators({ name: '.detail__photo' })
     .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '#page3',
+    duration: viewHeight,
+  })
+    .addIndicators({ name: '.detail__photo' })
+    .addTo(controller)
+
+  // page 3 Image 2
+  new ScrollMagic.Scene({
+    triggerElement: '#page3',
+    offset: 250,
+  })
+    .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
+    .addIndicators({ name: '.detail__img-bg' })
+    .addTo(controller)
+
+  // page 3 txt 1
+  new ScrollMagic.Scene({
+    triggerElement: '#page3',
+    offset: halfViewHeight - (halfViewHeight / 2),
+  })
+    .setTween('.detail__photo-description h3', 1, {  opacity: 1 })
+    .addIndicators({ name: '.detail__photo-description h3' })
+    .addTo(controller)
+
+  // page 3 txt 2
+  new ScrollMagic.Scene({
+    triggerElement: '#page3',
+    offset: halfViewHeight - (halfViewHeight / 2),
+  })
+    .setTween('.detail__txt-description', 1, {  opacity: 1 })
+    .addIndicators({ name: '.detail__txt-description' })
+    .addTo(controller)
+
+  // page 4 bg
+  new ScrollMagic.Scene({
+    triggerElement: '#page4',
+  })
+    .setTween('.video__content', 1, {  opacity: 1, left: 0 })
+    .addIndicators({ name: '.detail__txt-description' })
+    .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '#page4',
+  })
+    .setTween('.video__img-bg ', .5, {  opacity: 1, bottom: 0 })
+    .addIndicators({ name: '.detail__txt-description' })
+    .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '#page5',
+  })
+    .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '#page5',
+  })
+    .setTween('.slideshow__item.--animated img', 1, { opacity: 1, objectPosition: 0 })
+    .addIndicators({ name: '.detail__txt-description' })
+    .addTo(controller)
+
+  new ScrollMagic.Scene({
+    triggerElement: '#page5',
+  })
+    .setTween('.slideshow__item.--first', 1, { bottom : 0 })
+    .addIndicators({ name: '.detail__txt-description' })
+    .addTo(controller)
+
 }
