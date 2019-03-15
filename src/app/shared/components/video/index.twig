@@ -1,40 +1,69 @@
-<section class="page video" style="  background-image: url('/assets/test-bg-video-page.png');">
+{% if block.backgroundImage | length %}
+    {% include "/shared/functions/addImage.twig" with {
+    'image': block.backgroundImage[0],
+    'bgImage': true,
+    'selector': '.video',
+    'format':block.backgroundImage[0].extension
+    } %}
+{% endif %}
+<section class="page video">
     <div class="copy video__copy" style="opacity: 1;">
 
         <div class="section-header">
             <div class="section-header__year">
                 <h2>
-                    1999
+                    {{ year.title }}
                 </h2>
             </div>
             <div class="section-header__title">
                 <h2>
-                    Anti-Aging Caviar Collection
+                    {{ block.headerTitle }}
                 </h2>
             </div>
         </div>
 
-        <div class="video__content" style="background-image: url('/assets/test-video-banner.png');">
-        {#if video anchor#}
-        <div class="video__video-bg">
-            <video muted loop autoplay >
-                <source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        {#endif video anchor#}
+        {% if block.anchorImage | length %}
+          {% if block.anchorImage[0].kind == 'image' %}
+            {% include "/shared/functions/addImage.twig" with {
+            'image': block.anchorImage[0],
+            'bgImage': true,
+            'selector': '.video__content',
+            'format':block.anchorImage[0].extension
+            } %}
+            {% endif %}
+        {% endif %}
 
-            <a class="video__play-btn" href="#">
-                Watch the video.
-            </a>
+        <div class="video__content">
+
+        {% if block.anchorImage | length %}
+            {% if block.anchorImage[0].kind == 'video' %}
+                <div class="video__video-bg">
+                    <video muted loop autoplay >
+                        <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <a class="video__play-btn" href="#">
+                    Watch the video.
+                </a>
+            {% else %}
+                <div class="video__play-btn"></div>
+            {% endif %}
+        {% else %}
+            <div class="video__play-btn"></div>
+        {% endif %}
+
+            {#TODO(front): исправить отображение video__description так как если не будет ссылки текст съезжает влево #}
+
+
             <div class="video__description">
                 <h3>
-                    H3 Video Anchor Description. Roughly 40 max words or 250 chars. An alternative vision born in salons: premium hair products free of additives or harsh ingredients. And a revolution in haircare was born...
+                    {{ block.anchorDescription }}
                 </h3>
             </div>
         </div>
     </div>
-    <picture class="video__img-bg">
-        <img src="/assets/test-collections-3.png" alt="">
-    </picture>
+    {% if block.parallaxImage | length %}
+        {% include "/shared/functions/addImage.twig" with { 'image': block.parallaxImage[0] , 'picture_class':'video__img-bg' , 'format':block.parallaxImage[0].extension } %}
+    {% endif %}
 </section>

@@ -1,6 +1,17 @@
 <section class="page header">
     <div class="copy header__copy" style="opacity: 1;">
-        <div class="header__year-wrap" {#if img bg#}style="background-image: url('/assets/test-bg-2.png');"{#endif img bg#}>
+
+
+        {% if block.backgroundImage | length %}
+            {% include "/shared/functions/addImage.twig" with {
+            'image': block.backgroundImage[0],
+            'bgImage': true,
+            'selector': '.header__year-wrap',
+            'format':block.backgroundImage[0].extension
+            } %}
+        {% endif %}
+
+        <div class="header__year-wrap">
 
             {#if video anchor#}
                 {#<div class="header__video-bg-wrap">#}
@@ -11,21 +22,25 @@
                 {#</div>#}
             {#endif video anchor#}
 
-            {#if img anchor#}
-                <picture class="header__year-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-            {#endif img anchor#}
+                {% if block.anchorImage | length %}
+                    {% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'header__year-photo' , 'format':block.anchorImage[0].extension } %}
+                {% endif %}
 
             <h2 class="header__year-title">
-                2008
+                {{ year.title }}
             </h2>
         </div>
-        <div class="header__title-wrap" style="background-image: url('/assets/test-vh-image.png')">
+        {% if block.headerImage | length %}
+            {% include "/shared/functions/addImage.twig" with {
+            'image': block.headerImage[0],
+            'bgImage': true,
+            'selector': '.header__title-wrap',
+            'format':block.headerImage[0].extension
+            } %}
+        {% endif %}
+        <div class="header__title-wrap">
             <h2 class="header__title">
-                Caviar <br>
-                Anti-Aging <br>
-                Restage
+                {{ block.headerTitle }}
             </h2>
         </div>
     </div>

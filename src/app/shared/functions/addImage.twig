@@ -74,6 +74,10 @@
     {% set desktop = mobile|merge({position: finalDesktopWidth / aspectRatio}) %}
 {% endif %}
 
+{% if picture_class is defined %}
+    {% set picture_class = 'class='~picture_class %}
+{% endif %}
+
 {% if finalMode == 'crop' and position is defined %}
     {% set finalPosition = position %}
     {% set mobile = mobile|merge({position: finalPosition}) %}
@@ -99,7 +103,7 @@
         }
     </style>
 {% else %}
-    <picture>
+    <picture {{ picture_class?:'' }}>
         <source srcset="{{ image.getUrl(mobile) }}" media="(max-width: 600px)">
         <source srcset="{{ image.getUrl(tablet) }}" media="(max-width: 1023px)">
         <source srcset="{{ image.getUrl(desktop) }}" media="(min-width: 1024px)">

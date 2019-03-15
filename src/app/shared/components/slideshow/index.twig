@@ -1,68 +1,44 @@
-<section class="page slideshow" style="  background-image: url('/assets/test-bg-2.png');">
+{% if block.backgroundImage | length %}
+    {% include "/shared/functions/addImage.twig" with {
+    'image': block.backgroundImage[0],
+    'bgImage': true,
+    'selector': '.slideshow',
+    'format':block.backgroundImage[0].extension
+    } %}
+{% endif %}
+<section class="page slideshow">
     <div class="copy slideshow__copy" style="opacity: 1;">
 
         <div class="section-header">
             <div class="section-header__year">
                 <h2>
-                    2008
+                    {{ year.title }}
                 </h2>
             </div>
             <div class="section-header__title">
                 <h2>
-                    Alterna Brand Launches
+                    {{ block.headerTitle }}
                 </h2>
             </div>
         </div>
 
         <h3 class="slideshow__title">
-            Collection
+            {{ block.slideshowTitle }}
         </h3>
 
         <div class="slideshow__container">
-            <div class="slideshow__item">
-                <picture class="slideshow__item-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-                <p class="slideshow__item-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, neque.
-                </p>
-            </div>
-
-            <div class="slideshow__item">
-                <picture class="slideshow__item-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-                <p class="slideshow__item-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, neque.
-                </p>
-            </div>
-
-            <div class="slideshow__item">
-                <picture class="slideshow__item-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-                <p class="slideshow__item-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, neque.
-                </p>
-            </div>
-
-            <div class="slideshow__item">
-                <picture class="slideshow__item-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-                <p class="slideshow__item-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, neque.
-                </p>
-            </div>
-
-            <div class="slideshow__item">
-                <picture class="slideshow__item-photo">
-                    <img src="/assets/test-anchor-image.png" alt="">
-                </picture>
-                <p class="slideshow__item-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, neque.
-                </p>
-            </div>
+            {% if block.slideshowImages | length %}
+                {% for slide in block.slideshowImages.all() %}
+                    <div class="slideshow__item">
+                        {% if slide.image | length %}
+                            {% include "/shared/functions/addImage.twig" with { 'image': slide.image[0] , 'picture_class':'slideshow__item-photo' , 'format':slide.image[0].extension } %}
+                        {% endif %}
+                        <p class="slideshow__item-txt">
+                            {{ slide.caption }}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
