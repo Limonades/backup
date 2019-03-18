@@ -42,6 +42,9 @@
     justify-content: center;
     align-items: center;
     background-size: cover;
+    background-position: 50% 0;
+    opacity: 0;
+    height: 100%;
   }
 
   &__title {
@@ -50,6 +53,8 @@
     line-height: 6.4rem;
     text-transform: uppercase;
     font-style: italic;
+    opacity: 0;
+    transition: opacity 2s ease;
   }
 
   &__year-photo {
@@ -58,6 +63,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 50rem;
+    position: relative;
 
     & img {
       max-height: 100%;
@@ -79,5 +86,7 @@
     width: fit-content;
     font-size: 6.4rem;
     line-height: 6.4rem;
+    opacity: 0;
+    transition: opacity 2s ease;
   }
 }
