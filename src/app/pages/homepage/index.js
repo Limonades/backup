@@ -12,6 +12,44 @@ if (document.querySelector('.homepage')) {
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
 
+  // controller.scrollTo(function(newpos) {
+  //   console.log(newpos)
+  //   TweenLite.to(window, 0.5, {scrollTo: {y: newpos}})
+  // })
+
+  $(document).on('click', '.nav__list-link', function(e) {
+    const href = $(this).attr("href");
+    const offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
+
+    $('html, body').stop().animate({
+      scrollTop: offsetTop,
+    }, 500);
+
+
+
+    e.preventDefault();
+
+    // if (id.length > 0) {
+    //   e.preventDefault();
+    //
+    //   controller.scrollTo(id);
+    //
+    //   console.log(id)
+
+      // if (window.history && window.history.pushState) {
+      //   history.pushState("", document.title, id)
+      // }
+    // }
+  })
+
+  // $('.nav__item-link').each(function() {
+  //   new ScrollMagic.Scene({
+  //     triggerElement: this,
+  //   })
+  //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
+  //     .addTo(controller)
+  // })
+
   // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
   window.addEventListener('wheel', e => {
@@ -153,7 +191,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
       })
-        .setTween($(this).find('.slideshow__item.--animated img')[0], 1, { opacity: 1, objectPosition: 0 })
+        .setTween($(this).find('.slideshow__item.--animated img'), 1, { opacity: 1, objectPosition: 0 })
         // .addIndicators()
         .addTo(controller)
 

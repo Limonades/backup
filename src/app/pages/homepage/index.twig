@@ -3,9 +3,8 @@
 {% block content %}
 
     <div class="homepage">
-        <nav>
 
-        </nav>
+        {% include 'layout/navigation/index.twig' %}
 
         {#<section class="page" id="page1">#}
             {#<h1>Alterna Video/Feature<br/>Section</h1>#}
@@ -28,7 +27,7 @@
 
         {% nav year in years %}
 
-            <div id="{{ year.title }}">
+            <div class="year" id="{{ year.title }}">
 
                 {% for block in year.getChildren.all() %}
 

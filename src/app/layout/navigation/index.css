@@ -1,0 +1,38 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 3rem 0;
+  }
+
+  &__list-link {
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.progress-bar {
+  width: 60%;
+  height: 8px;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
