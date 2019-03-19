@@ -22,6 +22,13 @@
     height: 100%;
     display: flex;
     padding: 0 !important;
+
+    @media screen and (max-width: 768px) {
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__year-wrap {
@@ -33,6 +40,11 @@
     position: relative;
     background-size: cover;
     background-position: center;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      position: static;
+    }
   }
 
   &__title-wrap {
@@ -45,6 +57,12 @@
     background-position: 50% 0;
     opacity: 0;
     height: 100%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      z-index: 2;
+    }
   }
 
   &__title {
@@ -65,6 +83,15 @@
     align-items: center;
     top: 50rem;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+      width: 220px;
+      height: 300px;
+      position: absolute;
+      top: 50% !important;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     & img {
       max-height: 100%;
@@ -88,5 +115,10 @@
     line-height: 6.4rem;
     opacity: 0;
     transition: opacity 2s ease;
+
+    @media screen and (max-width: 768px) {
+      position: static;
+      z-index: 2;
+    }
   }
 }
