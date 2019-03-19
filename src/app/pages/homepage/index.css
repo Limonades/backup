@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables';
+
 .homepage {
   & section.page {
     height: 100vh;
@@ -104,11 +106,12 @@
 
   &__year {
     width: 33%;
-    margin-bottom: 0.6rem;
 
     & h2 {
-      font-size: 4rem;
-      line-height: 4rem;
+      font-family: var(--italic-title-font);
+      font-style: italic;
+      font-size: 5rem;
+      line-height: 5rem;
     }
   }
 

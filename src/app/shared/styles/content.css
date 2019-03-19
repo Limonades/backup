@@ -29,4 +29,9 @@ html {
   & .h4 {
     @apply --typeHeading4;
   }
+
+  & h5,
+  & .h5 {
+    @apply --typeBody;
+  }
 }

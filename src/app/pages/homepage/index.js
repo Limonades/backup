@@ -6,13 +6,41 @@ import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 
+// TODO REFACTORING
 if (document.querySelector('.homepage')) {
   let scrollTimer
   const controller = new ScrollMagic.Controller()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
+  let activeCoord;
+  let lineWidth;
 
-  // controller.scrollTo(function(newpos) {
+  const moveNavProgress = () => {
+    activeCoord = $('.nav__list-link.--active').position();
+    lineWidth = $('.nav__list-link.--active').width() / 2;
+
+    $('.nav__progress-bar').css({
+      'width': `${activeCoord.left + lineWidth}px`
+    })
+  }
+
+  $(document).ready(function() {
+    moveNavProgress();
+  })
+
+  $('.nav__list-link').on('mouseenter', function() {
+    activeCoord = $(this).position();
+    lineWidth = $(this).width() / 2;
+
+    $('.nav__progress-bar').css({
+      'width': `${activeCoord.left + lineWidth}px`
+    })
+  })
+
+  $('.nav').on('mouseleave', moveNavProgress);
+
+
+    // controller.scrollTo(function(newpos) {
   //   console.log(newpos)
   //   TweenLite.to(window, 0.5, {scrollTo: {y: newpos}})
   // })
@@ -39,16 +67,20 @@ if (document.querySelector('.homepage')) {
       if (window.history && window.history.pushState) {
         history.pushState("", document.title, id)
       }
+
+      setTimeout(function() {
+        moveNavProgress();
+      }, 100);
     }
   })
 
-  $('.nav__item-link').each(function() {
-    new ScrollMagic.Scene({
-      triggerElement: this,
-    })
-      .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
-      .addTo(controller)
-  })
+  // $('.nav__item-link').each(function() {
+  //   new ScrollMagic.Scene({
+  //     triggerElement: this,
+  //   })
+  //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
+  //     .addTo(controller)
+  // })
 
   // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
@@ -69,6 +101,7 @@ if (document.querySelector('.homepage')) {
         TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
       } else {
         TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
+        moveNavProgress();
       }
     })
   })
@@ -112,6 +145,7 @@ if (document.querySelector('.homepage')) {
       // .addIndicators()
       .addTo(controller)
 
+    // TODO opacity 1 onload
     new ScrollMagic.Scene({
       triggerElement: this,
       offset: 10,
@@ -286,6 +320,7 @@ if (document.querySelector('.homepage')) {
     })
       .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
       // .addIndicators()
+      // .add(moveNavProgress())
       .addTo(controller)
   })
   // document.querySelectorAll('.detail').forEach((e, i) => {

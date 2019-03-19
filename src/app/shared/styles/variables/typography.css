@@ -11,6 +11,9 @@
   --serifPrimaryFont: 'butlerultralight', Times, serif;
   --serifSecondaryFont: 'butler_stencilultralight', Times, serif;
   --sansSerifPrimaryFont: 'brandongrotesque', Helvetica, sans-serif;
+  --text-font: "Helvetica Neue";
+  --title-font: "Minion Pro";
+  --italic-title-font: "Didot";
 
   /**
   * FONT FAMILY MIXINS
@@ -23,7 +26,7 @@
     font-stretch: normal;
     letter-spacing: normal;
     line-height: 1;
-  }
+  };
 
   /**
   * Anchor Mixin
@@ -36,7 +39,7 @@
     &:hover {
       transition: color 0.15s ease;
     }
-  }
+  };
 
   /**
   * HEADING TYPOOGRAPHY STYLES
@@ -51,57 +54,63 @@
       font-size: 4.8rem;
       line-height: 6rem;
     }
-  }
+  };
 
   --typeHeading2: {
-    font-family: var(--serifPrimaryFont);
+    font-family: var(--title-font);
+    font-weight: 400;
     font-size: 2.4rem;
 
     @media (--desktop) {
       font-size: 3.2rem;
     }
-  }
+  };
 
   --typeHeading3: {
-    font-family: var(--sansSerifPrimaryFont);
-    font-size: 1.4rem;
-    text-transform: uppercase;
+    font-family: var(--title-font);
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 400;
 
     @media (--desktop) {
-      font-size: 1.8rem;
+      font-size: 2.4rem;
+      line-height: 3rem;
     }
-  }
+  };
 
   --typeHeading4: {
-    font-family: var(--serifPrimaryFont);
+    font-family: var(--title-font);
+    font-weight: 400;
+    text-transform: uppercase;
     font-size: 1.3rem;
 
     @media (--desktop) {
       font-size: 1.6rem;
     }
-  }
+  };
 
   --typeBlockquote: {
     font-family: var(--serifPrimaryFont);
     font-size: 2.4rem;
     line-height: 3.6rem;
-  }
+  };
 
   /**
   * BODY STYLES
   */
 
   --typeBody: {
-    font-family: var(--sansSerifPrimaryFont);
+    font-family: var(--text-font);
     font-size: 1.6rem;
-    color: var(--colorNightRider);
+    color: white;
     line-height: 2.6rem;
+    font-weight: 400;
 
     @media (--desktop) {
       font-size: 1.8rem;
       line-height: 2.8rem;
     }
-  }
+  };
 
   /**
   * ADDITIONAL STYLES
