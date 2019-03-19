@@ -12,6 +12,15 @@
     padding: 2rem 3rem 0;
   }
 
+  &__title {
+    opacity: 0;
+    transition: opacity 1s ease;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 250px;
+  }
+
   &__list-link {
     color: white;
     font-size: 2rem;
@@ -19,19 +28,46 @@
     letter-spacing: 0.2px;
     line-height: 24px;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 1s ease;
     opacity: 0.2;
+    position: relative;
+    display: inline-block;
 
     &:hover {
       opacity: 1;
+
+      & .nav__title {
+        opacity: 1;
+      }
     }
 
     &.--active {
       opacity: 1;
     }
   }
+
+  &__progress-bar {
+    height: 8px;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease;
+    will-change: width;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 19px;
+      background-color: white;
+    }
+  }
 }
 
+/**
 ::-webkit-scrollbar {
   display: none;
 }
@@ -88,3 +124,4 @@ progress::-moz-progress-bar {
   height: inherit;
   z-index: 10;
 }
+**/

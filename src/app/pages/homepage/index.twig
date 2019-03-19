@@ -27,7 +27,9 @@
 
         {% nav year in years %}
 
-            <div class="year" id="{{ year.title }}" data-title="">
+            {% set year_block = year.getChildren.all()[0].headerTitle %}
+
+            <div class="year" id="{{ year.title }}" data-title="{{ year_block }}">
 
                 {% for block in year.getChildren.all() %}
 

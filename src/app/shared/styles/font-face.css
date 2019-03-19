@@ -100,3 +100,44 @@
   font-family: 'brandongrotesque';
   src: url('/fonts/Brandon_light.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeueCyr-Light.eot');
+  src:
+    url('/fonts/HelveticaNeueCyr-Light.eot?iefix') format('eot'),
+    url('/fonts/HelveticaNeueCyr-Light.woff') format('woff'),
+    url('/fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Minion Pro';
+  src: url('/fonts/MinionPro-Regular.eot');
+  src:
+    url('/fonts/MinionPro-Regular.eot?iefix') format('eot'),
+    url('/fonts/MinionPro-Regular.woff') format('woff'),
+    url('/fonts/MinionPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Minion Pro';
+  src: url('/fonts/MinionPro-Bold.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue-All';
+  src: url('/fonts/HelveticaNeue.ttc');
+}
+
+@font-face {
+  font-family: 'Didot';
+  src: url('/fonts/TheanoDidot-Regular.eot');
+  src:
+    url('/fonts/TheanoDidot-Regular.eot?iefix') format('eot'),
+    url('/fonts/TheanoDidot-Regular.woff') format('woff'),
+    url('/fonts/TheanoDidot-Regular.ttf') format('truetype'),
+    url('/fonts/TheanoDidot-Regular.svg#webfont') format('svg');
+  font-style: normal;
+}

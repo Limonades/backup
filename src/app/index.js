@@ -1,6 +1,6 @@
 import './layout'
-import './pages'
 import './shared'
+import './pages'
 
 // import Helper from './helper'
 
