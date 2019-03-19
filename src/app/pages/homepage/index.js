@@ -152,7 +152,7 @@ if (document.querySelector('.homepage')) {
       duration: viewHeight,
     })
       .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
 
     new ScrollMagic.Scene({
