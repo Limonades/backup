@@ -42,10 +42,6 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
             'yii\\' => 4,
             'yii2tech\\ar\\softdelete\\' => 23,
         ),
-        'v' => 
-        array (
-            'verbb\\supertable\\' => 17,
-        ),
         'm' => 
         array (
             'modules\\' => 8,
@@ -199,10 +195,6 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'yii2tech\\ar\\softdelete\\' => 
         array (
             0 => __DIR__ . '/..' . '/yii2tech/ar-softdelete/src',
-        ),
-        'verbb\\supertable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/verbb/super-table/src',
         ),
         'modules\\' => 
         array (
@@ -3358,35 +3350,6 @@ class ComposerStaticInit7082b7435dc6b079d97e70f49737912b
         'ether\\logs\\Utility' => __DIR__ . '/..' . '/ether/logs/src/Utility.php',
         'mikehaertl\\shellcommand\\Command' => __DIR__ . '/..' . '/mikehaertl/php-shellcommand/src/Command.php',
         'modules\\Module' => __DIR__ . '/../..' . '/modules/Module.php',
-        'verbb\\supertable\\SuperTable' => __DIR__ . '/..' . '/verbb/super-table/src/SuperTable.php',
-        'verbb\\supertable\\assetbundles\\SuperTableAsset' => __DIR__ . '/..' . '/verbb/super-table/src/assetbundles/SuperTableAsset.php',
-        'verbb\\supertable\\base\\PluginTrait' => __DIR__ . '/..' . '/verbb/super-table/src/base/PluginTrait.php',
-        'verbb\\supertable\\controllers\\PluginController' => __DIR__ . '/..' . '/verbb/super-table/src/controllers/PluginController.php',
-        'verbb\\supertable\\elements\\SuperTableBlockElement' => __DIR__ . '/..' . '/verbb/super-table/src/elements/SuperTableBlockElement.php',
-        'verbb\\supertable\\elements\\db\\SuperTableBlockQuery' => __DIR__ . '/..' . '/verbb/super-table/src/elements/db/SuperTableBlockQuery.php',
-        'verbb\\supertable\\errors\\SuperTableBlockNotFoundException' => __DIR__ . '/..' . '/verbb/super-table/src/errors/SuperTableBlockNotFoundException.php',
-        'verbb\\supertable\\errors\\SuperTableBlockTypeNotFoundException' => __DIR__ . '/..' . '/verbb/super-table/src/errors/SuperTableBlockTypeNotFoundException.php',
-        'verbb\\supertable\\fields\\SuperTableField' => __DIR__ . '/..' . '/verbb/super-table/src/fields/SuperTableField.php',
-        'verbb\\supertable\\integrations\\schematic\\converters\\fields\\SuperTableSchematic' => __DIR__ . '/..' . '/verbb/super-table/src/integrations/schematic/converters/fields/SuperTableSchematic.php',
-        'verbb\\supertable\\integrations\\schematic\\converters\\models\\SuperTableBlockTypeSchematic' => __DIR__ . '/..' . '/verbb/super-table/src/integrations/schematic/converters/models/SuperTableBlockTypeSchematic.php',
-        'verbb\\supertable\\integrations\\sproutimport\\importers\\fields\\SuperTableImporter' => __DIR__ . '/..' . '/verbb/super-table/src/integrations/sproutimport/importers/fields/SuperTableImporter.php',
-        'verbb\\supertable\\migrations\\CreateSuperTableContentTable' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/CreateSuperTableContentTable.php',
-        'verbb\\supertable\\migrations\\Install' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/Install.php',
-        'verbb\\supertable\\migrations\\m180210_000000_migrate_content_tables' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m180210_000000_migrate_content_tables.php',
-        'verbb\\supertable\\migrations\\m180211_000000_type_columns' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m180211_000000_type_columns.php',
-        'verbb\\supertable\\migrations\\m180219_000000_sites' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m180219_000000_sites.php',
-        'verbb\\supertable\\migrations\\m180220_000000_fix_context' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m180220_000000_fix_context.php',
-        'verbb\\supertable\\migrations\\m190117_000000_soft_deletes' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m190117_000000_soft_deletes.php',
-        'verbb\\supertable\\migrations\\m190117_000001_context_to_uids' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m190117_000001_context_to_uids.php',
-        'verbb\\supertable\\migrations\\m190120_000000_fix_supertablecontent_tables' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m190120_000000_fix_supertablecontent_tables.php',
-        'verbb\\supertable\\migrations\\m190131_000000_fix_supertable_missing_fields' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m190131_000000_fix_supertable_missing_fields.php',
-        'verbb\\supertable\\migrations\\m190227_100000_fix_project_config' => __DIR__ . '/..' . '/verbb/super-table/src/migrations/m190227_100000_fix_project_config.php',
-        'verbb\\supertable\\models\\SuperTableBlockTypeModel' => __DIR__ . '/..' . '/verbb/super-table/src/models/SuperTableBlockTypeModel.php',
-        'verbb\\supertable\\records\\SuperTableBlockRecord' => __DIR__ . '/..' . '/verbb/super-table/src/records/SuperTableBlockRecord.php',
-        'verbb\\supertable\\records\\SuperTableBlockTypeRecord' => __DIR__ . '/..' . '/verbb/super-table/src/records/SuperTableBlockTypeRecord.php',
-        'verbb\\supertable\\services\\SuperTableMatrixService' => __DIR__ . '/..' . '/verbb/super-table/src/services/SuperTableMatrixService.php',
-        'verbb\\supertable\\services\\SuperTableService' => __DIR__ . '/..' . '/verbb/super-table/src/services/SuperTableService.php',
-        'verbb\\supertable\\variables\\SuperTableVariable' => __DIR__ . '/..' . '/verbb/super-table/src/variables/SuperTableVariable.php',
         'yii2tech\\ar\\softdelete\\SoftDeleteBehavior' => __DIR__ . '/..' . '/yii2tech/ar-softdelete/src/SoftDeleteBehavior.php',
         'yii2tech\\ar\\softdelete\\SoftDeleteQueryBehavior' => __DIR__ . '/..' . '/yii2tech/ar-softdelete/src/SoftDeleteQueryBehavior.php',
         'yii\\BaseYii' => __DIR__ . '/..' . '/yiisoft/yii2/BaseYii.php',

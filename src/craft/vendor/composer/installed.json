@@ -2632,60 +2632,6 @@
         ]
     },
     {
-        "name": "verbb/super-table",
-        "version": "2.1.16",
-        "version_normalized": "2.1.16.0",
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/verbb/super-table/zipball/60947a5f4f2ef9f2972dee95ff460897e743deaf",
-            "reference": "60947a5f4f2ef9f2972dee95ff460897e743deaf",
-            "shasum": ""
-        },
-        "require": {
-            "craftcms/cms": "^3.1.13"
-        },
-        "time": "2019-03-09T04:08:51+00:00",
-        "type": "craft-plugin",
-        "extra": {
-            "name": "Super Table",
-            "handle": "super-table",
-            "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
-            "documentationUrl": "https://github.com/verbb/super-table",
-            "changelogUrl": "https://raw.githubusercontent.com/verbb/super-table/craft-3/CHANGELOG.md",
-            "class": "verbb\\supertable\\SuperTable"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "verbb\\supertable\\": "src/"
-            }
-        },
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Verbb",
-                "homepage": "https://verbb.io"
-            }
-        ],
-        "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
-        "keywords": [
-            "cms",
-            "craft",
-            "craft-plugin",
-            "craftcms",
-            "super table"
-        ],
-        "support": {
-            "email": "support@verbb.io",
-            "issues": "https://github.com/verbb/super-table/issues?state=open",
-            "source": "https://github.com/verbb/super-table",
-            "docs": "https://github.com/verbb/super-table",
-            "rss": "https://github.com/verbb/super-table/commits/v2.atom"
-        }
-    },
-    {
         "name": "vlucas/phpdotenv",
         "version": "v2.6.1",
         "version_normalized": "2.6.1.0",
