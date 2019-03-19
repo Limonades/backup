@@ -6,12 +6,12 @@
             {% include "/shared/functions/addImage.twig" with {
             'image': block.backgroundImage[0],
             'bgImage': true,
-            'selector': '.header__year-wrap',
+            'selector': '.header__year-wrap--'~year.title~loop.index,
             'format':block.backgroundImage[0].extension
             } %}
         {% endif %}
 
-        <div class="header__year-wrap">
+        <div class="header__year-wrap header__year-wrap--{{ year.title~loop.index }}">
 
             {#if video anchor#}
                 {#<div class="header__video-bg-wrap">#}
@@ -34,11 +34,11 @@
             {% include "/shared/functions/addImage.twig" with {
             'image': block.headerImage[0],
             'bgImage': true,
-            'selector': '.header__title-wrap',
+            'selector': '.header__title-wrap--'~year.title~loop.index,
             'format':block.headerImage[0].extension
             } %}
         {% endif %}
-        <div class="header__title-wrap">
+        <div class="header__title-wrap header__title-wrap--{{ year.title~loop.index }}">
             <h2 class="header__title">
                 {{ block.headerTitle }}
             </h2>

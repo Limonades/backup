@@ -2,11 +2,11 @@
     {% include "/shared/functions/addImage.twig" with {
     'image': block.backgroundImage[0],
     'bgImage': true,
-    'selector': '.slideshow',
+    'selector': '.slideshow--'~year.title~loop.index,
     'format':block.backgroundImage[0].extension
     } %}
 {% endif %}
-<section class="page slideshow" id="page5">
+<section class="page slideshow slideshow--{{ year.title~loop.index }}" id="page5">
     <div class="copy slideshow__copy" style="opacity: 1;">
 
         <div class="section-header">
