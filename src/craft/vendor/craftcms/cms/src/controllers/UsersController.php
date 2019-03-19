@@ -104,6 +104,20 @@ class UsersController extends Controller
     // =========================================================================
 
     /**
+     * @inheritdoc
+     */
+    public function beforeAction($action)
+    {
+        // Don't enable CSRF validation for login requests if the user is already logged-in.
+        // (Guards against double-clicking a Login button.)
+        if ($action->id === 'login' && !Craft::$app->getUser()->getIsGuest()) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
+    }
+
+    /**
      * Displays the login template, and handles login post requests.
      *
      * @return Response|null
@@ -1209,8 +1223,10 @@ class UsersController extends Controller
      */
     public function actionUploadUserPhoto()
     {
+        $this->requireCpRequest();
         $this->requireAcceptsJson();
         $this->requireLogin();
+
         $userId = Craft::$app->getRequest()->getRequiredBodyParam('userId');
 
         if ($userId != Craft::$app->getUser()->getIdentity()->id) {
@@ -1244,7 +1260,11 @@ class UsersController extends Controller
         } catch (\Throwable $exception) {
             /** @noinspection UnSafeIsSetOverArrayInspection - FP */
             if (isset($fileLocation)) {
-                FileHelper::unlink($fileLocation);
+                try {
+                    FileHelper::unlink($fileLocation);
+                } catch (\Throwable $e) {
+                    // Let it go
+                }
             }
 
             Craft::error('There was an error uploading the photo: ' . $exception->getMessage(), __METHOD__);
@@ -1259,11 +1279,14 @@ class UsersController extends Controller
      * Delete all the photos for current user.
      *
      * @return Response
+     * @throws BadRequestHttpException
      */
     public function actionDeleteUserPhoto(): Response
     {
+        $this->requireCpRequest();
         $this->requireAcceptsJson();
         $this->requireLogin();
+
         $userId = Craft::$app->getRequest()->getRequiredBodyParam('userId');
 
         if ($userId != Craft::$app->getUser()->getIdentity()->id) {

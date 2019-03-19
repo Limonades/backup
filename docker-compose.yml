@@ -10,6 +10,8 @@ services:
      - ./src/craft/vendor:/usr/share/nginx/vendor
      - ./src/app:/usr/share/nginx/templates
      - ./src/public:/usr/share/nginx/web
+     - ./composer.json:/usr/share/nginx/composer.json
+     - ./composer.lock:/usr/share/nginx/composer.lock
      - ./.devops/docker-files/php.ini:/etc/php/7.0/fpm/php.ini
      - ./.devops/docker-files/01-301.conf:/opt/docker/etc/nginx/vhost.common.d/01-301.conf
      - ./.devops/docker-files/15-expires.conf:/opt/docker/etc/nginx/vhost.common.d/15-expires.conf

@@ -11,7 +11,6 @@ use Craft;
 use craft\elements\User;
 use craft\helpers\App;
 use craft\helpers\Template;
-use Swift_TransportException;
 use yii\base\InvalidConfigException;
 use yii\helpers\Markdown;
 use yii\mail\MessageInterface;
@@ -150,10 +149,10 @@ class Mailer extends \yii\swiftmailer\Mailer
         }
 
         // Apply the testToEmailAddress config setting
-        $testToEmailAddress = (array)Craft::$app->getConfig()->getGeneral()->testToEmailAddress;
+        $testToEmailAddress = Craft::$app->getConfig()->getGeneral()->testToEmailAddress;
         if (!empty($testToEmailAddress)) {
             $to = [];
-            foreach ($testToEmailAddress as $emailAddress => $name) {
+            foreach ((array)$testToEmailAddress as $emailAddress => $name) {
                 if (is_numeric($emailAddress)) {
                     $to[$name] = Craft::t('app', 'Test Recipient');
                 } else {

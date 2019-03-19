@@ -679,14 +679,14 @@ Determines the order that the categories should be returned in.
 ```twig
 {# Fetch all categories in order of date created #}
 {% set categories = craft.categories()
-    .orderBy('elements.dateCreated asc')
+    .orderBy('dateCreated asc')
     .all() %}
 ```
 
 ```php
 // Fetch all categories in order of date created
 $categories = \craft\elements\Category::find()
-    ->orderBy('elements.dateCreated asc')
+    ->orderBy('dateCreated asc')
     ->all();
 ```
 :::
@@ -828,7 +828,7 @@ See [Searching](https://docs.craftcms.com/v3/searching.html) for a full explanat
 ::: code
 ```twig
 {# Get the search query from the 'q' query string param #}
-{% set searchQuery = craft.request.getQueryParam('q') %}
+{% set searchQuery = craft.app.request.getQueryParam('q') %}
 
 {# Fetch all categories that match the search query #}
 {% set categories = craft.categories()

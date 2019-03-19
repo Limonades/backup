@@ -1,5 +1,120 @@
 # Release Notes for Craft CMS 3.x
 
+## 3.1.19 - 2019-03-19
+
+### Added
+- Added the `_includes/pagination` Control Panel template.
+- Added `craft\db\Paginator`.
+- Added `craft\web\twig\variables\Paginate::create()`.
+
+### Changed
+- The `{% paginate %}` tag now accepts any query object, not just element queries.
+- The `_includes/forms/autosuggest` template now has `data` and `methods` blocks that can be overridden by sub-templates to customize the autosuggest behavior.
+
+### Fixed
+- Fixed a bug where sidebar badge counts in the Control Panel were getting formatted with two decimals if the Intl extension wasn’t loaded. ([#4002](https://github.com/craftcms/cms/issues/4002))
+- Fixed a bug where entry drafts would forget that certain field values had been cleared out, and continue using the live revision’s content instead. ([#3981](https://github.com/craftcms/cms/issues/3981))
+- Fixed an error that occurred if a Table field was created with a Date or Time column and no rows in the Default Values setting. ([#4005](https://github.com/craftcms/cms/issues/4005))
+- Fixed a bug where Table fields would forget that they had been saved without any rows in the Default Values setting.
+- Fixed a SQL error that could occur when saving non-UTF-8 characters to the project config. ([#4007](https://github.com/craftcms/cms/issues/4007))
+
+## 3.1.18 - 2019-03-14
+
+### Added
+- Added `craft\services\Deprecator::$throwExceptions`. ([#3972](https://github.com/craftcms/cms/pull/3972))
+
+### Changed
+- `Craft::parseEnv()` will now boolean values for environment variables set to `true` or `false`. ([#3975](https://github.com/craftcms/cms/issues/3975))
+- Nested project config keys are no longer sorted alphabetically.
+- Craft now requires Twig ^2.7.2.
+
+### Fixed
+- Fixed a SQL error that occurred when using a token with a usage limit, if using PostgreSQL. ([#3969](https://github.com/craftcms/cms/issues/3969))
+- Fixed a bug where the Edit User page would forget user group selection changes if there was a validation error. ([#3971](https://github.com/craftcms/cms/issues/3971))
+- Fixed a bug where the updater would get an unexpected response when updating from 3.1.14 - 3.1.16 to 3.1.17+.
+- Fixed a bug where it wasn’t possible to switch plugin editions when the `allowUpdates` config setting was disabled. ([#3987](https://github.com/craftcms/cms/issues/3987))
+- Fixed a bug where multiple consecutive newlines in field instructions would result in multiple `<br>` tags rather than new paragraphs.
+- Fixed a bug where Table fields weren’t always remembering the sort order for their Default Values settings. ([#3947](https://github.com/craftcms/cms/issues/3947))
+- Fixed a bug where Table fields weren’t always remembering the sort order for their Table Columns settings. ([#3997](https://github.com/craftcms/cms/issues/3997))
+
+## 3.1.17.2 - 2019-03-12
+
+### Changed
+- Craft now requires Twig ~2.6.2.
+
+## 3.1.17.1 - 2019-03-08
+
+### Added
+- Added `craft\helpers\ArrayHelper::ensureNonAssociative()`.
+
+### Fixed
+- Fixed a bug where commercial plugin editions weren’t showing up in the Plugin Store.
+- Fixed a bug where installing a plugin from the Plugin Store would not respect the selected edition.
+- Fixed a bug where plugins with free and commercial editions weren’t getting license key inputs on the Setting → Plugins page.
+- Fixed a bug where the Setting → Plugins page wasn’t linking plugins’ edition badge to their page in the Plugin Store for plugins with free and commercial editions, if the free edition was currently active.
+
+## 3.1.17 - 2019-03-08
+
+### Changed
+- When installing Craft using a `project.yaml`, Craft now processes all sites before installing any plugins. ([craftcms/commerce#752](https://github.com/craftcms/commerce/issues/752))
+- The Plugin Store now shows “Report an issue” links on plugin screens.
+- The Plugin Store now includes a “Package Name” section on plugin screens. ([#2757](https://github.com/craftcms/cms/issues/2757))
+- The Plugin Store now shows discounted upgrade prices for plugins when a lower edition is already licensed.
+- Craft now requires Yii 2.0.16.1.
+
+### Fixed
+- Fixed a bug where the `positionedBefore` element query param was not including direct ancestors in the results.
+- Fixed a bug where HTML in plugin-supplied field instructions was getting encoded. ([#3928](https://github.com/craftcms/cms/issues/3928))
+- Fixed a bug where Craft would prompt for a user’s current password when registering a new user, even if they weren’t assigning any groups or permissions to that user
+- Fixed a bug where asset indexing could yield inconsistent results in some cases. ([#3450](https://github.com/craftcms/cms/issues/3450))
+- Fixed a bug where the Plugin Store was showing info icons in the feature matrix of multi-edition plugins, even for features that didn’t have an extended description.
+- Fixed a bug where entries weren’t getting new versions when edited from element editor HUDs. ([#3959](https://github.com/craftcms/cms/issues/3959))
+
+## 3.1.16 - 2019-03-05
+
+### Added
+- The Plugin Store now shows Repository links on plugin screens.
+- Added the `create()` Twig function. ([#3921](https://github.com/craftcms/cms/pull/3921))
+- Added the `--type` option to the `resave/entries` command. ([#3939](https://github.com/craftcms/cms/issues/3939))
+- Added `craft\helers\Assets::getAllowedFileKinds()`.
+
+### Changed
+- Line breaks in field instructions now get converted to `<br>` tags. ([#3928](https://github.com/craftcms/cms/issues/3928))
+- Assets field settings no longer list file kinds that aren’t allowed to be uploaded, per the `allowedFileExtensions` and `extraAllowedFileExtensions` config settings. ([#3917](https://github.com/craftcms/cms/issues/3917))
+- The `{% exit %}` tag now throws a more specific exception depending on the status code passed to it (e.g. `yii\web\NotFoundHttpException` for 404s). ([#3915](https://github.com/craftcms/cms/issues/3915))
+- `craft\helpers\MigrationHelper::dropAllIndexesOnTable()` is no longer deprecated.
+- The `--id` option on `resave/*` console commands is now named `--element-id`. ([#3940](https://github.com/craftcms/cms/issues/3940))
+- The `_includes/forms/autosuggest.html` template now supports passing `disabled: true`. ([#3925](https://github.com/craftcms/cms/issues/3925))
+
+### Fixed
+- Fixed a bug where Control Panel content areas weren’t getting their bottom padding applied in Firefox. ([#3874](https://github.com/craftcms/cms/issues/3874))
+- Fixed a PHP error that occurred on the front-end if two routes defined in Settings → Routes had the same URI pattern. ([#3922](https://github.com/craftcms/cms/issues/3922))
+- Fixed a bug where Craft wasn’t always preselecting the correct tab on Control Panel pages if the tab name contained non-ASCII characters. ([#3923](https://github.com/craftcms/cms/issues/3923))
+- Fixed a bug where the `--uid` option on `resave/*` console commands wasn’t working. ([#3941](https://github.com/craftcms/cms/issues/3941))
+- Fixed a SQL error that could occur when running `resave/*` console commands.
+- Fixed a PHP error that occurred when calling the deprecated `getError()` method on a model that had no errors. ([#3934](https://github.com/craftcms/cms/issues/3934))
+- Fixed a bug where Craft wasn’t sanitizing new asset subfolder names. ([#3689](https://github.com/craftcms/cms/issues/3689))
+- Fixed a bug where Table fields weren’t remembering the sort order for their Default Values settings. ([#3947](https://github.com/craftcms/cms/issues/3947))
+
+## 3.1.15 - 2019-02-26
+
+### Added
+- Added the `resave/assets`, `resave/categories`, `resave/entries`, `resave/tags`, and `resave/users` console commands.
+
+### Changed
+- Craft now sends system messages authored for the same root language as the requested language, if an exact language match can’t be found. ([#3888](https://github.com/craftcms/cms/issues/3888))
+- Element source definitions can now include a `badgeCount` key.
+- Login requests no longer enforce CSRF validation if someone is already logged in.
+- Craft now throws an `InvalidConfigException` when updating the project config if any unexpected data types are encountered.
+- The `testToEmailAddress` config setting can now be set to `false`. ([#3910](https://github.com/craftcms/cms/pull/3910))
+
+### Fixed
+- Fixed a bug where the System Messages utility wouldn’t update message previews after editing a message for the primary site’s language, if the user had a different preferred language selected.
+- Fixed a bug where structures weren’t getting deleted and unassigned from their sections properly after converting a Structure section to a Channel or Single. ([#3895](https://github.com/craftcms/cms/issues/3895))
+- Really fixed a bug where Craft could update the `dateModified` value in the project config even when nothing had changed. ([#3792](https://github.com/craftcms/cms/issues/3792))
+- Fixed a bug where the Settings → Routes page wasn’t listing routes in the user-defined order. ([#3892](https://github.com/craftcms/cms/issues/3892))
+- Fixed an error that occurred when viewing trashed entries, if the “Entry Type” column was shown and one of the trashed entries’ entry types had been deleted. ([#3899](https://github.com/craftcms/cms/issues/3899))
+
 ## 3.1.14 - 2019-02-21
 
 ### Added
@@ -470,6 +585,22 @@
 - The web and CLI installers no longer suggest `@web` for the site URL, and now attempt to save the entered site URL as a `DEFAULT_SITE_URL` environment variable in `.env`. ([#3559](https://github.com/craftcms/cms/issues/3559))
 - Craft now destroys all other sessions associated with a user account when a user changes their password.
 - It’s no longer possible to spoof Live Preview requests.
+
+## 3.0.41.1 - 2019-03-12
+
+### Changed
+- Craft now requires Twig ~2.6.2.
+
+## 3.0.41 - 2019-02-22
+
+### Changed
+- System error message templates no longer parse exception messages as Markdown.
+
+### Security
+- Database backup/restore exception messages now redact the database password when using PostgreSQL.
+- URLs are no longer allowed in users’ first or last names.
+- The Request panel in the Debug Toolbar now redacts any sensitive information. ([#3619](https://github.com/craftcms/cms/issues/3619))
+- Fixed XSS vulnerabilities.
 
 ## 3.0.40.1 - 2019-02-21
 
