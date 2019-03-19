@@ -389,14 +389,14 @@ Determines the order that the tags should be returned in.
 ```twig
 {# Fetch all tags in order of date created #}
 {% set tags = craft.tags()
-    .orderBy('elements.dateCreated asc')
+    .orderBy('dateCreated asc')
     .all() %}
 ```
 
 ```php
 // Fetch all tags in order of date created
 $tags = \craft\elements\Tag::find()
-    ->orderBy('elements.dateCreated asc')
+    ->orderBy('dateCreated asc')
     ->all();
 ```
 :::
@@ -442,7 +442,7 @@ See [Searching](https://docs.craftcms.com/v3/searching.html) for a full explanat
 ::: code
 ```twig
 {# Get the search query from the 'q' query string param #}
-{% set searchQuery = craft.request.getQueryParam('q') %}
+{% set searchQuery = craft.app.request.getQueryParam('q') %}
 
 {# Fetch all tags that match the search query #}
 {% set tags = craft.tags()

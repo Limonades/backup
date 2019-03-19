@@ -337,6 +337,11 @@ class GeneralConfig extends BaseObject
      *     ],
      * ],
      * ```
+     *
+     * ::: tip
+     * File extensions listed here won’t immediately be allowed to be uploaded. You will also need to list them with
+     * the [[$extraAllowedFileExtensions]] config setting.
+     * :::
      */
     public $extraFileKinds = [];
     /**
@@ -721,7 +726,7 @@ class GeneralConfig extends BaseObject
      */
     public $suppressTemplateErrors = false;
     /**
-     * @var string|array|null Configures Craft to send all system emails to a single email address, or an array of email addresses for testing
+     * @var string|array|false|null Configures Craft to send all system emails to a single email address, or an array of email addresses for testing
      * purposes.
      *
      * By default the recipient name(s) will be “Test Recipient”, but you can customize that by setting the value with the format `['email@address.com' => 'Name']`.

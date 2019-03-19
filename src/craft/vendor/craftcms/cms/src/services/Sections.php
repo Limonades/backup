@@ -26,7 +26,6 @@ use craft\models\EntryType;
 use craft\models\FieldLayout;
 use craft\models\Section;
 use craft\models\Section_SiteSettings;
-use craft\models\Site;
 use craft\models\Structure;
 use craft\queue\jobs\ResaveElements;
 use craft\records\EntryType as EntryTypeRecord;
@@ -577,7 +576,6 @@ class Sections extends Component
         $transaction = $db->beginTransaction();
 
         try {
-            $structureData = $data['structure'] ?? null;
             $siteSettingData = $data['siteSettings'];
 
             // Basic data
@@ -590,25 +588,21 @@ class Sections extends Component
             $sectionRecord->enableVersioning = (bool)$data['enableVersioning'];
             $sectionRecord->propagateEntries = (bool)$data['propagateEntries'];
 
-            $structure = $structureData
-                ? (Craft::$app->getStructures()->getStructureByUid($structureData['uid'], true) ?? new Structure(['uid' => $structureData['uid']]))
-                : new Structure();
-
             $isNewSection = $sectionRecord->getIsNewRecord();
-            $isNewStructure = !(bool)$structure->id;
 
             if ($data['type'] === Section::TYPE_STRUCTURE) {
-                $structure->maxLevels = $structureData['maxLevels'];
+                // Save the structure
+                $structureUid = $data['structure']['uid'];
+                $structure = Craft::$app->getStructures()->getStructureByUid($structureUid, true) ?? new Structure(['uid' => $structureUid]);
+                $isNewStructure = empty($structure->id);
+                $structure->maxLevels = $data['structure']['maxLevels'];
                 Craft::$app->getStructures()->saveStructure($structure);
-
                 $sectionRecord->structureId = $structure->id;
-            } else {
-                /** @noinspection PhpUndefinedVariableInspection */
-                if (!$isNewSection && $structure->id) {
-                    // Delete the old one
-                    Craft::$app->getStructures()->deleteStructureById($structure->id);
-                    $sectionRecord->structureId = null;
-                }
+            } else if (!$isNewSection && $sectionRecord->structureId) {
+                // Delete the old one
+                Craft::$app->getStructures()->deleteStructureById($sectionRecord->structureId);
+                $sectionRecord->structureId = null;
+                $isNewStructure = false;
             }
 
             if ($sectionRecord->dateDeleted) {
@@ -1407,7 +1401,8 @@ class Sections extends Component
         $schemaVersion = Craft::$app->getProjectConfig()->get('system.schemaVersion');
         if (version_compare($schemaVersion, '3.1.19', '>=')) {
             $condition = ['sections.dateDeleted' => null];
-            $joinCondition = ['and',
+            $joinCondition = [
+                'and',
                 $joinCondition,
                 ['structures.dateDeleted' => null]
             ];

@@ -44,16 +44,19 @@
                 <div class="lg:flex">
                     <div class="lg:flex-1 lg:pr-8 lg:mr-4">
                         <div v-if="longDescription" v-html="longDescription" class="readable"></div>
+                        <div v-else-if="plugin.shortDescription" v-html="plugin.shortDescription" class="readable"></div>
                         <p v-else>No description.</p>
                     </div>
                     <div class="lg:pl-8 lg:ml-4">
-                        <ul v-if="plugin.documentationUrl">
+                        <ul>
                             <li v-if="plugin.documentationUrl" class="py-1">
                                 <a :href="plugin.documentationUrl" rel="noopener" target="_blank">
                                     <icon icon="book" />
                                     {{ "Documentation"|t('app') }}
                                 </a>
                             </li>
+
+                            <li><a :href="plugin.repository"><icon icon="link" /> Repository</a></li>
                         </ul>
 
                     </div>
@@ -63,6 +66,14 @@
 
                 <div class="py-8">
                     <plugin-editions :plugin="plugin"></plugin-editions>
+                </div>
+
+                <hr>
+
+                <div class="max-w-sm mx-auto p-8">
+                    <h2 class="mt-0">{{ "Package Name"|t('app') }}</h2>
+                    <p>{{ "Copy the package’s name for this plugin."|t('app') }}</p>
+                    <copy-package :plugin="plugin"></copy-package>
                 </div>
 
                 <hr>
@@ -86,6 +97,10 @@
                     </ul>
                 </div>
 
+                <p>
+                    <a :href="'mailto:issues@craftcms.com?subject=' + encodeURIComponent('Issue with ' + plugin.name) + '&body=' + encodeURIComponent('I would like to report the following issue with '+plugin.name+' (https://plugins.craftcms.com/' + plugin.handle + '):\n\n')">{{ "Report an issue"|t('app') }}</a>
+                </p>
+
                 <hr>
 
                 <plugin-changelog :pluginId="$root.pluginId"></plugin-changelog>
@@ -104,6 +119,7 @@
     import PluginScreenshots from '../../components/PluginScreenshots'
     import PluginEditions from '../../components/PluginEditions'
     import PluginChangelog from '../../components/PluginChangelog'
+    import CopyPackage from '../../components/CopyPackage'
 
     export default {
 
@@ -111,6 +127,7 @@
             PluginScreenshots,
             PluginEditions,
             PluginChangelog,
+            CopyPackage,
         },
 
         data() {
