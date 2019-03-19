@@ -105,6 +105,15 @@ if (document.querySelector('.homepage')) {
 
     new ScrollMagic.Scene({
       triggerElement: this,
+      offset: halfViewHeight,
+      duration: viewHeight
+    })
+      .setPin($(this).find('.header__year-title')[0], {pushFollowers: 0})
+      // .addIndicators()
+      .addTo(controller)
+
+    new ScrollMagic.Scene({
+      triggerElement: this,
       offset: 10,
       duration: viewHeight,
     })
@@ -123,14 +132,16 @@ if (document.querySelector('.homepage')) {
 
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: halfViewHeight,
+      offset: halfViewHeight - halfViewHeight / 2,
+      duration: halfViewHeight + halfViewHeight / 2
     })
       .setClassToggle($(this).find('.header__title')[0], 'fade-in')
       .addTo(controller)
 
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: halfViewHeight,
+      offset: halfViewHeight - halfViewHeight / 2,
+      duration: halfViewHeight + halfViewHeight / 2
     })
       .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
       .addTo(controller)
