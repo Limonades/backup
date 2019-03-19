@@ -91,7 +91,7 @@ if (document.querySelector('.homepage')) {
       // duration: viewHeight + halfViewHeight
     })
       .setTween($(this).find('.header__year-photo'), 0.6, { top: 3 + 'rem' })
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
 
     new ScrollMagic.Scene({
@@ -100,7 +100,7 @@ if (document.querySelector('.homepage')) {
       duration: viewHeight
     })
       .setPin($(this).find('.header__title-wrap')[0])
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
 
     new ScrollMagic.Scene({
@@ -118,7 +118,7 @@ if (document.querySelector('.homepage')) {
       duration: halfViewHeight,
     })
       .setTween($(this).find('.header__title-wrap'), 1, { opacity: 0, backgroundPositionY: '0' })
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
 
     new ScrollMagic.Scene({
@@ -191,7 +191,7 @@ if (document.querySelector('.homepage')) {
       duration: viewHeight
     })
       .setPin($(this).find('.detail__txt-description')[0])
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
 
     new ScrollMagic.Scene({
@@ -200,7 +200,7 @@ if (document.querySelector('.homepage')) {
       duration: viewHeight
     })
       .setPin($(this).find('.detail__photo-description h3')[0])
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
     //
     // TODO text
@@ -274,7 +274,7 @@ if (document.querySelector('.homepage')) {
       duration: this.clientHeight
     })
       .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller)
   })
   // document.querySelectorAll('.detail').forEach((e, i) => {
