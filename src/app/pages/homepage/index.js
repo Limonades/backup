@@ -516,10 +516,10 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 300) {
-          TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+        if (scrollInCurrentPage < 30) {
+          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         } else {
-          TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
+          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         }
       })
     })
@@ -538,11 +538,11 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: 0,
+        offset: halfViewHeight / 2,
         duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
   }
