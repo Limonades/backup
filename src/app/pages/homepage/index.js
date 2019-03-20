@@ -14,485 +14,484 @@ if (document.querySelector('.homepage')) {
   const halfViewHeight = viewHeight / 2
   let activeCoord;
   let lineWidth;
+  const isMobile = (function(a,b){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))window.location=b})(navigator.userAgent||navigator.vendor||window.opera,'http://detectmobilebrowser.com/mobile');
 
-  const moveNavProgress = () => {
-    activeCoord = $('.nav__list-link.--active').position();
-    lineWidth = $('.nav__list-link.--active').width() / 2;
+  if (!isMobile) {
+    const moveNavProgress = () => {
+      activeCoord = $('.nav__list-link.--active').position();
+      lineWidth = $('.nav__list-link.--active').width() / 2;
 
-    $('.nav__progress-bar').css({
-      'width': `${activeCoord.left + lineWidth}px`
+      $('.nav__progress-bar').css({
+        'width': `${activeCoord.left + lineWidth}px`
+      })
+    }
+
+    $(document).ready(function() {
+      moveNavProgress();
     })
-  }
 
-  $(document).ready(function() {
-    moveNavProgress();
-  })
+    $('.nav__list-link').on('mouseenter', function() {
+      activeCoord = $(this).position();
+      lineWidth = $(this).width() / 2;
 
-  $('.nav__list-link').on('mouseenter', function() {
-    activeCoord = $(this).position();
-    lineWidth = $(this).width() / 2;
-
-    $('.nav__progress-bar').css({
-      'width': `${activeCoord.left + lineWidth}px`
+      $('.nav__progress-bar').css({
+        'width': `${activeCoord.left + lineWidth}px`
+      })
     })
-  })
 
-  $('.nav').on('mouseleave', moveNavProgress);
+    $('.nav').on('mouseleave', moveNavProgress);
 
+      // controller.scrollTo(function(newpos) {
+    //   console.log(newpos)
+    //   TweenLite.to(window, 0.5, {scrollTo: {y: newpos}})
+    // })
 
-    // controller.scrollTo(function(newpos) {
-  //   console.log(newpos)
-  //   TweenLite.to(window, 0.5, {scrollTo: {y: newpos}})
-  // })
+    $(document).on('click', '.nav__list-link', function(e) {
+      const id = $(this).attr("href");
+      const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
 
-  $(document).on('click', '.nav__list-link', function(e) {
-    const id = $(this).attr("href");
-    const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
+      // $('html, body').stop().animate({
+      //   scrollTop: offsetTop,
+      // }, 500);
 
-    // $('html, body').stop().animate({
-    //   scrollTop: offsetTop,
-    // }, 500);
-
-
-
-    e.preventDefault();
-
-    if (id.length > 0) {
       e.preventDefault();
 
-      controller.scrollTo(offsetTop);
+      if (id.length > 0) {
+        e.preventDefault();
 
-      // console.log(id)
+        controller.scrollTo(offsetTop);
 
-      if (window.history && window.history.pushState) {
-        history.pushState("", document.title, id)
-      }
+        // console.log(id)
 
-      setTimeout(function() {
-        moveNavProgress();
-      }, 100);
-    }
-  })
+        if (window.history && window.history.pushState) {
+          history.pushState("", document.title, id)
+        }
 
-  // $('.nav__item-link').each(function() {
-  //   new ScrollMagic.Scene({
-  //     triggerElement: this,
-  //   })
-  //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
-  //     .addTo(controller)
-  // })
-
-  // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
-
-  window.addEventListener('wheel', e => {
-    throttle(() => {
-      const delta = Math.sign(e.deltaY)
-      const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-      const currentPage = Math.round(currentHeight / viewHeight)
-      // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-      const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-      // console.log('view height: ', viewHeight)
-      // console.log('current height: ', currentHeight)
-      // console.log('delta', delta)
-      // console.log('currentPage', currentPage)
-      // console.log('nextPage', nextPage)
-      // console.log('scrollInCurrentPage', scrollInCurrentPage)
-      if (scrollInCurrentPage < 300) {
-        TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-      } else {
-        TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
-        moveNavProgress();
+        setTimeout(function() {
+          moveNavProgress();
+        }, 100);
       }
     })
-  })
 
-  const throttle = callback => {
-    const minScrollTime = 600
-    if (!scrollTimer) {
-      scrollTimer = setTimeout(function () {
-        scrollTimer = null
-        callback()
-      }, minScrollTime)
-    }
-  }
+    // $('.nav__item-link').each(function() {
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //   })
+    //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
+    //     .addTo(controller)
+    // })
 
-  $('.header').each(function() {
-    // page 3 Image 1
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      // offset: -halfViewHeight,
-      // duration: viewHeight + halfViewHeight
-    })
-      .setTween($(this).find('.header__year-photo'), 0.6, { top: 3 + 'rem' })
-      // .addIndicators()
-      .addTo(controller)
+    // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setPin($(this).find('.header__title-wrap')[0])
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setPin($(this).find('.header__year-title')[0], {pushFollowers: 0})
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: 0,
-      duration: halfViewHeight,
-    })
-      .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: viewHeight,
-      duration: halfViewHeight,
-    })
-      .setTween($(this).find('.header__title-wrap'), 1, { opacity: 0, backgroundPositionY: '0' })
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
-    })
-      .setClassToggle($(this).find('.header__title')[0], 'fade-in')
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
-    })
-      .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
-      .addTo(controller)
-  })
-
-  $('.detail').each(function() {
-    // console.log($(this))
-    // page 3 Image 1
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      // offset: halfViewHeight,
-      duration: halfViewHeight
-
-    })
-      .setTween($(this).find('.detail__photo'), .6, { top: 3 + 'rem' })
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 4,
-      duration: halfViewHeight + halfViewHeight / 4
-    })
-      .setClassToggle($(this).find('.section-header')[0], 'fade-in')
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      // offset: viewHeight,
-      // duration: halfViewHeight
-    })
-      .setTween($(this).find('.detail__img-bg'), .5, {  opacity: 1, top: 0 })
-      // .addIndicators({ name: '.detail__img-bg' })
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 4,
-      duration: halfViewHeight + halfViewHeight / 4
-    })
-      .setClassToggle($(this).find('.detail__photo-description h3')[0], 'fade-in')
-      // .addIndicators({name: 'fade-in'})
-      .addTo(controller)
-
-    // page 3 txt 2
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 4,
-      duration: halfViewHeight + halfViewHeight / 4
-    })
-      .setClassToggle($(this).find('.detail__txt-description')[0], 'fade-in')
-      // .addIndicators({ name: '.detail__txt-description' })
-      .addTo(controller)
-
-    // TODO text
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight + (halfViewHeight / 2)
-    })
-      .setPin($(this).find('.section-header')[0], {pushFollowers: 0})
-      // .addIndicators({name: 'PIDARASSSSSSSSSS'})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
-      // .addIndicators({name: 'background', indent: 100, color: 'yellow'})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
-      // .addIndicators({name: 'PIDARASSSSSSSSSS'})
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setPin($(this).find('.detail__txt-description')[0])
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight,
-      duration: viewHeight
-    })
-      .setPin($(this).find('.detail__photo-description h3')[0])
-      // .addIndicators()
-      .addTo(controller)
-    //
-  })
-
-  $('.video').each(function() {
-    // page 4 bg
-    new ScrollMagic.Scene({
-      triggerElement: this,
-    })
-      .setTween( $(this).find('.video__content'), 1, {  opacity: 1, left: 0 })
-      // .addIndicators()
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
-    })
-      .setClassToggle($(this).find('.section-header')[0], 'fade-in')
-      .addTo(controller)
-
-    new ScrollMagic.Scene({
-      offset: halfViewHeight,
-      triggerElement: this
-    })
-      .setTween($(this).find('.video__img-bg'), .5, {  opacity: 1, bottom: 0 })
-      // .addIndicators({ name: '.detail__txt-description' })
-      .addTo(controller)
-  })
-
-  $('.slideshow').each(function() {
-    new ScrollMagic.Scene({
-        triggerElement: this,
+    window.addEventListener('wheel', e => {
+      throttle(() => {
+        const delta = Math.sign(e.deltaY)
+        const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+        const currentPage = Math.round(currentHeight / viewHeight)
+        // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+        const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+        // console.log('view height: ', viewHeight)
+        // console.log('current height: ', currentHeight)
+        // console.log('delta', delta)
+        // console.log('currentPage', currentPage)
+        // console.log('nextPage', nextPage)
+        // console.log('scrollInCurrentPage', scrollInCurrentPage)
+        if (scrollInCurrentPage < 300) {
+          TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+        } else {
+          TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
+          moveNavProgress();
+        }
       })
-        .addTo(controller)
-
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight
     })
-      .setClassToggle($(this).find('.section-header')[0], 'fade-in')
-      .addTo(controller)
 
+    const throttle = callback => {
+      const minScrollTime = 600
+      if (!scrollTimer) {
+        scrollTimer = setTimeout(function () {
+          scrollTimer = null
+          callback()
+        }, minScrollTime)
+      }
+    }
+
+    $('.header').each(function() {
+      // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
+        // offset: -halfViewHeight,
+        // duration: viewHeight + halfViewHeight
       })
-        .setTween($(this).find('.slideshow__item.--animated img'), 1, { opacity: 1, objectPosition: 0 })
+        .setTween($(this).find('.header__year-photo'), 0.6, { top: 3 + 'rem' })
+        // .addIndicators()
         .addTo(controller)
 
       new ScrollMagic.Scene({
         triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
       })
-        .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
+        .setPin($(this).find('.header__title-wrap')[0])
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).find('.header__year-title')[0], {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight,
+      })
+        .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: viewHeight,
+        duration: halfViewHeight,
+      })
+        .setTween($(this).find('.header__title-wrap'), 1, { opacity: 0, backgroundPositionY: '0' })
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight + halfViewHeight / 2
+      })
+        .setClassToggle($(this).find('.header__title')[0], 'fade-in')
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight + halfViewHeight / 2
+      })
+        .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
+        .addTo(controller)
+    })
+
+    $('.detail').each(function() {
+      // console.log($(this))
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        // offset: halfViewHeight,
+        duration: halfViewHeight
+
+      })
+        .setTween($(this).find('.detail__photo'), .6, { top: 3 + 'rem' })
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 4,
+        duration: halfViewHeight + halfViewHeight / 4
+      })
+        .setClassToggle($(this).find('.section-header')[0], 'fade-in')
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        // offset: viewHeight,
+        // duration: halfViewHeight
+      })
+        .setTween($(this).find('.detail__img-bg'), .5, {  opacity: 1, top: 0 })
+        // .addIndicators({ name: '.detail__img-bg' })
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 4,
+        duration: halfViewHeight + halfViewHeight / 4
+      })
+        .setClassToggle($(this).find('.detail__photo-description h3')[0], 'fade-in')
+        // .addIndicators({name: 'fade-in'})
+        .addTo(controller)
+
+      // page 3 txt 2
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 4,
+        duration: halfViewHeight + halfViewHeight / 4
+      })
+        .setClassToggle($(this).find('.detail__txt-description')[0], 'fade-in')
         // .addIndicators({ name: '.detail__txt-description' })
         .addTo(controller)
-  })
 
-  $('.year').each(function() {
-    new ScrollMagic.Scene({
-      triggerElement: this,
-      duration: this.clientHeight
+      // TODO text
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight + (halfViewHeight / 2)
+      })
+        .setPin($(this).find('.section-header')[0], {pushFollowers: 0})
+        // .addIndicators({name: 'PIDARASSSSSSSSSS'})
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+        // .addIndicators({name: 'background', indent: 100, color: 'yellow'})
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators({name: 'PIDARASSSSSSSSSS'})
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).find('.detail__txt-description')[0])
+        // .addIndicators()
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).find('.detail__photo-description h3')[0])
+        // .addIndicators()
+        .addTo(controller)
+      //
     })
-      .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
-      // .addIndicators()
-      // // .add(moveNavProgress())
-      .addTo(controller)
-  })
-  // document.querySelectorAll('.detail').forEach((e, i) => {
-  //   console.log(e)
-  //   // page 3 Image 1
-  //   new ScrollMagic.Scene({
-  //     triggerElement: e,
-  //   })
-  //     .setTween(`.detail__photo`, .6, { top: 3 + 'rem' })
-  //     .addIndicators({ name: '.detail__photo' })
-  //     .addTo(controller)
-  //
-  //   new ScrollMagic.Scene({
-  //       triggerElement: e,
-  //     })
-  //       .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
-  //       .addIndicators({ name: '.detail__img-bg' })
-  //       .addTo(controller)
-  // })
 
-  // // page 2 Image 1
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page1',
-  //   offset: halfViewHeight,
-  //   duration: halfViewHeight
-  // })
-  //   .setTween('.page2-image1', 0.5, { y: -halfViewHeight, opacity: 1 })
-  //   .addIndicators({ name: 'page2-image1' })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page2',
-  //   duration: halfViewHeight,
-  // })
-  //   .setPin('.page2-image1')
-  //   .addIndicators({ name: 'page2-image1-pin' })
-  //   .addTo(controller);
-  //
-  // // Page 2 Image 2
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page2',
-  //   offset: halfViewHeight
-  // })
-  //   .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
-  //   .addIndicators({ name: 'page2-image2' })
-  //   .addTo(controller);
-  //
-  // // Page 2 Copy
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page2',
-  //   offset: 250,
-  //   duration: halfViewHeight - 250
-  // })
-  //   .setTween('.page2-copy', 1, { opacity: 1, y: -100 })
-  //   .addIndicators({ name: 'page2-copy' })
-  //   .addTo(controller);
-  //
-  // [...document.querySelectorAll('.page2-pin')].forEach(element => {
-  //   new ScrollMagic.Scene({
-  //     triggerElement: '#page2',
-  //     offset: halfViewHeight,
-  //   })
-  //     .setPin(element)
-  //     .addIndicators({ name: 'page2-pin' })
-  //     .addTo(controller)
-  // });
-  //
-  // // // TODO debug - need to return original position
-  // [...document.querySelectorAll('.page2-pin')].forEach(element => {
-  //   new ScrollMagic.Scene({
-  //     triggerElement: '#page2',
-  //     offset: halfViewHeight * 1.5,
-  //   })
-  //     .setTween(element, 2, { opacity: 0 })
-  //     .addIndicators({ name: 'page2-pin' })
-  //     .removePin(element)
-  //     .addTo(controller)
-  // })
-  //
-  // // page 3 Image 1
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page2',
-  //   offset: viewHeight,
-  // })
-  //   .setTween('.detail__photo', .6, { top: 3 + 'rem' })
-  //   .addIndicators({ name: '.detail__photo' })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page3',
-  //   duration: viewHeight,
-  // })
-  //   .addIndicators({ name: '.detail__photo' })
-  //   .addTo(controller)
-  //
-  // // page 3 Image 2
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page3',
-  //   offset: 250,
-  // })
-  //   .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
-  //   .addIndicators({ name: '.detail__img-bg' })
-  //   .addTo(controller)
-  //
-  // // page 3 txt 1
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page3',
-  //   offset: halfViewHeight - (halfViewHeight / 2),
-  // })
-  //   .setTween('.detail__photo-description h3', 1, {  opacity: 1 })
-  //   .addIndicators({ name: '.detail__photo-description h3' })
-  //   .addTo(controller)
-  //
-  // // page 3 txt 2
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page3',
-  //   offset: halfViewHeight - (halfViewHeight / 2),
-  // })
-  //   .setTween('.detail__txt-description', 1, {  opacity: 1 })
-  //   .addIndicators({ name: '.detail__txt-description' })
-  //   .addTo(controller)
-  //
-  // // page 4 bg
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page4',
-  // })
-  //   .setTween('.video__content', 1, {  opacity: 1, left: 0 })
-  //   .addIndicators({ name: '.detail__txt-description' })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page4',
-  // })
-  //   .setTween('.video__img-bg ', .5, {  opacity: 1, bottom: 0 })
-  //   .addIndicators({ name: '.detail__txt-description' })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page5',
-  // })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page5',
-  // })
-  //   .setTween('.slideshow__item.--animated img', 1, { opacity: 1, objectPosition: 0 })
-  //   .addIndicators({ name: '.detail__txt-description' })
-  //   .addTo(controller)
-  //
-  // new ScrollMagic.Scene({
-  //   triggerElement: '#page5',
-  // })
-  //   .setTween('.slideshow__item.--first', 1, { bottom : 0 })
-  //   .addIndicators({ name: '.detail__txt-description' })
-  //   .addTo(controller)
+    $('.video').each(function() {
+      // page 4 bg
+      new ScrollMagic.Scene({
+        triggerElement: this,
+      })
+        .setTween( $(this).find('.video__content'), 1, {  opacity: 1, left: 0 })
+        // .addIndicators()
+        .addTo(controller)
 
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight + halfViewHeight / 2
+      })
+        .setClassToggle($(this).find('.section-header')[0], 'fade-in')
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        offset: halfViewHeight,
+        triggerElement: this
+      })
+        .setTween($(this).find('.video__img-bg'), .5, {  opacity: 1, bottom: 0 })
+        // .addIndicators({ name: '.detail__txt-description' })
+        .addTo(controller)
+    })
+
+    $('.slideshow').each(function() {
+      new ScrollMagic.Scene({
+          triggerElement: this,
+        })
+          .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight
+      })
+        .setClassToggle($(this).find('.section-header')[0], 'fade-in')
+        .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+        })
+          .setTween($(this).find('.slideshow__item.--animated img'), 1, { opacity: 1, objectPosition: 0 })
+          .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+        })
+          .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
+          // .addIndicators({ name: '.detail__txt-description' })
+          .addTo(controller)
+    })
+
+    $('.year').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        duration: this.clientHeight
+      })
+        .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
+        // .addIndicators()
+        // // .add(moveNavProgress())
+        .addTo(controller)
+    })
+    // document.querySelectorAll('.detail').forEach((e, i) => {
+    //   console.log(e)
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: e,
+    //   })
+    //     .setTween(`.detail__photo`, .6, { top: 3 + 'rem' })
+    //     .addIndicators({ name: '.detail__photo' })
+    //     .addTo(controller)
+    //
+    //   new ScrollMagic.Scene({
+    //       triggerElement: e,
+    //     })
+    //       .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
+    //       .addIndicators({ name: '.detail__img-bg' })
+    //       .addTo(controller)
+    // })
+
+    // // page 2 Image 1
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page1',
+    //   offset: halfViewHeight,
+    //   duration: halfViewHeight
+    // })
+    //   .setTween('.page2-image1', 0.5, { y: -halfViewHeight, opacity: 1 })
+    //   .addIndicators({ name: 'page2-image1' })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page2',
+    //   duration: halfViewHeight,
+    // })
+    //   .setPin('.page2-image1')
+    //   .addIndicators({ name: 'page2-image1-pin' })
+    //   .addTo(controller);
+    //
+    // // Page 2 Image 2
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page2',
+    //   offset: halfViewHeight
+    // })
+    //   .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
+    //   .addIndicators({ name: 'page2-image2' })
+    //   .addTo(controller);
+    //
+    // // Page 2 Copy
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page2',
+    //   offset: 250,
+    //   duration: halfViewHeight - 250
+    // })
+    //   .setTween('.page2-copy', 1, { opacity: 1, y: -100 })
+    //   .addIndicators({ name: 'page2-copy' })
+    //   .addTo(controller);
+    //
+    // [...document.querySelectorAll('.page2-pin')].forEach(element => {
+    //   new ScrollMagic.Scene({
+    //     triggerElement: '#page2',
+    //     offset: halfViewHeight,
+    //   })
+    //     .setPin(element)
+    //     .addIndicators({ name: 'page2-pin' })
+    //     .addTo(controller)
+    // });
+    //
+    // // // TODO debug - need to return original position
+    // [...document.querySelectorAll('.page2-pin')].forEach(element => {
+    //   new ScrollMagic.Scene({
+    //     triggerElement: '#page2',
+    //     offset: halfViewHeight * 1.5,
+    //   })
+    //     .setTween(element, 2, { opacity: 0 })
+    //     .addIndicators({ name: 'page2-pin' })
+    //     .removePin(element)
+    //     .addTo(controller)
+    // })
+    //
+    // // page 3 Image 1
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page2',
+    //   offset: viewHeight,
+    // })
+    //   .setTween('.detail__photo', .6, { top: 3 + 'rem' })
+    //   .addIndicators({ name: '.detail__photo' })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page3',
+    //   duration: viewHeight,
+    // })
+    //   .addIndicators({ name: '.detail__photo' })
+    //   .addTo(controller)
+    //
+    // // page 3 Image 2
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page3',
+    //   offset: 250,
+    // })
+    //   .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
+    //   .addIndicators({ name: '.detail__img-bg' })
+    //   .addTo(controller)
+    //
+    // // page 3 txt 1
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page3',
+    //   offset: halfViewHeight - (halfViewHeight / 2),
+    // })
+    //   .setTween('.detail__photo-description h3', 1, {  opacity: 1 })
+    //   .addIndicators({ name: '.detail__photo-description h3' })
+    //   .addTo(controller)
+    //
+    // // page 3 txt 2
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page3',
+    //   offset: halfViewHeight - (halfViewHeight / 2),
+    // })
+    //   .setTween('.detail__txt-description', 1, {  opacity: 1 })
+    //   .addIndicators({ name: '.detail__txt-description' })
+    //   .addTo(controller)
+    //
+    // // page 4 bg
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page4',
+    // })
+    //   .setTween('.video__content', 1, {  opacity: 1, left: 0 })
+    //   .addIndicators({ name: '.detail__txt-description' })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page4',
+    // })
+    //   .setTween('.video__img-bg ', .5, {  opacity: 1, bottom: 0 })
+    //   .addIndicators({ name: '.detail__txt-description' })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page5',
+    // })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page5',
+    // })
+    //   .setTween('.slideshow__item.--animated img', 1, { opacity: 1, objectPosition: 0 })
+    //   .addIndicators({ name: '.detail__txt-description' })
+    //   .addTo(controller)
+    //
+    // new ScrollMagic.Scene({
+    //   triggerElement: '#page5',
+    // })
+    //   .setTween('.slideshow__item.--first', 1, { bottom : 0 })
+    //   .addIndicators({ name: '.detail__txt-description' })
+    //   .addTo(controller)
+  }
 }
