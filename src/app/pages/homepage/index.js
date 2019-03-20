@@ -503,7 +503,7 @@ if (document.querySelector('.homepage')) {
     const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     // const halfViewHeight = viewHeight / 2
 
-    window.addEventListener('wheel', e => {
+    window.addEventListener('scroll', e => {
       throttle(() => {
         const delta = Math.sign(e.deltaY)
         const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
@@ -538,8 +538,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        // offset: -halfViewHeight,
-        // duration: viewHeight + halfViewHeight
+        offset: 0,
+        duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
         .addIndicators()

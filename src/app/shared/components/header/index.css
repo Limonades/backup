@@ -156,6 +156,10 @@
   & .header__title-wrap {
     opacity: 1;
     width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
   }
 
   & .header__title {
@@ -179,9 +183,13 @@
   }
 
   & .header__year-photo {
-    top: 0;
     width: 30rem;
     height: 40rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
 
   & .header__year-wrap {
@@ -201,17 +209,9 @@
 
   & .header__year-photo {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
   }
 
   & .header__title-wrap {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
   }
 }
