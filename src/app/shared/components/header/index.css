@@ -121,6 +121,7 @@
     transition: opacity 2s ease;
     font-family: var(--italic-title-font);
     font-style: italic;
+    padding-right: 16px;
 
     @media screen and (max-width: 768px) {
       position: static;

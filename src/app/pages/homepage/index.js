@@ -145,11 +145,10 @@ if (document.querySelector('.homepage')) {
       // .addIndicators()
       .addTo(controller)
 
-    // TODO opacity 1 onload
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: 10,
-      duration: viewHeight,
+      offset: 0,
+      duration: halfViewHeight,
     })
       .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
       // .addIndicators()
@@ -196,8 +195,8 @@ if (document.querySelector('.homepage')) {
 
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
+      offset: halfViewHeight - halfViewHeight / 4,
+      duration: halfViewHeight + halfViewHeight / 4
     })
       .setClassToggle($(this).find('.section-header')[0], 'fade-in')
       .addTo(controller)
@@ -213,21 +212,49 @@ if (document.querySelector('.homepage')) {
 
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
+      offset: halfViewHeight - halfViewHeight / 4,
+      duration: halfViewHeight + halfViewHeight / 4
     })
       .setClassToggle($(this).find('.detail__photo-description h3')[0], 'fade-in')
-      // .addIndicators({ name: '.detail__photo-description h3' })
+      // .addIndicators({name: 'fade-in'})
       .addTo(controller)
 
     // page 3 txt 2
     new ScrollMagic.Scene({
       triggerElement: this,
-      offset: halfViewHeight - halfViewHeight / 2,
-      duration: halfViewHeight + halfViewHeight / 2
+      offset: halfViewHeight - halfViewHeight / 4,
+      duration: halfViewHeight + halfViewHeight / 4
     })
       .setClassToggle($(this).find('.detail__txt-description')[0], 'fade-in')
       // .addIndicators({ name: '.detail__txt-description' })
+      .addTo(controller)
+
+    // TODO text
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      offset: halfViewHeight,
+      duration: viewHeight + (halfViewHeight / 2)
+    })
+      .setPin($(this).find('.section-header')[0], {pushFollowers: 0})
+      // .addIndicators({name: 'PIDARASSSSSSSSSS'})
+      .addTo(controller)
+
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      offset: halfViewHeight,
+      duration: viewHeight
+    })
+      .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+      // .addIndicators({name: 'background', indent: 100, color: 'yellow'})
+      .addTo(controller)
+
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      offset: halfViewHeight,
+      duration: viewHeight
+    })
+      .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+      // .addIndicators({name: 'PIDARASSSSSSSSSS'})
       .addTo(controller)
 
     new ScrollMagic.Scene({
@@ -248,15 +275,6 @@ if (document.querySelector('.homepage')) {
       // .addIndicators()
       .addTo(controller)
     //
-    // TODO text
-    // new ScrollMagic.Scene({
-    //   triggerElement: this,
-    //   offset: halfViewHeight,
-    //   duration: viewHeight
-    // })
-    //   .setPin($(this).find('.section-header')[0])
-    //   .addIndicators()
-    //   .addTo(controller)
   })
 
   $('.video').each(function() {
@@ -320,7 +338,7 @@ if (document.querySelector('.homepage')) {
     })
       .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
       // .addIndicators()
-      // .add(moveNavProgress())
+      // // .add(moveNavProgress())
       .addTo(controller)
   })
   // document.querySelectorAll('.detail').forEach((e, i) => {

@@ -2,11 +2,12 @@
     {% include "/shared/functions/addImage.twig" with {
     'image': block.backgroundImage[0],
     'bgImage': true,
-    'selector': '.detail--'~year.title~loop.index,
+    'selector': '.detail__bg--'~year.title~loop.index,
     'format':block.backgroundImage[0].extension
     } %}
 {% endif %}
-<section class="page detail detail--{{ year.title~loop.index }}" id="">
+<section class="page detail" id="">
+    <div class="detail__bg detail__bg--{{ year.title~loop.index }}"></div>
     <div class="copy detail__copy" style="opacity: 1;">
 
         <div class="section-header">
