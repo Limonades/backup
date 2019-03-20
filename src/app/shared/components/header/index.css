@@ -25,12 +25,12 @@
     display: flex;
     padding: 0 !important;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       position: relative;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
+    } */
   }
 
   &__year-wrap {
@@ -43,10 +43,10 @@
     background-size: cover;
     background-position: center;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       width: 100%;
       position: static;
-    }
+    } */
   }
 
   &__title-wrap {
@@ -61,11 +61,11 @@
     height: 100%;
     z-index: 100;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       width: 100%;
       height: auto;
       z-index: 2;
-    }
+    } */
   }
 
   &__title {
@@ -77,6 +77,15 @@
     transition: opacity 2s ease;
     font-family: var(--italic-title-font);
     font-style: italic;
+
+    &.--mobile {
+      opacity: 1;
+      z-index: 1;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__year-photo {
@@ -88,14 +97,14 @@
     top: 50rem;
     position: relative;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       width: 220px;
       height: 300px;
       position: absolute;
       top: 50% !important;
       left: 50%;
       transform: translate(-50%, -50%);
-    }
+    } */
 
     & img {
       max-height: 100%;
@@ -123,9 +132,86 @@
     font-style: italic;
     padding-right: 16px;
 
-    @media screen and (max-width: 768px) {
+    &.--mobile {
+      position: static;
+      opacity: 1;
+      z-index: 1;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* @media screen and (max-width: 768px) {
       position: static;
       z-index: 2;
+    } */
+  }
+}
+
+.header.--mobile {
+  min-height: 100vh;
+  height: auto !important;
+
+  & .header__title-wrap {
+    opacity: 1;
+    width: 100%;
+  }
+
+  & .header__title {
+    display: none;
+
+    &.--mobile {
+      display: flex;
     }
+  }
+
+  & .header__year-title {
+    display: none;
+
+    &.--mobile {
+      display: flex;
+    }
+  }
+
+  & .header__copy {
+    flex-direction: column;
+  }
+
+  & .header__year-photo {
+    top: 0;
+    width: 30rem;
+    height: 40rem;
+  }
+
+  & .header__year-wrap {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0;
+  }
+}
+
+.header.--mobile.--fixed {
+  & .header__year-wrap {
+    position: static;
+  }
+
+  & .header__year-photo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  & .header__title-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 }
