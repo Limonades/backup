@@ -17,7 +17,7 @@ return [
         'securityKey' => getenv('SECURITY_KEY'),
         'useProjectConfigFile' => true,
         'allowUpdates' => false,
-        'siteUrl' => 'http://alternahaircare.com'
+        'siteUrl' => 'https://alternahaircare.com'
     ],
 
     // Dev environment settings
@@ -31,19 +31,19 @@ return [
     'qa' => [
         'devMode' => true,
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://haircare-qa.us-east-1.elasticbeanstalk.com'
+        'siteUrl' => 'https://qa.alternahaircare.com'
     ],
 
     // Staging environment settings
     'staging' => [
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://haircare-staging.us-east-1.elasticbeanstalk.com'
+        'siteUrl' => 'https://staging.alternahaircare.com'
     ],
 
     // Production environment settings
     'production' => [
         'allowAdminChanges' => true,
-        'siteUrl' => 'http://haircare-production.us-east-1.elasticbeanstalk.com'
+        'siteUrl' => 'https://prod.alternahaircare.com'
     ],
 ];
 
