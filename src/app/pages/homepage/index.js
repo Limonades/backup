@@ -579,7 +579,8 @@ if (document.querySelector('.homepage')) {
 
     let scrollTimer
     const controller = new ScrollMagic.Controller()
-    const viewHeight = $('.slideshow').height();
+    // const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    const viewHeight = $('.slideshow').height() || $('.video') || Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     // const halfViewHeight = viewHeight / 2
 
     window.addEventListener('scroll', e => {
@@ -595,16 +596,18 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 1000) {
-          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
+        TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
+
+        if (scrollInCurrentPage < 2000) {
+          TweenLite.to(window, .4, { scrollTo: currentPage * viewHeight })
         } else {
-          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
+          TweenLite.to(window, .4, { scrollTo: currentPage * viewHeight })
         }
       })
     })
 
     const throttle = callback => {
-      const minScrollTime = 600
+      const minScrollTime = 400
       if (!scrollTimer) {
         scrollTimer = setTimeout(function () {
           scrollTimer = null
@@ -617,7 +620,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight / 2,
+        offset: halfViewHeight - 30,
         duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
