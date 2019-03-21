@@ -95,6 +95,7 @@
   &__social {
     width: 100%;
     min-height: 120px;
+    flex-shrink: 0;
     padding: 4rem 0;
     display: flex;
     justify-content: center;

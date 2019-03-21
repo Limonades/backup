@@ -128,3 +128,38 @@
 .fade-in {
   opacity: 1 !important;
 }
+
+.logo {
+  position: fixed;
+  z-index: 50;
+  bottom: 2rem;
+  left: 2rem;
+  width: 6rem;
+}
+
+.menu-social {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+
+  & img {
+    height: 2rem;
+  }
+
+  &__item {
+    margin: 0 2.1rem;
+  }
+}
+
+.homepage.--mobile {
+  & .logo {
+    display: none;
+  }
+
+  & .menu__social {
+    display: none;
+  }
+}
