@@ -120,7 +120,7 @@
 
   & .detail__bg {
     opacity: 1;
-    background-attachment: fixed;
+    height: 100vh;
   }
 
   & .detail__content {
