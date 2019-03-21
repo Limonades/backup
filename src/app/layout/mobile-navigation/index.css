@@ -54,6 +54,7 @@
     max-width: 412px;
     margin: 0 auto;
     height: auto;
+    max-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;

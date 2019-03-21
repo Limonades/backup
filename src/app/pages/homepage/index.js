@@ -595,7 +595,7 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 900) {
+        if (scrollInCurrentPage < 1000) {
           TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         } else {
           TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
