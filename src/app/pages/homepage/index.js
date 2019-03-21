@@ -560,7 +560,7 @@ if (document.querySelector('.homepage')) {
 
     let scrollTimer
     const controller = new ScrollMagic.Controller()
-    const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    const viewHeight = $('.slideshow').height();
     // const halfViewHeight = viewHeight / 2
 
     window.addEventListener('scroll', e => {
