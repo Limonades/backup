@@ -163,11 +163,23 @@
     position: absolute;
   }
 
+  & .header__video-bg-wrap {
+    display: none;
+  }
+
   & .header__title {
     display: none;
 
     &.--mobile {
       display: flex;
+      padding: 0 10px;
+      max-width: 430px;
+      margin: 0 auto;
+
+      @media (--notTablet) {
+        font-size: 4.4rem;
+        line-height: 4.4rem;
+      }
     }
   }
 
@@ -176,6 +188,12 @@
 
     &.--mobile {
       display: flex;
+      padding: 0 10px;
+
+      @media (--notTablet) {
+        font-size: 4.4rem;
+        line-height: 4.4rem;
+      }
     }
   }
 
