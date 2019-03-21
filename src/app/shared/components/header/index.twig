@@ -22,9 +22,24 @@
                 {#</div>#}
             {#endif video anchor#}
 
-                {% if block.anchorImage | length %}
+                {#{% if block.anchorImage | length %}#}
+                    {#{% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'header__year-photo' , 'format':block.anchorImage[0].extension } %}#}
+                {#{% endif %}#}
+
+            {% if block.anchorImage | length %}
+
+                {% if block.anchorImage[0].kind == 'video' %}
+                    <div class="header__video-bg-wrap">
+                        <video muted loop autoplay class="header__video-bg">
+                            <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                {% elseif block.anchorImage[0].kind == 'image' %}
                     {% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'header__year-photo' , 'format':block.anchorImage[0].extension } %}
                 {% endif %}
+
+            {% endif %}
 
             <h2 class="header__year-title">
                 {{ year.title }}

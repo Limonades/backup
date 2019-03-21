@@ -38,8 +38,24 @@
                     {#</div>#}
                 {#endif video anchor#}
 
+                {#{% if block.anchorImage | length %}#}
+                    {#{% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'detail__photo' , 'format':block.anchorImage[0].extension } %}#}
+                {#{% endif %}#}
+
                 {% if block.anchorImage | length %}
-                    {% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'detail__photo' , 'format':block.anchorImage[0].extension } %}
+
+                    {% if block.anchorImage[0].kind == 'video' %}
+                        <div class="detail__video-bg-wrap">
+                            <video muted loop autoplay class="detail__video-bg">
+                                <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    {% elseif block.anchorImage[0].kind == 'image' %}
+
+                        {% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'detail__photo' , 'format':block.anchorImage[0].extension } %}
+
+                    {% endif %}
                 {% endif %}
             </div>
 

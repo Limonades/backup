@@ -107,5 +107,11 @@
 
   & .video__description {
     width: 100%;
+    text-align: center;
+
+    & h3 {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
   }
 }

@@ -502,6 +502,7 @@ if (document.querySelector('.homepage')) {
     $('.detail').addClass('--mobile');
     $('.video').addClass('--mobile');
     $('.slideshow').addClass('--mobile');
+    $('.homepage').addClass('--mobile');
 
     var getMax = function() {
       return $(document).height() - $(window).height();
@@ -558,6 +559,24 @@ if (document.querySelector('.homepage')) {
       });
     }
 
+    $(document).on('click', '.mobile-menu__list-link', function(e) {
+      const id = $(this).attr("href");
+      const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
+
+      e.preventDefault();
+
+      if (id.length > 0) {
+
+        controller.scrollTo(offsetTop);
+
+        // console.log(id)
+
+        if (window.history && window.history.pushState) {
+          history.pushState("", document.title, id)
+        }
+      }
+    })
+
     let scrollTimer
     const controller = new ScrollMagic.Controller()
     const viewHeight = $('.slideshow').height();
@@ -576,7 +595,7 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 900) {
+        if (scrollInCurrentPage < 300) {
           TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         } else {
           TweenLite.to(window, .2, { scrollTo: nextPage * viewHeight })
