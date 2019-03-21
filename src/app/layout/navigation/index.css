@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables';
+
 .nav {
   position: fixed;
   top: 0;
@@ -72,11 +74,15 @@
 }
 
 ::-webkit-scrollbar {
-  display: none;
+  @media (--desktop) {
+    display: none;
+  }
 }
 
 ::-webkit-scrollbar-thumb {
-  display: none;
+  @media (--desktop) {
+    display: none;
+  }
 }
 
 progress {
