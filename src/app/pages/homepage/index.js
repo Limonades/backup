@@ -587,7 +587,7 @@ if (document.querySelector('.homepage')) {
         const delta = Math.sign(e.deltaY)
         const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
         const currentPage = Math.round(currentHeight / viewHeight)
-        const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+        // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
         const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
         // console.log('view height: ', viewHeight)
         // console.log('current height: ', currentHeight)
@@ -595,10 +595,10 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 300) {
+        if (scrollInCurrentPage < 900) {
           TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         } else {
-          TweenLite.to(window, .2, { scrollTo: nextPage * viewHeight })
+          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
         }
       })
     })
