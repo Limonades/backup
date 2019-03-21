@@ -496,7 +496,67 @@ if (document.querySelector('.homepage')) {
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
   } else {
+    $('.nav').addClass('--mobile');
+    $('progress').addClass('--mobile');
     $('.header').addClass('--mobile');
+    $('.detail').addClass('--mobile');
+    $('.video').addClass('--mobile');
+    $('.slideshow').addClass('--mobile');
+
+    var getMax = function() {
+      return $(document).height() - $(window).height();
+    }
+
+    var getValue = function() {
+      return $(window).scrollTop();
+    }
+
+    if ('max' in document.createElement('progress')) {
+      var progressBar = $('progress');
+
+      progressBar.attr({
+        max: getMax()
+      });
+
+      $(document).on('scroll', function() {
+        progressBar.attr({
+          value: getValue()
+        });
+      });
+
+      $(window).resize(function() {
+
+        progressBar.attr({
+          max: getMax(),
+          value: getValue()
+        });
+      });
+
+    } else {
+      var max = getMax(),
+        value, width;
+
+      var getWidth = function() {
+
+        value = getValue();
+        width = (value / max) * 100;
+        width = width + '%';
+        return width;
+      }
+
+      var setWidth = function() {
+        progressBar.css({
+          width: getWidth()
+        });
+      }
+
+      $(document).on('scroll', setWidth);
+      $(window).on('resize', function() {
+
+        max = getMax();
+        setWidth();
+      });
+    }
 
     let scrollTimer
     const controller = new ScrollMagic.Controller()
@@ -545,5 +605,18 @@ if (document.querySelector('.homepage')) {
         // .addIndicators()
         .addTo(controller)
     })
+
+    $('.detail').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight / 2,
+        duration: $(this).height()
+      })
+        .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
   }
 }
+

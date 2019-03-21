@@ -1,19 +1,19 @@
 .slideshow {
   &__copy {
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       padding: 0 !important;
-    }
+    } */
   }
 
   &__title {
     margin-bottom: 2.5rem;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       text-align: center;
       font-size: 24px;
       letter-spacing: 0.2px;
       line-height: 26px;
-    }
+    } */
   }
 
   &__container {
@@ -21,12 +21,12 @@
     justify-content: space-between;
     overflow-y: scroll;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       flex-direction: column;
       align-items: center;
       overflow: scroll;
       height: 45vh;
-    }
+    } */
   }
 
   &__item-photo {
@@ -47,9 +47,9 @@
     width: 32%;
     flex-shrink: 0;
 
-    @media screen and (max-width: 768px) {
+    /* @media screen and (max-width: 768px) {
       margin: 0;
-    }
+    } */
 
     &.--first {
       position: relative;
@@ -57,9 +57,9 @@
     }
 
     &.--animated {
-      @media screen and (max-width: 768px) {
+      /* @media screen and (max-width: 768px) {
         display: none;
-      }
+      } */
 
       & img {
         opacity: 0;
@@ -73,6 +73,17 @@
     color: white;
     text-align: center;
   }
+
+  &__expand-btn-wrap {
+    display: none;
+  }
+
+  &__close-btn-wrap {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+  }
 }
 
 .button__plus {
@@ -85,11 +96,12 @@
   color: #ffffff;
   outline: 0;
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     display: block;
-  }
+  } */
 }
 
+/*
 .pintool {
   height: 22px;
   width: 215px;
@@ -103,5 +115,165 @@
 
   @media screen and (max-width: 768px) {
     display: block;
+  }
+}
+*/
+
+.slideshow.--mobile {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+  }
+
+  &.--expanded {
+    &::after {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    & .slideshow__close-btn-wrap {
+      display: block;
+      z-index: 20;
+    }
+  }
+
+  & .section-header {
+    display: none;
+  }
+
+  & .copy.slideshow__copy {
+    padding: 10vh 0 0 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .slideshow__item.--first {
+    bottom: 0;
+  }
+
+  & .slideshow__item.--animated img {
+    opacity: 1;
+    object-position: center;
+  }
+
+  & .slideshow__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    height: 100vh;
+  }
+
+  & .slideshow__item {
+    margin-right: 0;
+    margin-bottom: 3rem;
+    width: 30rem;
+
+    &:not(.--first) {
+      display: none;
+    }
+  }
+
+  & .slideshow__item-txt {
+    display: none;
+  }
+
+  & .slideshow__item-photo {
+    width: 100%;
+    height: 40rem;
+  }
+
+  & .slideshow__title {
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  & .slideshow__expand-btn-wrap {
+    display: block;
+  }
+
+  & .slideshow__expand-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+
+    &.--open {
+      color: white;
+
+      & p {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+    }
+
+    &.--close {
+      display: none;
+
+      & p {
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 1px;
+          width: 100%;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.plus-minus {
+  height: 4px;
+  position: relative;
+  width: 28px;
+
+  &::before,
+  &::after {
+    background: white;
+    content: '';
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+    transition: transform 500ms ease;
+  }
+
+  &::after {
+    transform-origin: center;
+  }
+
+  &.collapsed {
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.close {
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(135deg);
+    }
   }
 }

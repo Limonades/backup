@@ -7,6 +7,9 @@
     } %}
 {% endif %}
 <section class="page slideshow slideshow--{{ year.title~loop.index }}" id="page5">
+    <div class="slideshow__close-btn-wrap">
+        <div class="plus-minus close"></div>
+    </div>
     <div class="copy slideshow__copy" style="opacity: 1;">
 
         <div class="section-header">
@@ -38,9 +41,22 @@
                         </p>
                     </div>
                 {% endfor %}
-                <p class="pintool">Click to expand below</p>
-                <button class="button__plus">+</button>
+                {#<p class="pintool">Click to expand below</p>#}
+                {#<button class="button__plus">+</button>#}
             {% endif %}
+            <div class="slideshow__expand-btn-wrap">
+                <div class="slideshow__expand-btn --open">
+                    <p>
+                        Click to expand below
+                    </p>
+                    <div class="plus-minus collapsed"></div>
+                </div>
+                <div class="slideshow__expand-btn --close">
+                    <p>
+                        close
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

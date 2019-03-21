@@ -5,6 +5,10 @@
   width: 100%;
   z-index: 100;
 
+  &.--mobile {
+    display: none;
+  }
+
   &__list {
     display: flex;
     justify-content: space-between;
@@ -67,7 +71,6 @@
   }
 }
 
-/**
 ::-webkit-scrollbar {
   display: none;
 }
@@ -77,6 +80,7 @@
 }
 
 progress {
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -88,7 +92,11 @@ progress {
   border: none;
   background-color: transparent;
   color: white;
-  z-index: 10;
+  z-index: 50;
+
+  &.--mobile {
+    display: block;
+  }
 }
 
 progress::-webkit-progress-bar {
@@ -124,4 +132,3 @@ progress::-moz-progress-bar {
   height: inherit;
   z-index: 10;
 }
-**/
