@@ -132,7 +132,7 @@
   }
 
   &.--expanded {
-    z-index: 101;
+    z-index: 101 !important;
 
     &::after {
       background-color: rgba(0, 0, 0, 0.8);
