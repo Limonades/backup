@@ -583,26 +583,27 @@ if (document.querySelector('.homepage')) {
     const viewHeight = $('.slideshow').height() || $('.video') || Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     // const halfViewHeight = viewHeight / 2
 
-    window.addEventListener('scroll', e => {
+    window.addEventListener('scroll', () => {
       throttle(() => {
-        const delta = Math.sign(e.deltaY)
+        // const delta = Math.sign(e.deltaY)
         const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
         const currentPage = Math.round(currentHeight / viewHeight)
         // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-        const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+        // const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+        // console.log(currentHeight % viewHeight)
         // console.log('view height: ', viewHeight)
         // console.log('current height: ', currentHeight)
         // console.log('delta', delta)
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
+        TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
 
-        if (scrollInCurrentPage < 1000) {
-          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
-        } else {
-          TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
-        }
+        // if (scrollInCurrentPage < 50) {
+        //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
+        // } else {
+        //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
+        // }
       })
     })
 

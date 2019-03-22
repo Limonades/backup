@@ -6,7 +6,6 @@
     background-size: cover !important;
     color: white;
     position: relative;
-    z-index: 10;
 
     & .copy {
       padding: 20rem 2rem 0;
@@ -162,5 +161,9 @@
 
   & .menu-social {
     display: none;
+  }
+
+  & section.page {
+    z-index: 10;
   }
 }
