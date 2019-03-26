@@ -9,7 +9,7 @@ import MobileDetect from 'mobile-detect/mobile-detect.min'
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
-  let scrollTimer
+  // let scrollTimer
   const controller = new ScrollMagic.Controller()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
@@ -85,37 +85,57 @@ if (document.querySelector('.homepage')) {
 
     // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
+    // window.addEventListener('wheel', e => {
+    //   throttle(() => {
+    //     const delta = Math.sign(e.deltaY)
+    //     const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+    //     const currentPage = Math.round(currentHeight / viewHeight)
+    //     // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+    //     const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+    //     // console.log('view height: ', viewHeight)
+    //     // console.log('current height: ', currentHeight)
+    //     // console.log('delta', delta)
+    //     // console.log('currentPage', currentPage)
+    //     // console.log('nextPage', nextPage)
+    //     // console.log('scrollInCurrentPage', scrollInCurrentPage)
+    //     if (scrollInCurrentPage < 300) {
+    //       TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+    //     } else {
+    //       TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
+    //       moveNavProgress();
+    //     }
+    //   })
+    // })
+
     window.addEventListener('wheel', e => {
-      throttle(() => {
-        const delta = Math.sign(e.deltaY)
-        const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-        const currentPage = Math.round(currentHeight / viewHeight)
-        // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-        const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-        // console.log('view height: ', viewHeight)
-        // console.log('current height: ', currentHeight)
-        // console.log('delta', delta)
-        // console.log('currentPage', currentPage)
-        // console.log('nextPage', nextPage)
-        // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 300) {
-          TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-        } else {
-          TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
-          moveNavProgress();
-        }
-      })
+      const delta = Math.sign(e.deltaY)
+      const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+      const currentPage = Math.round(currentHeight / viewHeight)
+      // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+      const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+      // console.log('view height: ', viewHeight)
+      // console.log('current height: ', currentHeight)
+      // console.log('delta', delta)
+      // console.log('currentPage', currentPage)
+      // console.log('nextPage', nextPage)
+      // console.log('scrollInCurrentPage', scrollInCurrentPage)
+      if (scrollInCurrentPage < 300) {
+        TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+      } else {
+        TweenLite.to(window, 0.5, { scrollTo: currentPage * viewHeight })
+        moveNavProgress();
+      }
     })
 
-    const throttle = callback => {
-      const minScrollTime = 600
-      if (!scrollTimer) {
-        scrollTimer = setTimeout(function () {
-          scrollTimer = null
-          callback()
-        }, minScrollTime)
-      }
-    }
+    // const throttle = callback => {
+    //   const minScrollTime = 600
+    //   if (!scrollTimer) {
+    //     scrollTimer = setTimeout(function () {
+    //       scrollTimer = null
+    //       callback()
+    //     }, minScrollTime)
+    //   }
+    // }
 
     $('.header').each(function() {
       // page 3 Image 1
