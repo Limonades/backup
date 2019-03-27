@@ -73,18 +73,6 @@
   }
 }
 
-::-webkit-scrollbar {
-  @media (--desktop) {
-    display: none;
-  }
-}
-
-::-webkit-scrollbar-thumb {
-  @media (--desktop) {
-    display: none;
-  }
-}
-
 progress {
   display: none;
   position: fixed;
