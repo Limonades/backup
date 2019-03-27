@@ -141,3 +141,9 @@
     url('/fonts/TheanoDidot-Regular.svg#webfont') format('svg');
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Didot';
+  src: url('/fonts/Didot-Italic-02.ttf') format('truetype');
+  font-style: italic;
+}
