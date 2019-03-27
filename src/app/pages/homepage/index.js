@@ -359,7 +359,8 @@ if (document.querySelector('.homepage')) {
       })
         .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
         // .addIndicators()
-        // // .add(moveNavProgress())
+        // .add(moveNavProgress())
+        .on('end', moveNavProgress)
         .addTo(controller)
     })
     // document.querySelectorAll('.detail').forEach((e, i) => {
