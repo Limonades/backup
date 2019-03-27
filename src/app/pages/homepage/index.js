@@ -670,10 +670,48 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight - 30,
+        offset: halfViewHeight,
         duration: $(this).height()
       })
-        .setClassToggle(this, '--fixed')
+        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail__txt-description').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin(this, {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail__txt-description').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight + 100,
+        duration: viewHeight*2 - 100
+      })
+        .setClassToggle(this, '--bg')
         // .addIndicators()
         .addTo(controller)
     })
