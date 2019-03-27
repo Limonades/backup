@@ -20,11 +20,19 @@
 
   &__title {
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
     position: absolute;
     left: 0;
-    top: 20px;
+    top: 3rem;
     width: 250px;
+    visibility: hidden;
+    line-height: 2.1rem;
+
+    &.--reverse {
+      right: 0;
+      left: unset;
+      text-align: right;
+    }
   }
 
   &__list-link {
@@ -34,16 +42,18 @@
     letter-spacing: 0.2px;
     line-height: 24px;
     text-decoration: none;
-    transition: opacity 1s ease;
+    transition: opacity 0.6s ease;
     opacity: 0.2;
     position: relative;
     display: inline-block;
+    padding-bottom: 1.8rem;
 
     &:hover {
       opacity: 1;
 
       & .nav__title {
         opacity: 1;
+        visibility: visible;
       }
     }
 

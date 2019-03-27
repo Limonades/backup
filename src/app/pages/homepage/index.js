@@ -16,12 +16,16 @@ if (document.querySelector('.homepage')) {
   let activeCoord;
   let lineWidth;
 
+  // no desktop
   const md = new MobileDetect(window.navigator.userAgent);
 
   if (!md.mobile()) {
+    const activeNavItem = '.nav__list-link.--active';
+
+    // nav progress bar movements
     const moveNavProgress = () => {
-      activeCoord = $('.nav__list-link.--active').position();
-      lineWidth = $('.nav__list-link.--active').width() / 2;
+      activeCoord = $(activeNavItem).position();
+      lineWidth = $(activeNavItem).width() / 2;
 
       $('.nav__progress-bar').css({
         'width': `${activeCoord.left + lineWidth}px`
@@ -29,7 +33,19 @@ if (document.querySelector('.homepage')) {
     }
 
     $(document).ready(function() {
+      let navTitlePosition;
+      const windowWidth = $(window).width();
+
       moveNavProgress();
+
+      // to avoid nav title go out the page
+      $('.nav__title').each(function() {
+        navTitlePosition = $(this).offset().left;
+
+        if (windowWidth - navTitlePosition < 250) {
+          $(this).addClass('--reverse');
+        }
+      })
     })
 
     $('.nav__list-link').on('mouseenter', function() {
@@ -360,7 +376,7 @@ if (document.querySelector('.homepage')) {
         .setClassToggle($(`.nav__list-link.${this.id}`)[0], '--active')
         // .addIndicators()
         // .add(moveNavProgress())
-        .on('end', moveNavProgress)
+        .on('start end', moveNavProgress)
         .addTo(controller)
     })
     // document.querySelectorAll('.detail').forEach((e, i) => {
