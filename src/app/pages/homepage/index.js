@@ -697,7 +697,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight,
-        duration: viewHeight
+        duration: viewHeight * 2
       })
         .setPin(this, {pushFollowers: 0})
         // .addIndicators()

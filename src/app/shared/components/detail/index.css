@@ -139,6 +139,7 @@
   & .detail__bg {
     opacity: 1;
     height: 100vh;
+    top: 0 !important;
   }
 
   & .detail__content {
