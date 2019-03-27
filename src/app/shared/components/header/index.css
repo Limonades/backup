@@ -232,13 +232,13 @@
   }
 
   & .header__year-photo {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     margin: auto;
     opacity: 1;
   }
 
   & .header__title-wrap {
-    position: fixed;
+    /* position: fixed; */
   }
 }

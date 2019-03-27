@@ -221,7 +221,7 @@
 
 .detail.--mobile.--fixed {
   & .detail__photo {
-    position: fixed;
+    /* position: fixed; */
     margin: auto;
     top: 0;
     z-index: -1;
@@ -229,6 +229,6 @@
   }
 
   & .detail__bg {
-    position: fixed;
+    /* position: fixed; */
   }
 }
