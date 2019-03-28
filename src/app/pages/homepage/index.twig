@@ -66,31 +66,42 @@
             <img src="/assets/logo-white.png" alt="">
         </div>
 
-        <ul class="menu-social">
-            <li class="menu-social__item">
-                <a class="menu-social__link" href="" target="_blank">
-                    <img src="/assets/iconmonstr-facebook-1-white.svg" alt="social-logo">
-                </a>
-            </li>
+        {% if socialMedia.socialMedia | length %}
 
-            <li class="menu-social__item">
-                <a class="menu-social__link" href="" target="_blank">
-                    <img src="/assets/iconmonstr-twitter-1-white.svg" alt="social-logo">
-                </a>
-            </li>
+            {% set medialLinks = socialMedia.socialMedia[0] %}
 
-            <li class="menu-social__item">
-                <a class="menu-social__link" href="" target="_blank">
-                    <img src="/assets/iconmonstr-instagram-11-white.svg" alt="social-logo">
-                </a>
-            </li>
+            <ul class="menu-social">
+                {% if medialLinks.facebook | length %}
+                    <li class="menu-social__item">
+                        <a class="menu-social__link" href="{{ medialLinks.facebook }}" target="_blank">
+                            <img src="/assets/iconmonstr-facebook-1-white.svg" alt="social-logo">
+                        </a>
+                    </li>
+                {% endif %}
+                {% if medialLinks.twitter | length %}
+                    <li class="menu-social__item">
+                        <a class="menu-social__link" href="{{ medialLinks.twitter }}" target="_blank">
+                            <img src="/assets/iconmonstr-twitter-1-white.svg" alt="social-logo">
+                        </a>
+                    </li>
+                {% endif %}
 
-            <li class="menu-social__item">
-                <a class="menu-social__link" href="" target="_blank">
-                    <img src="/assets/iconfinder_pinterest_306183-white.svg" alt="social-logo">
-                </a>
-            </li>
-        </ul>
+                {% if medialLinks.instagram | length %}
+                    <li class="menu-social__item">
+                        <a class="menu-social__link" href="{{ medialLinks.instagram }}" target="_blank">
+                            <img src="/assets/iconmonstr-instagram-11-white.svg" alt="social-logo">
+                        </a>
+                    </li>
+                {% endif %}
+                {% if medialLinks.pinterest | length %}
+                    <li class="menu-social__item">
+                        <a class="menu-social__link" href="{{ medialLinks.pinterest }}" target="_blank">
+                            <img src="/assets/iconfinder_pinterest_306183-white.svg" alt="social-logo">
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
 
             {#{% include 'shared/components/slideshow/index.twig' %}#}
 
