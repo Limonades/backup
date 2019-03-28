@@ -140,6 +140,7 @@
     opacity: 1;
     height: 100vh;
     top: 0 !important;
+    transform: translate3d(0, 0, 0);
   }
 
   & .detail__content {

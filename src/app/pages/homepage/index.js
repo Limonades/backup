@@ -634,7 +634,7 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight, autoKill: false })
+        TweenLite.to(window, .4, { scrollTo: currentPage * viewHeight, autoKill: false })
 
         // if (scrollInCurrentPage < 50) {
         //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
@@ -645,7 +645,7 @@ if (document.querySelector('.homepage')) {
     })
 
     const throttle = callback => {
-      const minScrollTime = 500
+      const minScrollTime = 800
       if (!scrollTimer) {
         scrollTimer = setTimeout(function () {
           scrollTimer = null
