@@ -95,6 +95,12 @@
   }
 }
 
+html {
+  @media (--desktop) {
+    scrollbar-width: none; /* for firefox */
+  }
+}
+
 progress {
   display: none;
   position: fixed;
