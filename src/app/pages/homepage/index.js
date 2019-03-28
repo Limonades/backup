@@ -666,43 +666,43 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
-      })
-        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: $(this).height()
+    //   })
+    //     .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+    //     // .setClassToggle(this, '--fixed')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
-    $('.detail').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
-      })
-        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: viewHeight
+    //   })
+    //     .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+    //     // .setClassToggle(this, '--fixed')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
-    $('.detail__txt-description').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight * 2
-      })
-        .setPin(this, {pushFollowers: 0})
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail__txt-description').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: viewHeight * 2
+    //   })
+    //     .setPin(this, {pushFollowers: 0})
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     $('.detail__txt-description').each(function() {
       // page 3 Image 1
