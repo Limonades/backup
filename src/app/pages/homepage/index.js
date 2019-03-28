@@ -662,7 +662,7 @@ if (document.querySelector('.homepage')) {
         duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
-        // .addIndicators()
+        .addIndicators()
         .addTo(controller)
     })
 
@@ -675,7 +675,7 @@ if (document.querySelector('.homepage')) {
       })
         .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
-        // .addIndicators()
+        .addIndicators()
         .addTo(controller)
     })
 
@@ -708,8 +708,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight * 2
+        offset: halfViewHeight + 100,
+        duration: viewHeight * 2 - 100
       })
         .setClassToggle(this, '--bg')
         // .addIndicators()
