@@ -634,7 +634,7 @@ if (document.querySelector('.homepage')) {
         // console.log('currentPage', currentPage)
         // console.log('nextPage', nextPage)
         // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        TweenLite.to(window, .4, { scrollTo: currentPage * viewHeight, autoKill: false })
+        TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight, autoKill: false, autoRound: false, force3D: true })
 
         // if (scrollInCurrentPage < 50) {
         //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
@@ -688,7 +688,7 @@ if (document.querySelector('.homepage')) {
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
-        // .addIndicators()
+        .addIndicators()
         .addTo(controller)
     })
 
@@ -708,8 +708,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + 100,
-        duration: viewHeight * 2 - 100
+        offset: halfViewHeight,
+        duration: viewHeight * 2
       })
         .setClassToggle(this, '--bg')
         // .addIndicators()
