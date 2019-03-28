@@ -55,7 +55,7 @@
         {% endif %}
         <div class="header__title-wrap header__title-wrap--{{ year.title~loop.index }}">
             <h2 class="header__title">
-                {{ block.headerTitle }}
+                {{ block.headerTitle |nl2br }}
             </h2>
         </div>
 

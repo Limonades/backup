@@ -77,7 +77,6 @@
     transition: opacity 2s ease;
     font-family: var(--italic-title-font);
     font-style: italic;
-    max-width: 50rem;
 
     &.--mobile {
       opacity: 1;
