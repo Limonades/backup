@@ -671,7 +671,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight,
-        duration: $(this).height()
+        duration: $(this).height() -100
       })
         .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
@@ -683,7 +683,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
+        offset: halfViewHeight - 10,
         duration: viewHeight
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
@@ -696,8 +696,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight * 2
+        offset: halfViewHeight + 10,
+        duration: viewHeight
       })
         .setPin(this, {pushFollowers: 0})
         // .addIndicators()
@@ -709,7 +709,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight + 100,
-        duration: viewHeight*2 - 100
+        duration: viewHeight * 2 - 100
       })
         .setClassToggle(this, '--bg')
         // .addIndicators()
