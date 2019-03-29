@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .video {
   &__content {
     display: flex;
@@ -46,6 +48,17 @@
     align-items: center;
     color: white;
     z-index: 1;
+    text-decoration: none;
+
+    & figure {
+      width: 6rem;
+      margin-bottom: 1rem;
+    }
+
+    & p {
+      font-family: var(--title-font);
+      font-size: 1.3rem;
+    }
   }
 
   &__description {
