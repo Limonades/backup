@@ -1,6 +1,6 @@
 import './index.css'
 import $ from 'jquery'
-import TweenLite from 'gsap/TweenLite'
+// import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -9,7 +9,7 @@ import MobileDetect from 'mobile-detect/mobile-detect.min'
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
-  let scrollTimer
+  // let scrollTimer
   const controller = new ScrollMagic.Controller()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
@@ -59,7 +59,7 @@ if (document.querySelector('.homepage')) {
 
     $('.nav').on('mouseleave', moveNavProgress);
 
-      // controller.scrollTo(function(newpos) {
+    // controller.scrollTo(function(newpos) {
     //   console.log(newpos)
     //   TweenLite.to(window, 0.5, {scrollTo: {y: newpos}})
     // })
@@ -143,15 +143,15 @@ if (document.querySelector('.homepage')) {
     //   }
     // })
 
-    const throttle = callback => {
-      const minScrollTime = 200
-      if (!scrollTimer) {
-        scrollTimer = setTimeout(function () {
-          scrollTimer = null
-          callback()
-        }, minScrollTime)
-      }
-    }
+    // const throttle = callback => {
+    //   const minScrollTime = 200
+    //   if (!scrollTimer) {
+    //     scrollTimer = setTimeout(function () {
+    //       scrollTimer = null
+    //       callback()
+    //     }, minScrollTime)
+    //   }
+    // }
 
     $('.header').each(function() {
       // page 3 Image 1
@@ -614,7 +614,7 @@ if (document.querySelector('.homepage')) {
       }
     })
 
-    let scrollTimer
+    // let scrollTimer
     const controller = new ScrollMagic.Controller()
     // const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     const viewHeight = $('.slideshow').height() || $('.video') || Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -644,15 +644,15 @@ if (document.querySelector('.homepage')) {
     //   })
     // })
 
-    const throttle = callback => {
-      const minScrollTime = 500
-      if (!scrollTimer) {
-        scrollTimer = setTimeout(function () {
-          scrollTimer = null
-          callback()
-        }, minScrollTime)
-      }
-    }
+    // const throttle = callback => {
+    //   const minScrollTime = 500
+    //   if (!scrollTimer) {
+    //     scrollTimer = setTimeout(function () {
+    //       scrollTimer = null
+    //       callback()
+    //     }, minScrollTime)
+    //   }
+    // }
 
     $('.header').each(function() {
       // page 3 Image 1
