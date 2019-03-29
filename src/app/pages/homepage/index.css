@@ -1,11 +1,23 @@
 @import '../../shared/styles/variables';
 
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.year-container {
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
+}
+
 .homepage {
   & section.page {
     height: 100vh;
     background-size: cover !important;
     color: white;
     position: relative;
+    scroll-snap-align: start;
 
     & .copy {
       padding: 20rem 2rem 0;

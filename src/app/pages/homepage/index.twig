@@ -27,41 +27,43 @@
 
         {% set years = craft.entries().section('year').level(1).all() %}
 
-        {% nav year in years %}
+        <div class="year-container">
+            {% nav year in years %}
 
-            {% set year_block = year.getChildren.all()[0].headerTitle %}
+                {% set year_block = year.getChildren.all()[0].headerTitle %}
 
-            <div class="year" id="{{ year.title }}" data-title="{{ year_block }}">
+                <div class="year" id="{{ year.title }}" data-title="{{ year_block }}">
 
-                {% for block in year.getChildren.all() %}
+                    {% for block in year.getChildren.all() %}
 
-                    {% switch block.type %}
+                        {% switch block.type %}
 
-                        {% case "componentAHeader" %}
+                            {% case "componentAHeader" %}
 
-                            {% include 'shared/components/header/index.twig' %}
+                                {% include 'shared/components/header/index.twig' %}
 
-                        {% case "componentBDetail" %}
+                            {% case "componentBDetail" %}
 
-                            {% include 'shared/components/detail/index.twig' %}
+                                {% include 'shared/components/detail/index.twig' %}
 
-                        {% case "componentBSlideshow" %}
+                            {% case "componentBSlideshow" %}
 
-                            {% include 'shared/components/slideshow/index.twig' %}
+                                {% include 'shared/components/slideshow/index.twig' %}
 
-                        {% case "componentBVideo" %}
+                            {% case "componentBVideo" %}
 
-                            {% include 'shared/components/video/index.twig' %}
+                                {% include 'shared/components/video/index.twig' %}
 
-                        {% default %}
+                            {% default %}
 
-                    {% endswitch %}
+                        {% endswitch %}
 
-                {% endfor %}
+                    {% endfor %}
 
-            </div>
+                </div>
 
-        {% endnav %}
+            {% endnav %}
+        </div>
 
         <div class="logo">
             <img src="/assets/logo-white.png" alt="">
