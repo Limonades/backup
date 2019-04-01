@@ -1,14 +1,13 @@
 @import '../../shared/styles/variables';
 
 body {
-  height: 100vh;
-  overflow: hidden;
+  /* height: 100vh; */
 }
 
 .year-container {
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory;
   overflow: scroll;
-  height: 100vh;
+  height: 100vh; */
 }
 
 .homepage {
@@ -16,8 +15,7 @@ body {
     height: 100vh;
     background-size: cover !important;
     color: black;
-    position: relative;
-    scroll-snap-align: start;
+    position: relative; /* scroll-snap-align: start; */
 
     & .copy {
       padding: 20rem 2rem 0;
@@ -95,7 +93,6 @@ body {
 
     &#page4 {
       background: #171416;
-      background-image: url(../../../public/assets/test-bg-1.png);
     }
   }
 }

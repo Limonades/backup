@@ -2,11 +2,13 @@
     {% include "/shared/functions/addImage.twig" with {
     'image': block.backgroundImage[0],
     'bgImage': true,
-    'selector': '.slideshow--'~year.title~loop.index,
+    'selector': '.slideshow__bg--'~year.title~loop.index,
     'format':block.backgroundImage[0].extension
     } %}
 {% endif %}
-<section class="page slideshow slideshow--{{ year.title~loop.index }}" id="page5">
+<section class="page slideshow" id="page5">
+
+    <div class="slideshow__bg slideshow__bg--{{ year.title~loop.index }}"></div>
     <div class="slideshow__close-btn-wrap">
         <div class="plus-minus close"></div>
     </div>

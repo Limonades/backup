@@ -5,6 +5,18 @@
     z-index: 200 !important;
   }
 
+  &__bg {
+    background-image: url(../../../../public/assets/test-bg-1.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
   &__copy {
     &.--modal-open {
       z-index: 200 !important;
@@ -167,7 +179,11 @@
 }
 
 .video.--mobile {
-  z-index: 10;
+  & .video__bg {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    will-change: opacity;
+  }
 
   & .video__img-bg {
     display: none;
@@ -180,7 +196,6 @@
   & .copy.video__copy {
     padding: 0;
     height: 100vh;
-    opacity: 0;
     transition: opacity 0.6s ease;
   }
 
