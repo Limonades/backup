@@ -22,6 +22,7 @@
     display: flex;
     justify-content: space-between;
     overflow-y: scroll;
+    padding-top: 0.5rem;
 
     @media (--desktop) {
       scrollbar-width: none; /* for firefox */
@@ -74,9 +75,17 @@
     }
   }
 
+  &__item-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
   &__item-txt {
     padding: 0 3rem;
-    color: white;
     text-align: center;
   }
 

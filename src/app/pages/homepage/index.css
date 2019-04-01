@@ -2,7 +2,6 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
 }
 
 .year-container {
@@ -15,7 +14,7 @@ body {
   & section.page {
     height: 100vh;
     background-size: cover !important;
-    color: white;
+    color: black;
     position: relative;
     scroll-snap-align: start;
 
@@ -110,7 +109,7 @@ body {
 .section-header {
   display: flex;
   padding-bottom: 1rem;
-  border-bottom: 0.1rem solid white;
+  border-bottom: 0.1rem solid black;
   align-items: flex-end;
   margin-bottom: 3rem;
   opacity: 0;

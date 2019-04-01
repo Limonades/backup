@@ -1,6 +1,16 @@
 @import '../../styles/variables';
 
 .video {
+  &.--modal-open {
+    z-index: 200 !important;
+  }
+
+  &__copy {
+    &.--modal-open {
+      z-index: 200 !important;
+    }
+  }
+
   &__content {
     display: flex;
     flex-grow: 1;
@@ -58,6 +68,7 @@
     & p {
       font-family: var(--title-font);
       font-size: 1.3rem;
+      color: black;
     }
   }
 
@@ -86,6 +97,73 @@
       object-fit: contain;
     }
   }
+
+  &__modal {
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 150;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.--open {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__modal-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__modal-container {
+    width: 90%;
+    display: block;
+    max-height: 100%;
+    position: relative;
+  }
+
+  &__modal-close-btn {
+    width: 24px;
+    height: 26px;
+    padding-top: 10px;
+    position: absolute;
+    top: 14px;
+    right: 40px;
+    cursor: pointer;
+
+    & .plus-minus {
+      width: 22px;
+
+      &::after,
+      &::before {
+        width: 22px;
+        height: 3px;
+      }
+    }
+  }
+}
+
+#progressBar {
+  border: 1px solid #aaaaaa;
+  color: #ffffff;
+  width: 295px;
+  height: 20px;
+}
+
+#progress {
+  background-color: #ff0000;
+  height: 20px;
+  display: inline-block;
 }
 
 .video.--mobile {
@@ -112,19 +190,39 @@
     width: 100%;
     max-width: 340px;
     margin: 0 auto;
+    z-index: 5;
   }
 
   & .video__play-btn {
     width: 100%;
+    padding: 4rem 0;
+  }
+
+  & .video__video-bg {
+    z-index: -1;
   }
 
   & .video__description {
     width: 100%;
     text-align: center;
+    padding: 4rem 0;
 
     & h3 {
       font-size: 2.5rem;
       line-height: 3rem;
     }
+  }
+
+  & .video__modal-close-btn {
+    top: 2rem;
+    right: 1rem;
+  }
+
+  & .video__modal {
+    padding: 1rem 4rem;
+  }
+
+  & .video__modal-video {
+    width: 100%;
   }
 }

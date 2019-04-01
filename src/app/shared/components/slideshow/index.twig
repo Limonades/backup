@@ -33,9 +33,13 @@
             {% if block.slideshowImages | length %}
                 {% for slide in block.slideshowImages.all() %}
                     <div class="slideshow__item {{ loop.index==1?'--first':'--animated' }}">
-                        {% if slide.image | length %}
-                            {% include "/shared/functions/addImage.twig" with { 'image': slide.image[0] , 'picture_class':'slideshow__item-photo' , 'format':slide.image[0].extension } %}
-                        {% endif %}
+
+                        {#TODO (back) link output#}
+                        <a class="slideshow__item-link" href="/hello-world" target="_blank">
+                            {% if slide.image | length %}
+                                {% include "/shared/functions/addImage.twig" with { 'image': slide.image[0] , 'picture_class':'slideshow__item-photo' , 'format':slide.image[0].extension } %}
+                            {% endif %}
+                        </a>
                         <p class="slideshow__item-txt">
                             {{ slide.caption }}
                         </p>

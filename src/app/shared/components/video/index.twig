@@ -27,7 +27,7 @@
             {% include "/shared/functions/addImage.twig" with {
             'image': block.anchorImage[0],
             'bgImage': true,
-            'selector': '.video__content'~year.title~loop.index,
+            'selector': '.video__content--'~year.title~loop.index,
             'format':block.anchorImage[0].extension
             } %}
             {% endif %}
@@ -43,7 +43,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <a class="video__play-btn" href="#">
+                <a class="video__play-btn" href="#video-modal-{{ loop.index }}">
                     <figure>
                         <img src="/assets/iconmonstr-media-control-48.svg" alt="play">
                     </figure>
@@ -65,6 +65,25 @@
                 <h3>
                     {{ block.anchorDescription }}
                 </h3>
+            </div>
+        </div>
+        <div class="video__modal" id="video-modal-{{ loop.index }}">
+            <div class="video__modal-close-btn">
+                <div class="plus-minus close"></div>
+            </div>
+            <div class="video__modal-container">
+                <video id="video" class="video__modal-video" autoplay controls>
+                    <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                {#<div class="video__controls">#}
+                    {#<button id="playpause" title="play">ololo</button>#}
+                    {#<button id="mute">Mute</button>#}
+                {#</div>#}
+                {#<div class="progressTime">#}
+                    {#Current play time: <span class="current"></span>#}
+                {#</div>#}
+                {#<div id="progressBar"><span id="progress"></span></div>#}
             </div>
         </div>
     </div>
