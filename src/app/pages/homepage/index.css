@@ -2,6 +2,7 @@
 
 body {
   height: 100vh;
+  overflow: hidden;
 }
 
 .year-container {
@@ -174,7 +175,7 @@ body {
     display: none;
   }
 
-  & section.page {
+  /* & section.page {
     z-index: 10;
-  }
+  } */
 }

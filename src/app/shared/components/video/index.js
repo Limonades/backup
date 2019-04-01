@@ -11,9 +11,9 @@ $(document).ready(function() {
     if (!md.mobile()) {
       $('.video__play-btn').on('click', function(e) {
         e.preventDefault();
-        let a = $(this).attr('href');
+        let id = $(this).attr('href');
 
-        $(a).addClass('--open');
+        $(`#${id}`).addClass('--open');
         $('body').addClass('--no-scroll');
         $(this).parents('.video__copy').addClass('--modal-open')
       })
@@ -29,9 +29,9 @@ $(document).ready(function() {
     } else {
       $('.video__play-btn').on('click', function(e) {
         e.preventDefault();
-        let a = $(this).attr('href');
+        let id = $(this).attr('href');
 
-        $(a).addClass('--open');
+        $(`#${id}`).addClass('--open');
         $('body').addClass('--no-scroll');
         $(this).parents('.video').addClass('--modal-open')
       })
@@ -78,12 +78,10 @@ $(document).ready(function() {
     //
     // $('#playpause').on('click', function() {
     //   togglePlayPause();
-    //   console.log('her')
     // })
     //
     // $('#mute').on('click', function() {
     //   toggleMute();
-    //   console.log('hyu')
     // })
     //
     // video.addEventListener("timeupdate", updateProgress, false);

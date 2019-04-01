@@ -167,6 +167,8 @@
 }
 
 .video.--mobile {
+  z-index: 10;
+
   & .video__img-bg {
     display: none;
   }
@@ -178,6 +180,8 @@
   & .copy.video__copy {
     padding: 0;
     height: 100vh;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 
   & .video__content {

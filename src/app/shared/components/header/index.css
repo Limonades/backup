@@ -154,7 +154,6 @@
   height: auto !important;
 
   & .header__title-wrap {
-    opacity: 1;
     width: 100%;
     height: 100vh;
     z-index: -1;
@@ -162,6 +161,9 @@
     left: 0;
     position: absolute;
     transform: translate3d(0, 0, 0);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
   }
 
   & .header__video-bg-wrap {
@@ -212,8 +214,12 @@
     margin: 0 auto;
     position: absolute;
     opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.4s ease, transform 0.6s ease;
     transform: translate3d(0, 40vh, 0);
+
+    &.--animated {
+      opacity: 0 !important;
+    }
   }
 
   & .header__year-wrap {

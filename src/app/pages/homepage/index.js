@@ -1,6 +1,6 @@
 import './index.css'
 import $ from 'jquery'
-// import TweenLite from 'gsap/TweenLite'
+import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
@@ -614,45 +614,45 @@ if (document.querySelector('.homepage')) {
       }
     })
 
-    // let scrollTimer
+    let scrollTimer
     const controller = new ScrollMagic.Controller()
     // const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     const viewHeight = $('.slideshow').height() || $('.video') || Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     // const halfViewHeight = viewHeight / 2
 
-    // window.addEventListener('scroll', () => {
-    //   throttle(() => {
-    //     // const delta = Math.sign(e.deltaY)
-    //     const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-    //     const currentPage = Math.round(currentHeight / viewHeight)
-    //     // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-    //     // const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-    //     // console.log(currentHeight % viewHeight)
-    //     // console.log('view height: ', viewHeight)
-    //     // console.log('current height: ', currentHeight)
-    //     // console.log('delta', delta)
-    //     // console.log('currentPage', currentPage)
-    //     // console.log('nextPage', nextPage)
-    //     // console.log('scrollInCurrentPage', scrollInCurrentPage)
-    //     TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
+    window.addEventListener('scroll', () => {
+      throttle(() => {
+        // const delta = Math.sign(e.deltaY)
+        const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+        const currentPage = Math.round(currentHeight / viewHeight)
+        // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+        // const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+        // console.log(currentHeight % viewHeight)
+        // console.log('view height: ', viewHeight)
+        // console.log('current height: ', currentHeight)
+        // console.log('delta', delta)
+        // console.log('currentPage', currentPage)
+        // console.log('nextPage', nextPage)
+        // console.log('scrollInCurrentPage', scrollInCurrentPage)
+        TweenLite.to(window, .2, { scrollTo: currentPage * viewHeight })
 
-    //     // if (scrollInCurrentPage < 50) {
-    //     //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
-    //     // } else {
-    //     //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
-    //     // }
-    //   })
-    // })
+        // if (scrollInCurrentPage < 50) {
+        //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
+        // } else {
+        //   TweenLite.to(window, .1, { scrollTo: currentPage * viewHeight })
+        // }
+      })
+    })
 
-    // const throttle = callback => {
-    //   const minScrollTime = 500
-    //   if (!scrollTimer) {
-    //     scrollTimer = setTimeout(function () {
-    //       scrollTimer = null
-    //       callback()
-    //     }, minScrollTime)
-    //   }
-    // }
+    const throttle = callback => {
+      const minScrollTime = 500
+      if (!scrollTimer) {
+        scrollTimer = setTimeout(function () {
+          scrollTimer = null
+          callback()
+        }, minScrollTime)
+      }
+    }
 
     $('.header').each(function() {
       // page 3 Image 1
@@ -662,6 +662,30 @@ if (document.querySelector('.homepage')) {
         duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.header').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height() - (halfViewHeight - 100),
+        duration: viewHeight
+      })
+        .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.header').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: $(this).height()
+      })
+        .setClassToggle($(this).find('.header__title-wrap')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
     })
@@ -704,14 +728,38 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail__txt-description').each(function() {
+    $('.detail').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: $(this).height()
+      })
+        .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.video').each(function() {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + 100,
-        duration: viewHeight * 2 - 100
+        offset: halfViewHeight,
+        duration: $(this).height()
       })
-        .setClassToggle(this, '--bg')
+        .setPin(this, {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.video').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: halfViewHeight
+      })
+        .setClassToggle($(this).find('.video__copy')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
     })

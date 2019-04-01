@@ -7,7 +7,7 @@
     } %}
 {% endif %}
 <section class="page video video--{{ year.title~loop.index }}" id="page4">
-    <div class="copy video__copy" style="opacity: 1;">
+    <div class="copy video__copy">
 
         <div class="section-header">
             <div class="section-header__year">
@@ -43,7 +43,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <a class="video__play-btn" href="#video-modal-{{ loop.index }}">
+                <a class="video__play-btn" href="video-modal-{{ loop.index }}">
                     <figure>
                         <img src="/assets/iconmonstr-media-control-48.svg" alt="play">
                     </figure>

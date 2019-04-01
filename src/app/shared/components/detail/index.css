@@ -137,10 +137,10 @@
   height: auto !important;
 
   & .detail__bg {
-    opacity: 1;
     height: 100vh;
     top: 0 !important;
     transform: translate3d(0, 0, 0);
+    transition: opacity 0.7s ease;
   }
 
   & .detail__content {
