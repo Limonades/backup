@@ -161,6 +161,10 @@
     transition: background-color 0.3s ease;
   }
 
+  & .slideshow__copy {
+    z-index: 11;
+  }
+
   &.--expanded {
     z-index: 101 !important;
 
