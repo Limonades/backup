@@ -685,7 +685,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], .5, {  opacity: 1 })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
     })
@@ -697,7 +697,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], .5, {  opacity: 0 })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
     })
@@ -714,17 +714,17 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.header').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
-      })
-        .setClassToggle($(this).find('.header__title-wrap')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.header').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: $(this).height()
+    //   })
+    //     .setClassToggle($(this).find('.header__title-wrap')[0], 'fade-in')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     $('.detail').each(function() {
       // page 3 Image 1
@@ -745,7 +745,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], .5, {  opacity: 1 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -757,7 +757,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], .5, {  opacity: 0 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -821,7 +821,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.video__bg')[0], .5, {  opacity: 1 })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -834,7 +834,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.video__bg')[0], .5, {  opacity: 0 })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -871,7 +871,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.slideshow__bg')[0], .5, {  opacity: 1 })
+        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -883,7 +883,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.slideshow__bg')[0], .5, {  opacity: 0 })
+        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
