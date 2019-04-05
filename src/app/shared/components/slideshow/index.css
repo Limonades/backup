@@ -8,7 +8,7 @@
   }
 
   &__bg {
-    background-image: url(../../../../public/assets/test-bg-1.png);
+    /* background-image: url(../../../../public/assets/test-bg-1.png); */
     position: absolute;
     top: 0;
     left: 0;
@@ -17,6 +17,8 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
+
+    /* background: blueviolet !important; */
   }
 
   &__title {
@@ -90,6 +92,7 @@
   &__item-link {
     display: inline-block;
     transition: transform 0.3s ease;
+    width: 100%;
 
     &:hover {
       transform: scale(1.03);
@@ -175,6 +178,7 @@
     opacity: 0;
     transition: opacity 0.6s ease;
     will-change: opacity;
+    top: 0 !important;
   }
 
   & .section-header {
