@@ -1,6 +1,6 @@
 import './index.css'
 import $ from 'jquery'
-// import TweenLite from 'gsap/TweenLite'
+import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
