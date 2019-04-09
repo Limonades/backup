@@ -1,6 +1,5 @@
-<section class="page header">
+<section class="page header{% if block.type =='homepage' %} main-slide{% endif %}">
     <div class="copy header__copy" style="opacity: 1;">
-
 
         {% if block.backgroundImage | length %}
             {% include "/shared/functions/addImage.twig" with {
@@ -42,9 +41,12 @@
 
             {% endif %}
 
-            <h2 class="header__year-title">
-                {{ year.title }}
-            </h2>
+            {% if block.type !='homepage' %}
+                <h2 class="header__year-title">
+                    {{ year.title }}
+                </h2>
+            {% endif %}
+
         </div>
         {% if block.headerImage | length %}
             {% if block.headerImage[0].kind == 'image' %}
@@ -73,9 +75,11 @@
             {% endif %}
         </div>
 
-        <h2 class="header__year-title --mobile">
-            {{ year.title }}
-        </h2>
+        {% if block.type !='homepage' %}
+            <h2 class="header__year-title --mobile">
+                {{ year.title }}
+            </h2>
+        {% endif %}
         <h2 class="header__title --mobile">
             {{ block.headerTitle }}
         </h2>

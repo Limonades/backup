@@ -160,6 +160,25 @@ if (document.querySelector('.homepage')) {
     //   TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
     // })
 
+    $('.header:not(.main-slide)').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight + halfViewHeight / 2
+      })
+        .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
+    })
+
     $('.header').each(function() {
       // page 3 Image 1
       new ScrollMagic.Scene({
@@ -177,15 +196,6 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight
       })
         .setPin($(this).find('.header__title-wrap')[0])
-        // .addIndicators()
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
-      })
-        .setPin($(this).find('.header__year-title')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
 
@@ -213,14 +223,6 @@ if (document.querySelector('.homepage')) {
         duration: halfViewHeight + halfViewHeight / 2
       })
         .setClassToggle($(this).find('.header__title')[0], 'fade-in')
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight - halfViewHeight / 2,
-        duration: halfViewHeight + halfViewHeight / 2
-      })
-        .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
         .addTo(controller)
     })
 
@@ -753,15 +755,30 @@ if (document.querySelector('.homepage')) {
     })
 
     $('.header').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: $(this).height() - (halfViewHeight - 100),
-        duration: viewHeight
-      })
-        .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
-        // .addIndicators()
-        .addTo(controller)
+
+      if ($(this).find('.header__year-photo').length) {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - (halfViewHeight - 100),
+          duration: viewHeight
+        })
+          .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+          // .addIndicators()
+          .addTo(controller)
+      }
+
+      if ($(this).find('.header__video-bg').length) {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - (halfViewHeight - 100),
+          duration: viewHeight
+        })
+          .setClassToggle($(this).find('.header__video-bg')[0], '--animated')
+          // .addIndicators()
+          .addTo(controller)
+      }
     })
 
     // $('.header').each(function() {

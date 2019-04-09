@@ -35,29 +35,10 @@
 
                     {#TODO (fornt):Homepage fields#}
 
-                    {#-- Homepage section --#}
+                    <div class="year" id="Top" data-title="">
+                        {% include 'shared/components/header/index.twig' with {'block':year} %}
+                    </div>
 
-                    {#{% set homepageSection = year %}#}
-
-                    {# Header Title #}
-                    {#{{ homepageSection.headerTitle }}#}
-
-                    {# Background Image #}
-                    {#{% if homepageSection.backgroundImage | length %}#}
-                        {#{{ homepageSection.backgroundImage[0].url }}#}
-                    {#{% endif %}#}
-
-                    {# Anchor Image #}
-                    {#{% if homepageSection.anchorImage | length  %}#}
-                        {#{{ homepageSection.anchorImage[0].url }}#}
-                    {#{% endif %}#}
-                    {##}
-                    {# Header Image #}
-                    {#{% if homepageSection.headerImage | length  %}#}
-                        {#{{ homepageSection.headerImage[0].url }}#}
-                    {#{% endif %}#}
-
-                    {#--END Homepage section -#}
                 {% else %}
 
                     {% set year_block = year.getChildren.all()[0].headerTitle %}
