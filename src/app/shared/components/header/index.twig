@@ -1,6 +1,5 @@
-<section class="page header">
+<section class="page header{% if block.type =='homepage' %} main-slide{% endif %}">
     <div class="copy header__copy" style="opacity: 1;">
-
 
         {% if block.backgroundImage | length %}
             {% include "/shared/functions/addImage.twig" with {
@@ -42,27 +41,45 @@
 
             {% endif %}
 
-            <h2 class="header__year-title">
-                {{ year.title }}
-            </h2>
+            {% if block.type !='homepage' %}
+                <h2 class="header__year-title">
+                    {{ year.title }}
+                </h2>
+            {% endif %}
+
         </div>
         {% if block.headerImage | length %}
-            {% include "/shared/functions/addImage.twig" with {
-            'image': block.headerImage[0],
-            'bgImage': true,
-            'selector': '.header__title-wrap--'~year.title~loop.index,
-            'format':block.headerImage[0].extension
-            } %}
+            {% if block.headerImage[0].kind == 'image' %}
+                {% include "/shared/functions/addImage.twig" with {
+                'image': block.headerImage[0],
+                'bgImage': true,
+                'selector': '.header__title-wrap--'~year.title~loop.index,
+                'format':block.headerImage[0].extension
+                } %}
+            {% endif %}
         {% endif %}
         <div class="header__title-wrap header__title-wrap--{{ year.title~loop.index }}">
             <h2 class="header__title">
                 {{ block.headerTitle |nl2br }}
             </h2>
+
+            {% if block.headerImage | length %}
+                {% if block.headerImage[0].kind == 'video' %}
+                    <div class="header__large-video-bg">
+                    <video muted="" loop="" autoplay="" >
+                        <source src="{{ block.headerImage[0].url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    </div>
+                {% endif %}
+            {% endif %}
         </div>
 
-        <h2 class="header__year-title --mobile">
-            {{ year.title }}
-        </h2>
+        {% if block.type !='homepage' %}
+            <h2 class="header__year-title --mobile">
+                {{ year.title }}
+            </h2>
+        {% endif %}
         <h2 class="header__title --mobile">
             {{ block.headerTitle }}
         </h2>

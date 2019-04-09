@@ -73,18 +73,34 @@
                 <div class="plus-minus close"></div>
             </div>
             <div class="video__modal-container">
-                <video id="video" class="video__modal-video" autoplay controls>
+                <video id="video" class="video__modal-video">
                     <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                {#<div class="video__controls">#}
-                    {#<button id="playpause" title="play">ololo</button>#}
-                    {#<button id="mute">Mute</button>#}
-                {#</div>#}
-                {#<div class="progressTime">#}
-                    {#Current play time: <span class="current"></span>#}
-                {#</div>#}
-                {#<div id="progressBar"><span id="progress"></span></div>#}
+                <div class=" video__btn video__controls">
+
+                    <button id="playpause" class="video__btn video__btn--play" title="play">
+                        <img src="/assets/iconmonstr-media-control-48--white.svg" alt="" class="video__btn video__btn-img video__btn-img--show video__btn-img--hide">
+                        <img src="/assets/iconmonstr-control-pause--white.svg" alt="" class="video__btn video__btn-img video__btn-img--show ">
+                    </button>
+
+                    <button id="mute" class="video__btn video__btn--volume-on">
+                        <img src="/assets/volume-on-indicator.svg" alt="" class="video__btn video__btn-img--show">
+                        <img src="/assets/volume-off-indicator.svg" alt="" class="video__btn video__btn-img--show video__btn-img--hide">
+                    </button>
+
+                </div>
+                <span class="video__btn video__time current">0:00</span>
+                <div class="video__btn progressBar--wrapper">
+
+                    <div class="video__btn progressBar">
+                        <div class="video__btn timeBar">
+                            <div class="video__btn pointer"></div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

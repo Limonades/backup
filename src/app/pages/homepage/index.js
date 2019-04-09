@@ -1,15 +1,17 @@
 import './index.css'
 import $ from 'jquery'
-// import TweenLite from 'gsap/TweenLite'
+import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import MobileDetect from 'mobile-detect/mobile-detect.min'
+import { detect } from 'detect-browser'
+const browser = detect();
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
-  // let scrollTimer
+  let scrollTimer
   const controller = new ScrollMagic.Controller()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
@@ -101,57 +103,148 @@ if (document.querySelector('.homepage')) {
 
     // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
-    // window.addEventListener('wheel', e => {
-    //   throttle(() => {
-    //     const delta = Math.sign(e.deltaY)
-    //     const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-    //     const currentPage = Math.round(currentHeight / viewHeight)
-    //     // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-    //     const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-    //     // console.log('view height: ', viewHeight)
-    //     // console.log('current height: ', currentHeight)
-    //     // console.log('delta', delta)
-    //     // console.log('currentPage', currentPage)
-    //     // console.log('nextPage', nextPage)
-    //     // console.log('scrollInCurrentPage', scrollInCurrentPage)
-    //     if (scrollInCurrentPage < 300) {
-    //       TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-    //     } else {
-    //       TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
-    //       moveNavProgress();
-    //     }
-    //   })
-    // })
+    if (browser.name === 'safari') {
+      window.addEventListener('wheel', e => {
+        throttle(() => {
+          const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          if (scrollInCurrentPage < 50) {
+            TweenLite.to(window, .5, { scrollTo: {y:currentPage * viewHeight, autoKill: false, autoRound: false, force3D: true} })
+            // console.log('текущая')
+          } else {
+            TweenLite.to(window, .5, { scrollTo: {y:currentPage * viewHeight, autoKill: false, autoRound: false, force3D: true} })
+            // console.log('слудущщая')
+            moveNavProgress();
+          }
+        })
+      })
 
-    // window.addEventListener('wheel', e => {
-    //   const delta = Math.sign(e.deltaY)
-    //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-    //   const currentPage = Math.round(currentHeight / viewHeight)
-    //   // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-    //   const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-    //   // console.log('view height: ', viewHeight)
-    //   // console.log('current height: ', currentHeight)
-    //   // console.log('delta', delta)
-    //   // console.log('currentPage', currentPage)
-    //   // console.log('nextPage', nextPage)
-    //   // console.log('scrollInCurrentPage', scrollInCurrentPage)
-    //   if (scrollInCurrentPage < 300) {
-    //     TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-    //   } else {
-    //     TweenLite.to(window, 0.5, { scrollTo: currentPage * viewHeight })
-    //     moveNavProgress();
-    //   }
-    // })
+      const throttle = callback => {
+        const minScrollTime = 600
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
+      }
+    } else if (browser.name === 'firefox') {
+      window.addEventListener('wheel', e => {
+        throttle(() => {
+          const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          if (scrollInCurrentPage < 200) {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('текущая')
+          } else {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('слудущщая')
+            moveNavProgress();
+          }
+        })
+      })
 
-    // const throttle = callback => {
-    //   const minScrollTime = 200
-    //   if (!scrollTimer) {
-    //     scrollTimer = setTimeout(function () {
-    //       scrollTimer = null
-    //       callback()
-    //     }, minScrollTime)
-    //   }
-    // }
+      const throttle = callback => {
+        const minScrollTime = 500
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
+      }
+    } else {
+      window.addEventListener('wheel', () => {
+        throttle(() => {
+          // const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          // const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          // if (scrollInCurrentPage < 200) {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('текущая')
+          // } else {
+          //   TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('слудущщая')
+            moveNavProgress();
+          // }
+        })
+      })
+
+      // window.addEventListener('wheel', e => {
+      //   const delta = Math.sign(e.deltaY)
+      //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+      //   const currentPage = Math.round(currentHeight / viewHeight)
+      //   // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+      //   const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+      //   // console.log('view height: ', viewHeight)
+      //   // console.log('current height: ', currentHeight)
+      //   // console.log('delta', delta)
+      //   // console.log('currentPage', currentPage)
+      //   // console.log('nextPage', nextPage)
+      //   // console.log('scrollInCurrentPage', scrollInCurrentPage)
+      //   if (scrollInCurrentPage < 300) {
+      //     TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+      //   } else {
+      //     TweenLite.to(window, 0.5, { scrollTo: currentPage * viewHeight })
+      //     moveNavProgress();
+      //   }
+      // })
+
+      const throttle = callback => {
+        const minScrollTime = 400
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
+      }
+    }
+
+    $('.header:not(.main-slide)').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - halfViewHeight / 2,
+        duration: halfViewHeight + halfViewHeight / 2
+      })
+        .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
+        .addTo(controller)
+
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight,
+        duration: viewHeight
+      })
+        .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
+    })
 
     $('.header').each(function() {
       // page 3 Image 1
@@ -170,15 +263,6 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight
       })
         .setPin($(this).find('.header__title-wrap')[0])
-        // .addIndicators()
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
-      })
-        .setPin($(this).find('.header__year-title')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
 
@@ -206,14 +290,6 @@ if (document.querySelector('.homepage')) {
         duration: halfViewHeight + halfViewHeight / 2
       })
         .setClassToggle($(this).find('.header__title')[0], 'fade-in')
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight - halfViewHeight / 2,
-        duration: halfViewHeight + halfViewHeight / 2
-      })
-        .setClassToggle($(this).find('.header__year-title')[0], 'fade-in')
         .addTo(controller)
     })
 
@@ -366,7 +442,50 @@ if (document.querySelector('.homepage')) {
           .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
           // .addIndicators({ name: '.detail__txt-description' })
           .addTo(controller)
+
+
+      let $slide = $(this).find('.slideshow__container .slideshow__item');
+      let slideShowWidth = 0;
+
+      $($slide).each(function(i,e) {
+        slideShowWidth += e.offsetWidth;
+      })
+
+      if (slideShowWidth > this.offsetWidth) {
+        // width of one slide component
+        let oneWidth = ($slide.innerWidth());
+        // remove the difference of first shown elements to scroll duration
+        let horizontalScrollDuration = slideShowWidth - (oneWidth * 2.2);
+        // amount of height in width
+        let viewPart = Math.round(slideShowWidth / viewHeight);
+        // to avoid vertical scroll coord breaks
+        let scrollDurationTotalNumber = viewPart * viewHeight;
+        // balance relative to vertical scroll
+        let scrollBalance = scrollDurationTotalNumber > slideShowWidth ? scrollDurationTotalNumber - slideShowWidth : slideShowWidth - scrollDurationTotalNumber
+        // correct duration to prevent components from sliding up/down relative to the center of the screen
+        let pinDuration = viewPart * viewHeight < slideShowWidth ? slideShowWidth - scrollBalance : slideShowWidth + scrollBalance
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          triggerHook: "onLeave",
+          offset: halfViewHeight,
+          duration: slideShowWidth,
+        })
+          .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
+          .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: halfViewHeight,
+          duration: pinDuration
+        })
+          // .addIndicators()
+          .setPin(this)
+          .addTo(controller)
+      }
     })
+
+
 
     $('.year').each(function() {
       new ScrollMagic.Scene({
@@ -643,9 +762,9 @@ if (document.querySelector('.homepage')) {
     //     // }
     //   })
     // })
-
+    //
     // const throttle = callback => {
-    //   const minScrollTime = 500
+    //   const minScrollTime = 400
     //   if (!scrollTimer) {
     //     scrollTimer = setTimeout(function () {
     //       scrollTimer = null
@@ -670,10 +789,10 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: $(this).height() - (halfViewHeight - 100),
-        duration: viewHeight
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
       })
-        .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+        .setPin($(this).find('.header__title-wrap')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
     })
@@ -682,23 +801,98 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: 0,
+        duration: halfViewHeight
       })
-        .setClassToggle($(this).find('.header__title-wrap')[0], 'fade-in')
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
     })
+
+    $('.header').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.header').each(function() {
+
+      if ($(this).find('.header__year-photo').length) {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - (halfViewHeight - 100),
+          duration: viewHeight
+        })
+          .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+          // .addIndicators()
+          .addTo(controller)
+      }
+
+      if ($(this).find('.header__video-bg').length) {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - (halfViewHeight - 100),
+          duration: viewHeight
+        })
+          .setClassToggle($(this).find('.header__video-bg')[0], '--animated')
+          // .addIndicators()
+          .addTo(controller)
+      }
+    })
+
+    // $('.header').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: $(this).height()
+    //   })
+    //     .setClassToggle($(this).find('.header__title-wrap')[0], 'fade-in')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     $('.detail').each(function() {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
       })
         .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
     })
@@ -728,17 +922,6 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail').each(function() {
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
-      })
-        .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
-
     // $('.video').each(function() {
     //   // page 3 Image 1
     //   new ScrollMagic.Scene({
@@ -756,8 +939,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
       })
         .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
@@ -769,10 +952,24 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: 0,
+        duration: halfViewHeight
       })
-        .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.video').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
     })
@@ -781,8 +978,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
       })
         .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
         // .setClassToggle(this, '--fixed')
@@ -790,14 +987,38 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
+    // $('.slideshow').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight,
+    //     duration: $(this).height()
+    //   })
+    //     .setClassToggle($(this).find('.slideshow__bg')[0], 'fade-in')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
+
     $('.slideshow').each(function() {
-      // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: $(this).height()
+        offset: 0,
+        duration: halfViewHeight
       })
-        .setClassToggle($(this).find('.slideshow__bg')[0], 'fade-in')
+        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.slideshow').each(function() {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
     })
