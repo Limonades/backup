@@ -54,16 +54,23 @@
                 'selector': '.header__title-wrap--'~year.title~loop.index,
                 'format':block.headerImage[0].extension
                 } %}
-            {% elseif block.headerImage[0].kind == 'video' %}
-
-                {#TODO(fornt):Отстайлить вывовод видео #}
-                {{ block.headerImage[0].url }}
             {% endif %}
         {% endif %}
         <div class="header__title-wrap header__title-wrap--{{ year.title~loop.index }}">
             <h2 class="header__title">
                 {{ block.headerTitle |nl2br }}
             </h2>
+
+            {% if block.headerImage | length %}
+                {% if block.headerImage[0].kind == 'video' %}
+                    <div class="header__large-video-bg">
+                    <video muted="" loop="" autoplay="" >
+                        <source src="{{ block.headerImage[0].url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    </div>
+                {% endif %}
+            {% endif %}
         </div>
 
         <h2 class="header__year-title --mobile">
