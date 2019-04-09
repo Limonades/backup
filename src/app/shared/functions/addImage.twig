@@ -34,6 +34,7 @@
 {% set finalMobileWidth = 480 %}
 {% set finalTabletWidth = 780 %}
 {% set finalDesktopWidth = 1280 %}
+{% set originalWidth = image.getWidth() %}
 
 {% if mode is defined %}
     {% set finalMode = mode %}
@@ -54,7 +55,7 @@
 {% if quality is defined and quality matches '/^[-+]?[0-9]*\\.?[0-9]+$/' %}
     {% set finalQuality = quality %}
 {% else %}
-    {% set finalQuality = 90 %}
+    {% set finalQuality = 70 %}
 {% endif %}
 
 {% if format is defined and format in ['png', 'jpg', 'gif'] | keys %}
@@ -62,6 +63,10 @@
 {% else %}
     {% set finalFormat = 'jpg' %}
 {% endif %}
+
+{% set finalMobileWidth = finalMobileWidth < originalWidth ? finalMobileWidth : originalWidth %}
+{% set finalTabletWidth = finalTabletWidth < originalWidth ? finalTabletWidth : originalWidth %}
+{% set finalDesktopWidth = finalDesktopWidth < originalWidth ? finalDesktopWidth : originalWidth %}
 
 {% set mobile  = { mode: finalMode, width: finalMobileWidth,  quality: finalQuality, format: finalFormat } %}
 {% set tablet  = { mode: finalMode, width: finalTabletWidth,  quality: finalQuality, format: finalFormat } %}

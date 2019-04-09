@@ -53,8 +53,7 @@
                 {% include "/shared/functions/addImage.twig" with {
                 'image': block.headerImage[0],
                 'bgImage': true,
-                'selector': '.header__title-wrap--'~year.title~loop.index,
-                'format':block.headerImage[0].extension
+                'selector': '.header__title-wrap--'~year.title~loop.index
                 } %}
             {% endif %}
         {% endif %}
