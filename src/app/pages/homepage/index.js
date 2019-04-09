@@ -144,7 +144,7 @@ if (document.querySelector('.homepage')) {
     // })
 
     const throttle = callback => {
-      const minScrollTime = 200
+      const minScrollTime = 300
       if (!scrollTimer) {
         scrollTimer = setTimeout(function () {
           scrollTimer = null
@@ -152,6 +152,13 @@ if (document.querySelector('.homepage')) {
         }, minScrollTime)
       }
     }
+
+    // to align active component on load
+    // throttle(() => {
+    //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+    //   const currentPage = Math.round(currentHeight / viewHeight)
+    //   TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+    // })
 
     $('.header').each(function() {
       // page 3 Image 1
@@ -366,7 +373,50 @@ if (document.querySelector('.homepage')) {
           .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
           // .addIndicators({ name: '.detail__txt-description' })
           .addTo(controller)
+
+
+      let $slide = $(this).find('.slideshow__container .slideshow__item');
+      let slideShowWidth = 0;
+
+      $($slide).each(function(i,e) {
+        slideShowWidth += e.offsetWidth;
+      })
+
+      if (slideShowWidth > this.offsetWidth) {
+        // width of one slide component
+        let oneWidth = ($slide.innerWidth());
+        // remove the difference of first shown elements to scroll duration
+        let horizontalScrollDuration = slideShowWidth - (oneWidth * 2.2);
+        // amount of height in width
+        let viewPart = Math.round(slideShowWidth / viewHeight);
+        // to avoid vertical scroll coord breaks
+        let scrollDurationTotalNumber = viewPart * viewHeight;
+        // balance relative to vertical scroll
+        let scrollBalance = scrollDurationTotalNumber > slideShowWidth ? scrollDurationTotalNumber - slideShowWidth : slideShowWidth - scrollDurationTotalNumber
+        // correct duration to prevent components from sliding up/down relative to the center of the screen
+        let pinDuration = viewPart * viewHeight < slideShowWidth ? slideShowWidth - scrollBalance : slideShowWidth + scrollBalance
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          triggerHook: "onLeave",
+          offset: halfViewHeight,
+          duration: slideShowWidth,
+        })
+          .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
+          .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: halfViewHeight,
+          duration: pinDuration
+        })
+          // .addIndicators()
+          .setPin(this)
+          .addTo(controller)
+      }
     })
+
+
 
     $('.year').each(function() {
       new ScrollMagic.Scene({
