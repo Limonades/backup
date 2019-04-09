@@ -1,0 +1,84 @@
+{# ###################
+   Title Inferrence
+#################### #}
+{% set title = defaultSeo.seoTitle %}
+
+{% if entry['title'] is defined and entry.title | length %}
+  {% set title = entry.title %}
+{% endif %}
+
+{% if entry['heading'] is defined and entry.heading | length %}
+    {% set title = entry.heading %}
+{% endif %}
+
+{% if entry['header'] is defined and entry.header | length %}
+    {% set pageTitle = entry.header[0].heading %}
+{% endif %}
+
+{% if product is defined and product.title | length %}
+    {% set title = product.title %}
+{% endif %}
+
+{% set title = title ~ " | " ~ siteName %}
+
+<title>{{ title }}</title>
+<meta name="title" content="{{ title }}">
+<meta property="og:title" content="{{ title }}">
+
+{# ############################
+    Description Inferrence
+############################### #}
+{% set description = defaultSeo.seoDescription %}
+
+{% if entry['subHeader'] is defined  and entry.seoDescription | length %}
+    {% set description = entry.subHeader %}
+{% endif %}
+
+{% if entry['description'] is defined and entry.description | length %}
+    {% set description = entry.description %}
+{% endif %}
+
+{% if entry['overview'] is defined and entry.overview | length %}
+    {% set description = entry.overview %}
+{% endif %}
+
+{% if entry['header'] is defined and entry.header | length %}
+    {% set description = entry.header[0].subheading %}
+{% endif %}
+
+{% if product is defined and product.productInside | length %}
+    {% set description = product.productInside %}
+{% endif %}
+
+<meta property="og:description" content="{{ description | replace('/<[^>]*>/', '') | slice(0, 160) }}">
+<meta name="description" content="{{ description | replace('/<[^>]*>/', '') | slice(0, 160) }}">
+
+{# ############################
+       Image Inferrence
+############################### #}
+{% set ogImage = defaultSeo.seoImage.first().url %}
+
+{% set og = {
+    mode: 'crop',
+    width: 1200,
+    height: 630,
+    quality: 60,
+    position: 'center-center'
+} %}
+
+{% if entry['backgroundImage'] is defined and entry.backgroundImage | length %}
+    {% set ogImage = entry.backgroundImage[0].getUrl(og) %}
+{% endif %}
+
+{% if entry['header'] is defined and entry.header | length %}
+    {% set ogImage = entry.header[0].image[0].getUrl(og) %}
+{% endif %}
+
+{% if product is defined and product.productThumbnailImage | length %}
+    {% set ogImage = product.productThumbnailImage[0].getUrl(og) %}
+{% endif %}
+
+<meta property="og:image" content="{{ ogImage }}">
+
+<meta property="og:url" content="{{ craft.request.url }}">
+<meta property="og:type" content="website">
