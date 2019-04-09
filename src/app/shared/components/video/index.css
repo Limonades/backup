@@ -227,7 +227,6 @@
 
   & .video__description {
     width: 100%;
-    text-align: center;
     padding: 4rem 0;
 
     & h3 {
