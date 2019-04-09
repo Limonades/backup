@@ -6,6 +6,8 @@ import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import MobileDetect from 'mobile-detect/mobile-detect.min'
+import { detect } from 'detect-browser'
+const browser = detect();
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
@@ -101,64 +103,129 @@ if (document.querySelector('.homepage')) {
 
     // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
-    window.addEventListener('wheel', e => {
-      throttle(() => {
-        const delta = Math.sign(e.deltaY)
-        const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-        const currentPage = Math.round(currentHeight / viewHeight)
-        // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-        const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-        // console.log('view height: ', viewHeight)
-        // console.log('current height: ', currentHeight)
-        // console.log('delta', delta)
-        // console.log('currentPage', currentPage)
-        // console.log('nextPage', nextPage)
-        // console.log('scrollInCurrentPage', scrollInCurrentPage)
-        if (scrollInCurrentPage < 300) {
-          TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-        } else {
-          TweenLite.to(window, .5, { scrollTo: currentPage * viewHeight })
-          moveNavProgress();
-        }
+    if (browser.name === 'safari') {
+      window.addEventListener('wheel', e => {
+        throttle(() => {
+          const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          if (scrollInCurrentPage < 50) {
+            TweenLite.to(window, .5, { scrollTo: {y:currentPage * viewHeight, autoKill: false, autoRound: false, force3D: true} })
+            // console.log('текущая')
+          } else {
+            TweenLite.to(window, .5, { scrollTo: {y:currentPage * viewHeight, autoKill: false, autoRound: false, force3D: true} })
+            // console.log('слудущщая')
+            moveNavProgress();
+          }
+        })
       })
-    })
 
-    // window.addEventListener('wheel', e => {
-    //   const delta = Math.sign(e.deltaY)
-    //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-    //   const currentPage = Math.round(currentHeight / viewHeight)
-    //   // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
-    //   const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
-    //   // console.log('view height: ', viewHeight)
-    //   // console.log('current height: ', currentHeight)
-    //   // console.log('delta', delta)
-    //   // console.log('currentPage', currentPage)
-    //   // console.log('nextPage', nextPage)
-    //   // console.log('scrollInCurrentPage', scrollInCurrentPage)
-    //   if (scrollInCurrentPage < 300) {
-    //     TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-    //   } else {
-    //     TweenLite.to(window, 0.5, { scrollTo: currentPage * viewHeight })
-    //     moveNavProgress();
-    //   }
-    // })
+      const throttle = callback => {
+        const minScrollTime = 600
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
+      }
+    } else if (browser.name === 'firefox') {
+      window.addEventListener('wheel', e => {
+        throttle(() => {
+          const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          if (scrollInCurrentPage < 200) {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('текущая')
+          } else {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('слудущщая')
+            moveNavProgress();
+          }
+        })
+      })
 
-    const throttle = callback => {
-      const minScrollTime = 300
-      if (!scrollTimer) {
-        scrollTimer = setTimeout(function () {
-          scrollTimer = null
-          callback()
-        }, minScrollTime)
+      const throttle = callback => {
+        const minScrollTime = 500
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
+      }
+    } else {
+      window.addEventListener('wheel', () => {
+        throttle(() => {
+          // const delta = Math.sign(e.deltaY)
+          const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+          const currentPage = Math.round(currentHeight / viewHeight)
+          // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+          // const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+          // console.log('view height: ', viewHeight)
+          // console.log('current height: ', currentHeight)
+          // console.log('delta', delta)
+          // console.log('currentPage', currentPage)
+          // console.log('nextPage', nextPage)
+          // console.log('scrollInCurrentPage', scrollInCurrentPage)
+          // if (scrollInCurrentPage < 200) {
+            TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('текущая')
+          // } else {
+          //   TweenLite.to(window, .3, { scrollTo: currentPage * viewHeight })
+            // console.log('слудущщая')
+            moveNavProgress();
+          // }
+        })
+      })
+
+      // window.addEventListener('wheel', e => {
+      //   const delta = Math.sign(e.deltaY)
+      //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
+      //   const currentPage = Math.round(currentHeight / viewHeight)
+      //   // const nextPage = delta > 0 ? currentPage + 1 : currentPage - 1
+      //   const scrollInCurrentPage = delta > 0 ? currentHeight % viewHeight : viewHeight - (currentHeight % viewHeight)
+      //   // console.log('view height: ', viewHeight)
+      //   // console.log('current height: ', currentHeight)
+      //   // console.log('delta', delta)
+      //   // console.log('currentPage', currentPage)
+      //   // console.log('nextPage', nextPage)
+      //   // console.log('scrollInCurrentPage', scrollInCurrentPage)
+      //   if (scrollInCurrentPage < 300) {
+      //     TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
+      //   } else {
+      //     TweenLite.to(window, 0.5, { scrollTo: currentPage * viewHeight })
+      //     moveNavProgress();
+      //   }
+      // })
+
+      const throttle = callback => {
+        const minScrollTime = 400
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function () {
+            scrollTimer = null
+            callback()
+          }, minScrollTime)
+        }
       }
     }
-
-    // to align active component on load
-    // throttle(() => {
-    //   const currentHeight = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
-    //   const currentPage = Math.round(currentHeight / viewHeight)
-    //   TweenLite.to(window, 1, { scrollTo: currentPage * viewHeight })
-    // })
 
     $('.header:not(.main-slide)').each(function() {
       new ScrollMagic.Scene({
