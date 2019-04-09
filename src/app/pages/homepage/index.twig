@@ -28,39 +28,71 @@
         {% set years = craft.entries().section('year').level(1).all() %}
 
         <div class="year-container">
+
             {% nav year in years %}
 
-                {% set year_block = year.getChildren.all()[0].headerTitle %}
+                {% if year.type == 'homepage' %}
 
-                <div class="year" id="{{ year.title }}" data-title="{{ year_block }}">
+                    {#TODO (fornt):Homepage fields#}
 
-                    {% for block in year.getChildren.all() %}
+                    {#-- Homepage section --#}
 
-                        {% switch block.type %}
+                    {#{% set homepageSection = year %}#}
+
+                    {# Header Title #}
+                    {#{{ homepageSection.headerTitle }}#}
+
+                    {# Background Image #}
+                    {#{% if homepageSection.backgroundImage | length %}#}
+                        {#{{ homepageSection.backgroundImage[0].url }}#}
+                    {#{% endif %}#}
+
+                    {# Anchor Image #}
+                    {#{% if homepageSection.anchorImage | length  %}#}
+                        {#{{ homepageSection.anchorImage[0].url }}#}
+                    {#{% endif %}#}
+                    {##}
+                    {# Header Image #}
+                    {#{% if homepageSection.headerImage | length  %}#}
+                        {#{{ homepageSection.headerImage[0].url }}#}
+                    {#{% endif %}#}
+
+                    {#--END Homepage section -#}
+                {% else %}
+
+                    {% set year_block = year.getChildren.all()[0].headerTitle %}
+
+                    <div class="year" id="{{ year.title }}" data-title="{{ year_block }}">
+
+                        {% for block in year.getChildren.all() %}
+
+                            {% switch block.type %}
 
                             {% case "componentAHeader" %}
 
-                                {% include 'shared/components/header/index.twig' %}
+                            {% include 'shared/components/header/index.twig' %}
 
                             {% case "componentBDetail" %}
 
-                                {% include 'shared/components/detail/index.twig' %}
+                            {% include 'shared/components/detail/index.twig' %}
 
                             {% case "componentBSlideshow" %}
 
-                                {% include 'shared/components/slideshow/index.twig' %}
+                            {% include 'shared/components/slideshow/index.twig' %}
 
                             {% case "componentBVideo" %}
 
-                                {% include 'shared/components/video/index.twig' %}
+                            {% include 'shared/components/video/index.twig' %}
 
                             {% default %}
 
-                        {% endswitch %}
+                            {% endswitch %}
 
-                    {% endfor %}
+                        {% endfor %}
 
-                </div>
+                    </div>
+
+                {% endif %}
 
             {% endnav %}
         </div>
