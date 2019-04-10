@@ -61,6 +61,7 @@
     top: 0 !important;
     opacity: 0;
     height: 100%;
+    z-index: -1;
 
     /* @media screen and (max-width: 768px) {
       width: 100%;
@@ -78,7 +79,7 @@
     background-position: 50% 0;
     opacity: 0;
     height: 100%;
-    z-index: 100;
+    z-index: -1;
 
     /* @media screen and (max-width: 768px) {
       width: 100%;
@@ -95,6 +96,7 @@
     transition: opacity 2s ease;
     font-family: var(--italic-title-font);
     font-style: italic;
+    z-index: -1;
 
     &.--mobile {
       opacity: 1;
@@ -199,6 +201,7 @@
       padding: 0 10px;
       max-width: 430px;
       margin: 0 auto;
+      scroll-snap-align: start;
 
       @media (--notTablet) {
         font-size: 4.4rem;
@@ -213,6 +216,7 @@
     &.--mobile {
       display: flex;
       padding: 0 10px;
+      scroll-snap-align: start;
 
       @media (--notTablet) {
         font-size: 4.4rem;

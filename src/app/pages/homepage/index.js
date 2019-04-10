@@ -1,17 +1,17 @@
 import './index.css'
 import $ from 'jquery'
-import TweenLite from 'gsap/TweenLite'
+// import TweenLite from 'gsap/TweenLite'
 import 'gsap/ScrollToPlugin'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import MobileDetect from 'mobile-detect/mobile-detect.min'
-import { detect } from 'detect-browser'
-const browser = detect();
+// import { detect } from 'detect-browser'
+// const browser = detect();
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
-  let scrollTimer
+  // let scrollTimer
   const controller = new ScrollMagic.Controller()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
   const halfViewHeight = viewHeight / 2
@@ -103,6 +103,7 @@ if (document.querySelector('.homepage')) {
 
     // window.addEventListener('scroll', () => console.log(viewHeight, window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop))
 
+    /*
     if (browser.name === 'safari') {
       window.addEventListener('wheel', e => {
         throttle(() => {
@@ -226,6 +227,7 @@ if (document.querySelector('.homepage')) {
         }
       }
     }
+    */
 
     // scenes for A (header) component, but not main (top) slide
     $('.header:not(.main-slide)').each(function() {

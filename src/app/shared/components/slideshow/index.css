@@ -15,7 +15,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: 1;
+    z-index: -1;
     top: 0 !important;
     opacity: 0;
   }
@@ -160,6 +160,7 @@
 
   & .slideshow__copy {
     z-index: 11;
+    scroll-snap-align: start;
   }
 
   &.--expanded {

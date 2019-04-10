@@ -14,7 +14,7 @@
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: 1;
+    z-index: -1;
     opacity: 0;
   }
 
@@ -285,6 +285,7 @@
     max-width: 340px;
     margin: 0 auto;
     z-index: 5;
+    scroll-snap-align: start;
   }
 
   & .video__play-btn {

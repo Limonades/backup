@@ -9,11 +9,14 @@ body {
 }
 
 .year-container {
-  /* scroll-snap-type: y mandatory;
-  overflow: scroll;
   height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-destination: 0 0;
+  scroll-snap-type: y mandatory;
+  scroll-snap-type: mandatory;
 
-  @media screen and (max-width: 1023px) {
+  /* @media screen and (max-width: 1023px) {
     scroll-snap-type: unset;
     overflow: auto;
     height: auto;
@@ -25,11 +28,12 @@ body {
     height: 100vh;
     background-size: cover !important;
     color: black;
-    position: relative; /* scroll-snap-align: start; */
+    position: relative;
+    scroll-snap-align: start;
 
-    @media screen and (max-width: 1023px) {
+    /* @media screen and (max-width: 1023px) {
       scroll-snap-align: none;
-    }
+    } */
 
     & .copy {
       padding: 20rem 2rem 0;
@@ -184,6 +188,10 @@ body {
 
   & .menu-social {
     display: none;
+  }
+
+  & section.page {
+    scroll-snap-align: none;
   }
 
   /* & section.page {
