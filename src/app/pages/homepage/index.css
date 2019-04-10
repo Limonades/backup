@@ -14,7 +14,6 @@ body {
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-destination: 0 0;
   scroll-snap-type: y mandatory;
-  scroll-snap-type: mandatory;
   -webkit-overflow-scrolling: touch
 
   /* @media screen and (max-width: 1023px) {
