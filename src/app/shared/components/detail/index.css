@@ -15,7 +15,7 @@
     transition: opacity 0.5s ease;
     will-change: opacity;
     top: 0 !important;
-    z-index: 10;
+    z-index: 9;
   }
 
   &__copy {
