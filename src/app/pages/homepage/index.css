@@ -15,6 +15,7 @@ body {
   scroll-snap-destination: 0 0;
   scroll-snap-type: y mandatory;
   scroll-snap-type: mandatory;
+  -webkit-overflow-scrolling: touch
 
   /* @media screen and (max-width: 1023px) {
     scroll-snap-type: unset;
