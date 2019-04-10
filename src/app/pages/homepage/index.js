@@ -227,6 +227,7 @@ if (document.querySelector('.homepage')) {
       }
     }
 
+    // scenes for A (header) component, but not main (top) slide
     $('.header:not(.main-slide)').each(function() {
       new ScrollMagic.Scene({
         triggerElement: this,
@@ -290,6 +291,36 @@ if (document.querySelector('.homepage')) {
         duration: halfViewHeight + halfViewHeight / 2
       })
         .setClassToggle($(this).find('.header__title')[0], 'fade-in')
+        .addTo(controller)
+
+      // make component bg fixed for smooth fade-in/fade-out
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
+      })
+        .setPin($(this).find('.header__year-wrap')[0], {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-in animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 1 })
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-out animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 0 })
+        // .addIndicators()
         .addTo(controller)
     })
 
@@ -357,24 +388,6 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight
       })
-        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
-        // .addIndicators({name: 'background', indent: 100, color: 'yellow'})
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
-      })
-        .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
-        // .addIndicators({name: 'PIDARASSSSSSSSSS'})
-        .addTo(controller)
-
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
-      })
         .setPin($(this).find('.detail__txt-description')[0])
         // .addIndicators()
         .addTo(controller)
@@ -387,7 +400,39 @@ if (document.querySelector('.homepage')) {
         .setPin($(this).find('.detail__photo-description h3')[0])
         // .addIndicators()
         .addTo(controller)
-      //
+
+      // make component bg fixed for smooth fade-in/fade-out
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
+      })
+        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-in animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-out animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
+        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
     })
 
     $('.video').each(function() {
@@ -413,6 +458,39 @@ if (document.querySelector('.homepage')) {
       })
         .setTween($(this).find('.video__img-bg'), .5, {  opacity: 1, bottom: 0 })
         // .addIndicators({ name: '.detail__txt-description' })
+        .addTo(controller)
+
+      // make component bg fixed for smooth fade-in/fade-out
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
+      })
+        .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-in animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+        // .addIndicators()
+        .addTo(controller)
+
+      // bg fade-out animation
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+        // .addIndicators()
         .addTo(controller)
     })
 
@@ -482,9 +560,74 @@ if (document.querySelector('.homepage')) {
           // .addIndicators()
           .setPin(this)
           .addTo(controller)
+
+        // make component bg fixed for smooth fade-in/fade-out
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: -halfViewHeight,
+          duration: pinDuration + viewHeight + viewHeight
+        })
+          .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+          // .setClassToggle(this, '--fixed')
+          // .addIndicators()
+          .addTo(controller)
+
+        // bg fade-in animation
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: 0,
+          duration: halfViewHeight
+        })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+          // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
+
+        // bg fade-out animation
+            new ScrollMagic.Scene({
+              triggerElement: this,
+              offset: pinDuration + halfViewHeight + viewHeight,
+              duration: halfViewHeight
+            })
+              .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+              // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+              // .addIndicators()
+              .addTo(controller)
+      } else {
+        // make component bg fixed for smooth fade-in/fade-out
+        new ScrollMagic.Scene({
+            triggerElement: this,
+            offset: -halfViewHeight,
+            duration: $(this).height() + viewHeight
+          })
+            .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+            // .setClassToggle(this, '--fixed')
+            // .addIndicators()
+            .addTo(controller)
+
+        // bg fade-in animation
+          new ScrollMagic.Scene({
+            triggerElement: this,
+            offset: 0,
+            duration: halfViewHeight
+          })
+            .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+            // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+            // .addIndicators()
+            .addTo(controller)
+
+        // bg fade-out animation
+          new ScrollMagic.Scene({
+            triggerElement: this,
+            offset: $(this).height(),
+            duration: halfViewHeight
+          })
+            .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+            // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+            // .addIndicators()
+            .addTo(controller)
       }
     })
-
 
 
     $('.year').each(function() {

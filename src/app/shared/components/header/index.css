@@ -58,6 +58,9 @@
     position: relative;
     background-size: cover;
     background-position: center;
+    top: 0 !important;
+    opacity: 0;
+    height: 100%;
 
     /* @media screen and (max-width: 768px) {
       width: 100%;
