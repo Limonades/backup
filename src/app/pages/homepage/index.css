@@ -6,6 +6,7 @@ body {
   @media screen and (max-width: 1023px) {
     height: auto;
   } */
+  overflow-x: hidden;
 }
 
 .year-container {
