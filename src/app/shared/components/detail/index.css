@@ -1,6 +1,4 @@
 .detail {
-  background-color: transparent;
-
   &__content {
     display: flex;
     flex-grow: 1;
@@ -17,7 +15,7 @@
     transition: opacity 0.5s ease;
     will-change: opacity;
     top: 0 !important;
-    z-index: 0;
+    z-index: 10;
   }
 
   &__copy {
@@ -132,10 +130,6 @@
       max-width: 30rem;
     }
   }
-
-  & .section-header {
-    z-index: -1;
-  }
 }
 
 .detail.--mobile {
@@ -178,6 +172,11 @@
     position: absolute;
     opacity: 1;
     transform: translate3d(0, 0, 0);
+
+    &.--fixed {
+      top: 0 !important;
+      bottom: 0 !important;
+    }
   }
 
   & .detail__txt-description {
@@ -194,6 +193,11 @@
     transform: translate3d(0, 0, 0);
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
+
+    &.--fixed {
+      top: 0 !important;
+      bottom: 0 !important;
+    }
 
     & h5 {
       padding: 16px;

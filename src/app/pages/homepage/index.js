@@ -1053,7 +1053,7 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
+        .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -1066,6 +1066,7 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight
       })
         .setPin(this, {pushFollowers: 0})
+        .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
