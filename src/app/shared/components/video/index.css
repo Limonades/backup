@@ -286,6 +286,7 @@
     margin: 0 auto;
     z-index: 5;
     scroll-snap-align: start;
+    scroll-snap-coordinate: 0 0;
   }
 
   & .video__play-btn {

@@ -161,6 +161,7 @@
   & .slideshow__copy {
     z-index: 11;
     scroll-snap-align: start;
+    scroll-snap-coordinate: 0 0;
   }
 
   &.--expanded {
