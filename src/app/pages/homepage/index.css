@@ -9,21 +9,9 @@ body {
 }
 
 .year-container {
-  height: 100vh;
-  width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-destination: 0 0;
-  scroll-snap-type: mandatory;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  /* @media screen and (max-width: 1023px) {
-    scroll-snap-type: unset;
-    overflow: auto;
-    height: auto;
-  } */
+  /* scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh; */
 }
 
 .homepage {
@@ -31,12 +19,7 @@ body {
     height: 100vh;
     background-size: cover !important;
     color: black;
-    position: relative;
-    scroll-snap-align: start;
-
-    /* @media screen and (max-width: 1023px) {
-      scroll-snap-align: none;
-    } */
+    position: relative; /* scroll-snap-align: start; */
 
     & .copy {
       padding: 20rem 2rem 0;
@@ -191,6 +174,18 @@ body {
 
   & .menu-social {
     display: none;
+  }
+
+  & .year-container {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-destination: 0 0;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   & section.page {
