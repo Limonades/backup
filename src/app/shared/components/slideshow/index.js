@@ -6,6 +6,9 @@ $(document).ready(function() {
     $('.slideshow__item:not(.--first)').fadeToggle();
     $('.slideshow__expand-btn').fadeToggle();
     $('.slideshow').toggleClass('--expanded');
+    $('body').toggleClass('--no-scroll');
+    $('.year-container').toggleClass('--no-scroll');
+    $('.mobile-logo, .hamburger').toggleClass('--low-z')
   }
 
   $('.slideshow__expand-btn-wrap').on('click', slideshowOpenCLose);

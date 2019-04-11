@@ -16,6 +16,7 @@ if (md.mobile()) {
 
     const mobileMenuToogle = ()=> {
       $('body').toggleClass('--no-scroll');
+      $('.year-container').toggleClass('--no-scroll');
       $('.mobile-menu').toggleClass('--open');
       $('.hamburger').fadeToggle();
     }

@@ -186,6 +186,10 @@ body {
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
+
+    &.--no-scroll {
+      overflow: hidden !important;
+    }
   }
 
   & section.page {
