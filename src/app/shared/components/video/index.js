@@ -53,6 +53,8 @@ $(document).ready(function() {
         e.preventDefault();
         let id = $(this).attr('href');
 
+        $('.mobile-logo, .hamburger').addClass('--low-z')
+
         $(`#${id} video`)[0].play();
 
         $(`#${id}`).addClass('--open');
@@ -67,6 +69,7 @@ $(document).ready(function() {
           $('body').removeClass('--no-scroll');
           $(this).parents('.video').removeClass('--modal-open');
           $(`.video__modal video`)[0].pause();
+          $('.mobile-logo, .hamburger').removeClass('--low-z')
           // $(playpause).children().toggleClass('video__btn-img--hide');
         }
       })

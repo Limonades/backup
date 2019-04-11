@@ -30,10 +30,12 @@
 
                 {% if block.anchorImage[0].kind == 'video' %}
                     <div class="header__video-bg-wrap">
-                        <video playsinline muted loop autoplay class="header__video-bg">
-                            <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <div class="header__video-bg">
+                            <video playsinline muted loop autoplay>
+                                <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     </div>
                 {% elseif block.anchorImage[0].kind == 'image' %}
                     {% include "/shared/functions/addImage.twig" with { 'image': block.anchorImage[0] , 'picture_class':'header__year-photo' , 'format':block.anchorImage[0].extension } %}
