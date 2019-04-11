@@ -803,12 +803,19 @@ if (document.querySelector('.homepage')) {
     $('.slideshow').addClass('--mobile');
     $('.homepage').addClass('--mobile');
 
+    let pageHeight = 0;
+    const $scrollContainer = '.year-container';
+
+    $('section.page').each((i, e) => {
+      pageHeight += $(e).height();
+    })
+
     var getMax = function() {
-      return $(document).height() - $(window).height();
+      return pageHeight - $(window).height();
     }
 
     var getValue = function() {
-      return $(window).scrollTop();
+      return $($scrollContainer).scrollTop();
     }
 
     if ('max' in document.createElement('progress')) {
@@ -818,7 +825,7 @@ if (document.querySelector('.homepage')) {
         max: getMax()
       });
 
-      $(document).on('scroll', function() {
+      $($scrollContainer).on('scroll', function() {
         progressBar.attr({
           value: getValue()
         });
@@ -850,7 +857,7 @@ if (document.querySelector('.homepage')) {
         });
       }
 
-      $(document).on('scroll', setWidth);
+      $($scrollContainer).on('scroll', setWidth);
       $(window).on('resize', function() {
 
         max = getMax();
