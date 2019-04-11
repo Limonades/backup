@@ -69,7 +69,9 @@ $(document).ready(function() {
           $('body').removeClass('--no-scroll');
           $(this).parents('.video').removeClass('--modal-open');
           $(`.video__modal video`)[0].pause();
-          $('.mobile-logo, .hamburger').removeClass('--low-z')
+          setTimeout(function() {
+            $('.mobile-logo, .hamburger').removeClass('--low-z')
+          }, 400);
           // $(playpause).children().toggleClass('video__btn-img--hide');
         }
       })
