@@ -176,6 +176,11 @@
       display: block;
       z-index: 20;
     }
+
+    & .slideshow__item-txt {
+      display: block;
+      color: white;
+    }
   }
 
   & .slideshow__bg {
@@ -252,8 +257,14 @@
       color: white;
 
       & p {
+        color: black;
         font-size: 2rem;
         margin-bottom: 20px;
+      }
+
+      & .plus-minus::before,
+      & .plus-minus::after {
+        background: black;
       }
     }
 
@@ -261,6 +272,7 @@
       display: none;
 
       & p {
+        color: white;
         font-size: 2rem;
         font-weight: 600;
         text-transform: uppercase;
