@@ -120,7 +120,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 150;
+    z-index: 250;
     background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
@@ -249,7 +249,7 @@
   scroll-snap-align: start !important;
   scroll-snap-coordinate: 0 0 !important;
 
-  &.video__modal {
+  & .video__modal {
     padding: 1rem;
   }
 
@@ -314,11 +314,11 @@
     right: 1rem;
   }
 
-  & .video__modal {
-    padding: 1rem 4rem;
+  & .video__modal-video {
+    width: 100%;
   }
 
-  & .video__modal-video {
+  & .video__modal-container {
     width: 100%;
   }
 }

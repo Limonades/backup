@@ -47,7 +47,7 @@
 
                     {% if block.anchorImage[0].kind == 'video' %}
                         <div class="detail__video-bg-wrap">
-                            <video muted loop autoplay playsinline class="detail__video-bg">
+                            <video playsinline muted loop autoplay class="detail__video-bg">
                                 <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

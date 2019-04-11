@@ -39,7 +39,7 @@
         {% if block.anchorImage | length %}
             {% if block.anchorImage[0].kind == 'video' %}
                 <div class="video__video-bg">
-                    <video muted loop autoplay playsinline>
+                    <video playsinline muted loop autoplay>
                         <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -73,7 +73,7 @@
                 <div class="plus-minus close"></div>
             </div>
             <div class="video__modal-container">
-                <video id="video" class="video__modal-video">
+                <video playsinline id="video" class="video__modal-video">
                     <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
