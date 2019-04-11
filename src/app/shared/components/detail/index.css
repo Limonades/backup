@@ -173,6 +173,10 @@
     opacity: 1;
     transform: translate3d(0, 0, 0);
 
+    &.--bottom {
+      bottom: 0 !important;
+    }
+
     &.--fixed {
       top: 0 !important;
       bottom: 0 !important;
@@ -190,6 +194,7 @@
     margin: 0 auto;
     padding: 0 10px;
     right: 0 !important;
+    bottom: 0 !important;
     transform: translate3d(0, 0, 0);
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
