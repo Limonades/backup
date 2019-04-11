@@ -1087,7 +1087,7 @@ if (document.querySelector('.homepage')) {
       })
         .setPin(this, {pushFollowers: 0})
         .setClassToggle(this, '--fixed')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
 
