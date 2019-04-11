@@ -306,7 +306,7 @@
 
       & .plus-minus::before,
       & .plus-minus::after {
-        background: white;
+        background: black;
       }
     }
 

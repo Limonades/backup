@@ -460,6 +460,15 @@ if (document.querySelector('.homepage')) {
         // .addIndicators({ name: '.detail__txt-description' })
         .addTo(controller)
 
+      new ScrollMagic.Scene({
+        offset: halfViewHeight,
+        duration: viewHeight,
+        triggerElement: this
+      })
+        .setTween($(this).find('.video__img-bg'), 4, {  y: -viewHeight })
+        // .addIndicators({ name: '.detail__txt-description' })
+        .addTo(controller)
+
       // make component bg fixed for smooth fade-in/fade-out
       new ScrollMagic.Scene({
         triggerElement: this,
@@ -1087,6 +1096,18 @@ if (document.querySelector('.homepage')) {
       })
         .setPin(this, {pushFollowers: 0})
         .setClassToggle(this, '--fixed')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail__txt-description').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight + 50,
+        duration: viewHeight + halfViewHeight
+      })
+        .setClassToggle(this, '--bg')
         // .addIndicators()
         .addTo(controller)
     })
