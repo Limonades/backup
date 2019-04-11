@@ -246,6 +246,9 @@
 }
 
 .video.--mobile {
+  scroll-snap-align: start !important;
+  scroll-snap-coordinate: 0 0 !important;
+
   &.video__modal {
     padding: 1rem;
   }
@@ -285,8 +288,6 @@
     max-width: 340px;
     margin: 0 auto;
     z-index: 5;
-    scroll-snap-align: start;
-    scroll-snap-coordinate: 0 0;
   }
 
   & .video__play-btn {

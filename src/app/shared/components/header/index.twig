@@ -30,7 +30,7 @@
 
                 {% if block.anchorImage[0].kind == 'video' %}
                     <div class="header__video-bg-wrap">
-                        <video muted loop autoplay class="header__video-bg">
+                        <video muted loop autoplay playsinline class="header__video-bg">
                             <source src="{{ block.anchorImage[0].url }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -65,7 +65,7 @@
             {% if block.headerImage | length %}
                 {% if block.headerImage[0].kind == 'video' %}
                     <div class="header__large-video-bg">
-                    <video muted="" loop="" autoplay="" >
+                    <video muted="" loop="" autoplay="" playsinline>
                         <source src="{{ block.headerImage[0].url }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
