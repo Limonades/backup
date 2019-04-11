@@ -444,6 +444,16 @@ if (document.querySelector('.homepage')) {
         // .addIndicators()
         .addTo(controller)
 
+      // increase z-index to make play btn clickable
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight - 10,
+        duration: 20
+      })
+        .setClassToggle(this, '--z-index')
+        // .addIndicators({ name: 'pizdecnahoyblyad' })
+        .addTo(controller)
+
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight - halfViewHeight / 2,

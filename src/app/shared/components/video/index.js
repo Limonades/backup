@@ -33,6 +33,7 @@ $(document).ready(function() {
 
         $(`#${id} video`)[0].play();
 
+        $(this).parents('section.video').removeClass('--z-index');
         $(`#${id}`).addClass('--open');
         $('body').addClass('--no-scroll');
         $(this).parents('.video__copy').addClass('--modal-open')
@@ -45,6 +46,7 @@ $(document).ready(function() {
           $('body').removeClass('--no-scroll');
           $(this).find('.video__copy').removeClass('--modal-open');
           $(`.video__modal video`)[0].pause();
+          $(this).parents('section.video').addClass('--z-index');
           // $(playpause).children().toggleClass('video__btn-img--hide');
         }
       })
