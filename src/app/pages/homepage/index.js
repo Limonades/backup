@@ -1123,11 +1123,11 @@ if (document.querySelector('.homepage')) {
     })
 
     $('.detail__txt-description').each(function() {
-      // page 3 Image 1
+      // to fix slide coord destination bug
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: viewHeight + halfViewHeight - 100,
-        duration: 90
+        offset: viewHeight,
+        duration: halfViewHeight - 10
       })
         .setClassToggle(this, '--height')
         // .addIndicators()
