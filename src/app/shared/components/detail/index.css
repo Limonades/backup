@@ -136,6 +136,15 @@
   min-height: 100vh;
   height: auto !important;
 
+  & .ssa-point {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-coordinate: 0 0;
+  }
+
   & .detail__bg {
     height: 100vh;
     top: 0 !important;
@@ -215,6 +224,10 @@
       & h5 {
         background-color: rgba(0, 0, 0, 0.15);
       }
+    }
+
+    &.--height {
+      height: fit-content;
     }
   }
 

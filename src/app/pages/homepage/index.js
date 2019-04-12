@@ -1122,6 +1122,18 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
+    $('.detail__txt-description').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: viewHeight + halfViewHeight - 100,
+        duration: 100
+      })
+        .setClassToggle(this, '--height')
+        // .addIndicators()
+        .addTo(controller)
+    })
+
     // $('.video').each(function() {
     //   // page 3 Image 1
     //   new ScrollMagic.Scene({
