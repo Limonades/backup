@@ -132,11 +132,16 @@
   }
 }
 
+.ssa-point {
+  display: none;
+}
+
 .detail.--mobile {
   min-height: 100vh;
   height: auto !important;
 
   & .ssa-point {
+    display: block;
     position: absolute;
     top: 100vh;
     left: 0;

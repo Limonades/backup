@@ -1127,7 +1127,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: viewHeight + halfViewHeight - 100,
-        duration: 100
+        duration: 90
       })
         .setClassToggle(this, '--height')
         // .addIndicators()
