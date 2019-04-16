@@ -232,7 +232,7 @@
     }
 
     &.--height {
-      height: fit-content;
+      height: 0;
     }
   }
 

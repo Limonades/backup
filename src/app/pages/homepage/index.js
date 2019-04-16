@@ -1147,92 +1147,96 @@ if (document.querySelector('.homepage')) {
     //     .addTo(controller)
     // })
 
-    $('.video').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: -halfViewHeight,
-        duration: $(this).height() + viewHeight
+    if ($('.video').length) {
+      $('.video').each(function() {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: -halfViewHeight,
+          duration: $(this).height() + viewHeight
+        })
+          .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
+          // .setClassToggle(this, '--fixed')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
-        // .addIndicators()
-        .addTo(controller)
-    })
 
-    $('.video').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: 0,
-        duration: halfViewHeight
+      $('.video').each(function() {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: 0,
+          duration: halfViewHeight
+        })
+          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+          // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
-        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
 
-    $('.video').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: $(this).height(),
-        duration: halfViewHeight
+      $('.video').each(function() {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height(),
+          duration: halfViewHeight
+        })
+          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+          // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
-        // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    }
 
-    $('.slideshow').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: -halfViewHeight,
-        duration: $(this).height() + viewHeight
+    if ($('.slideshow').lenght) {
+      $('.slideshow').each(function() {
+        // page 3 Image 1
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: -halfViewHeight,
+          duration: $(this).height() + viewHeight
+        })
+          .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+          // .setClassToggle(this, '--fixed')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
-        // .addIndicators()
-        .addTo(controller)
-    })
 
-    // $('.slideshow').each(function() {
-    //   // page 3 Image 1
-    //   new ScrollMagic.Scene({
-    //     triggerElement: this,
-    //     offset: halfViewHeight,
-    //     duration: $(this).height()
-    //   })
-    //     .setClassToggle($(this).find('.slideshow__bg')[0], 'fade-in')
-    //     // .addIndicators()
-    //     .addTo(controller)
-    // })
+      // $('.slideshow').each(function() {
+      //   // page 3 Image 1
+      //   new ScrollMagic.Scene({
+      //     triggerElement: this,
+      //     offset: halfViewHeight,
+      //     duration: $(this).height()
+      //   })
+      //     .setClassToggle($(this).find('.slideshow__bg')[0], 'fade-in')
+      //     // .addIndicators()
+      //     .addTo(controller)
+      // })
 
-    $('.slideshow').each(function() {
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: 0,
-        duration: halfViewHeight
+      $('.slideshow').each(function() {
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: 0,
+          duration: halfViewHeight
+        })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+          // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
-        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
 
-    $('.slideshow').each(function() {
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: $(this).height(),
-        duration: halfViewHeight
+      $('.slideshow').each(function() {
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height(),
+          duration: halfViewHeight
+        })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+          // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
       })
-        .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
-        // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    }
   }
 }
