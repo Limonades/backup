@@ -215,6 +215,7 @@
       padding: 0 10px;
       scroll-snap-align: start;
       scroll-snap-coordinate: 0 0;
+      transform: translate3d(0, 0, 0);
 
       @media (--notTablet) {
         font-size: 4.4rem;
