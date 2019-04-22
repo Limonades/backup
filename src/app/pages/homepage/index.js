@@ -1126,12 +1126,12 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + 50,
+        offset: halfViewHeight + 70,
         duration: viewHeight
       })
         .setPin(this, {pushFollowers: 0})
         .setClassToggle(this, '--fixed')
-        // .addIndicators()
+        .addIndicators()
         .addTo(controller)
     })
 
