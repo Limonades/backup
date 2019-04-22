@@ -925,9 +925,11 @@ if (document.querySelector('.homepage')) {
     // }
 
     // $(document).on('click', '.mobile-menu__list-link', function(e) {
-      // const id = $(this).attr("href");
-      // const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
-      //
+    //   const id = $(this).attr("href");
+    //   const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
+    //
+    //   document.location.href= id;
+
       // console.log(id)
       // console.log(offsetTop)
       //
@@ -1139,8 +1141,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight + 30
+        offset: halfViewHeight / 2,
+        duration: halfViewHeight / 2 + viewHeight + 80
       })
         .setClassToggle(this, '--animated')
         // .addIndicators()
