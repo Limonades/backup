@@ -1095,7 +1095,7 @@ if (document.querySelector('.homepage')) {
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
 
