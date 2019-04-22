@@ -233,6 +233,10 @@
       scroll-snap-coordinate: unset;
     }
 
+    &.--top {
+      top: 100vh !important;
+    }
+
     & h5 {
       padding: 16px;
       font-size: 2.1rem;
