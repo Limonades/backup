@@ -36,3 +36,14 @@ main {
 section {
   background-color: #171416;
 }
+
+.homepage.--mobile {
+  & p,
+  & img,
+  & h2,
+  & h3,
+  & h4,
+  & h5 {
+    transform: translate3d(0, 0, 0);
+  }
+}
