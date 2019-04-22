@@ -216,6 +216,8 @@
     &.--fixed {
       top: 0 !important;
       bottom: 0 !important;
+      scroll-snap-align: none;
+      scroll-snap-coordinate: unset;
     }
 
     & h5 {

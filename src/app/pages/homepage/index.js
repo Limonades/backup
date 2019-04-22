@@ -1122,17 +1122,17 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail__img-bg').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: 0,
-        duration: viewHeight
-      })
-        .setClassToggle(this, '--snap-off')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail__img-bg').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: 0,
+    //     duration: viewHeight
+    //   })
+    //     .setClassToggle(this, '--snap-off')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     // $('.detail__txt-description').each(function() {
     //   // to fix slide coord destination bug
