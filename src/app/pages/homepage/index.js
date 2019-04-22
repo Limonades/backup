@@ -925,26 +925,26 @@ if (document.querySelector('.homepage')) {
     // }
 
     // $(document).on('click', '.mobile-menu__list-link', function(e) {
-    //   const id = $(this).attr("href");
-    //   const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
-    //
-    //   console.log(id)
-    //   console.log(offsetTop)
-    //
-    //   // e.preventDefault();
-    //
-    //   console.log('нажал')
-    //
-    //   if (id.length > 0) {
-    //
-    //     controller.scrollTo(offsetTop);
-    //
-    //     // console.log(id)
-    //
-    //     if (window.history && window.history.pushState) {
-    //       history.pushState("", document.title, id)
-    //     }
-    //   }
+      // const id = $(this).attr("href");
+      // const offsetTop = id === "#" ? 0 : $(id).offset().top + 1;
+      //
+      // console.log(id)
+      // console.log(offsetTop)
+      //
+      // // e.preventDefault();
+      //
+      // console.log('нажал')
+      //
+      // if (id.length > 0) {
+      //
+      //   controller.scrollTo(offsetTop);
+      //
+      //   // console.log(id)
+      //
+      //   if (window.history && window.history.pushState) {
+      //     history.pushState("", document.title, id)
+      //   }
+      // }
     // })
 
     $('.header').each(function() {
@@ -1126,8 +1126,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight
+        offset: -halfViewHeight,
+        duration: viewHeight * 2.5
       })
         .setPin(this, {pushFollowers: 0})
         .setClassToggle(this, '--fixed')
@@ -1139,25 +1139,37 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + viewHeight,
-        duration: halfViewHeight
+        offset: halfViewHeight,
+        duration: viewHeight + 30
       })
-        .setClassToggle(this, '--top')
+        .setClassToggle(this, '--animated')
         // .addIndicators()
         .addTo(controller)
     })
 
-    $('.detail__txt-description').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: viewHeight + halfViewHeight + 100,
-        duration: 90
-      })
-        .setTween(this, 1, {  opacity: 0 })
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail__txt-description').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight + viewHeight,
+    //     duration: halfViewHeight
+    //   })
+    //     .setClassToggle(this, '--top')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
+    //
+    // $('.detail__txt-description').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: viewHeight + halfViewHeight + 100,
+    //     duration: 90
+    //   })
+    //     .setTween(this, 1, {  opacity: 0 })
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     $('.detail__txt-description').each(function() {
       // page 3 Image 1

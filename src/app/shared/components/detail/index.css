@@ -211,7 +211,6 @@
   }
 
   & .detail__txt-description {
-    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,14 +219,16 @@
     max-width: 430px;
     margin: 0 auto;
     padding: 0 10px;
+    top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 10rem, 0);
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 
     &.--fixed {
-      top: 0 !important;
       bottom: 0 !important;
       scroll-snap-align: none;
       scroll-snap-coordinate: unset;
@@ -235,6 +236,11 @@
 
     &.--top {
       top: 100vh !important;
+    }
+
+    &.--animated {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
     }
 
     & h5 {
