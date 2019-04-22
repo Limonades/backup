@@ -1089,11 +1089,23 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight,
-        duration: viewHeight
+        duration: viewHeight * 2
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
         // .addIndicators()
+        .addTo(controller)
+    })
+
+    $('.detail').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: viewHeight + halfViewHeight + 50,
+        duration: viewHeight
+      })
+        .setClassToggle($(this).find('.detail__photo')[0], '--top')
+        .addIndicators()
         .addTo(controller)
     })
 
@@ -1106,7 +1118,7 @@ if (document.querySelector('.homepage')) {
       })
         // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--animated')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
 
