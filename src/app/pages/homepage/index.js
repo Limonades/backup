@@ -1101,7 +1101,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: viewHeight + halfViewHeight + 50,
+        offset: viewHeight + halfViewHeight + 100,
         duration: viewHeight
       })
         .setClassToggle($(this).find('.detail__photo')[0], '--top')
@@ -1151,7 +1151,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: viewHeight + halfViewHeight,
+        offset: viewHeight + halfViewHeight + 100,
         duration: 90
       })
         .setTween(this, 1, {  opacity: 0 })
