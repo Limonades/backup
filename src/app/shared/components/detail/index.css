@@ -140,6 +140,10 @@
   min-height: 100vh;
   height: auto !important;
 
+  & * {
+    transition: transform 0.3s ease;
+  }
+
   & .ssa-point {
     display: block;
     position: absolute;
@@ -198,7 +202,7 @@
     }
 
     &.--animated {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) !important;
     }
   }
 

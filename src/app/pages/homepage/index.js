@@ -1102,7 +1102,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight,
-        duration: viewHeight + 10
+        duration: viewHeight + 50
       })
         // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--animated')
