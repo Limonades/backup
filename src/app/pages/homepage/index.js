@@ -1090,8 +1090,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight * 2
+        offset: halfViewHeight -10,
+        duration: (viewHeight + 10) * 2
       })
         .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
