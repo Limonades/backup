@@ -1072,14 +1072,27 @@ if (document.querySelector('.homepage')) {
     })
 
     // to optimize fixed animation
+    // $('.detail').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: 0,
+    //     duration: viewHeight
+    //   })
+    //     .setClassToggle($(this).find('.detail__photo')[0], '--bottom')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
+
     $('.detail').each(function() {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: 0,
+        offset: halfViewHeight,
         duration: viewHeight
       })
-        .setClassToggle($(this).find('.detail__photo')[0], '--bottom')
+        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+        .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -1088,11 +1101,11 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + 1,
-        duration: viewHeight + 1
+        offset: halfViewHeight,
+        duration: viewHeight + 10
       })
-        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
+        // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+        .setClassToggle($(this).find('.detail__photo')[0], '--animated')
         // .addIndicators()
         .addTo(controller)
     })

@@ -185,7 +185,8 @@
     margin: auto;
     position: absolute;
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease;
+    transform: translate3d(0, 10rem, 0);
 
     &.--bottom {
       bottom: 0 !important;
@@ -194,6 +195,10 @@
     &.--fixed {
       top: 0 !important;
       bottom: 0 !important;
+    }
+
+    &.--animated {
+      transform: translate3d(0, 0, 0);
     }
   }
 
