@@ -1101,7 +1101,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: viewHeight + halfViewHeight + 30,
+        offset: viewHeight + halfViewHeight + 50,
         duration: viewHeight
       })
         .setClassToggle($(this).find('.detail__photo')[0], '--top')
@@ -1126,7 +1126,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight,
+        offset: halfViewHeight + 50,
         duration: viewHeight
       })
         .setPin(this, {pushFollowers: 0})
@@ -1135,17 +1135,17 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail__txt-description').each(function() {
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight + viewHeight,
-        duration: halfViewHeight
-      })
-        .setClassToggle(this, '--top')
-        // .addIndicators()
-        .addTo(controller)
-    })
+    // $('.detail__txt-description').each(function() {
+    //   // page 3 Image 1
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: halfViewHeight + viewHeight,
+    //     duration: halfViewHeight
+    //   })
+    //     .setClassToggle(this, '--top')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     $('.detail__txt-description').each(function() {
       // page 3 Image 1
@@ -1154,7 +1154,7 @@ if (document.querySelector('.homepage')) {
         offset: viewHeight + halfViewHeight,
         duration: 90
       })
-        .setTween(this, 1, {  opacity: 0 })
+        .setTween(this, .3, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
     })
