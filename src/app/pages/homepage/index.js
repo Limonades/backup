@@ -1126,26 +1126,26 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight + 70,
+        offset: halfViewHeight,
         duration: viewHeight
       })
         .setPin(this, {pushFollowers: 0})
         .setClassToggle(this, '--fixed')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
 
-    // $('.detail__txt-description').each(function() {
-    //   // page 3 Image 1
-    //   new ScrollMagic.Scene({
-    //     triggerElement: this,
-    //     offset: halfViewHeight + viewHeight,
-    //     duration: halfViewHeight
-    //   })
-    //     .setClassToggle(this, '--top')
-    //     // .addIndicators()
-    //     .addTo(controller)
-    // })
+    $('.detail__txt-description').each(function() {
+      // page 3 Image 1
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: halfViewHeight + viewHeight,
+        duration: halfViewHeight
+      })
+        .setClassToggle(this, '--top')
+        // .addIndicators()
+        .addTo(controller)
+    })
 
     $('.detail__txt-description').each(function() {
       // page 3 Image 1
@@ -1154,7 +1154,7 @@ if (document.querySelector('.homepage')) {
         offset: viewHeight + halfViewHeight,
         duration: 90
       })
-        .setTween(this, .3, {  opacity: 0 })
+        .setTween(this, 1, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
     })
