@@ -269,6 +269,11 @@
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
     transform: translate3d(0, 0, 0);
+
+    &.--snap-off {
+      scroll-snap-align: none;
+      scroll-snap-coordinate: unset;
+    }
   }
 }
 

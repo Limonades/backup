@@ -1122,17 +1122,29 @@ if (document.querySelector('.homepage')) {
         .addTo(controller)
     })
 
-    $('.detail__txt-description').each(function() {
-      // to fix slide coord destination bug
+    $('.detail__img-bg').each(function() {
+      // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: viewHeight,
-        duration: halfViewHeight - 10
+        offset: 0,
+        duration: viewHeight
       })
-        .setClassToggle(this, '--height')
+        .setClassToggle(this, '--snap-off')
         // .addIndicators()
         .addTo(controller)
     })
+
+    // $('.detail__txt-description').each(function() {
+    //   // to fix slide coord destination bug
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     offset: viewHeight,
+    //     duration: halfViewHeight - 10
+    //   })
+    //     .setClassToggle(this, '--height')
+    //     // .addIndicators()
+    //     .addTo(controller)
+    // })
 
     // $('.video').each(function() {
     //   // page 3 Image 1
