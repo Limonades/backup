@@ -1102,11 +1102,11 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight,
-        duration: viewHeight + 50
+        duration: viewHeight + 200
       })
         // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--animated')
-        // .addIndicators()
+        .addIndicators()
         .addTo(controller)
     })
 
