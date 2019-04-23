@@ -815,6 +815,7 @@ if (document.querySelector('.homepage')) {
     //   .addTo(controller)
   } else {
     $('.nav').addClass('--mobile');
+    $('body').addClass('--mobile');
     $('progress').addClass('--mobile');
     $('.header').addClass('--mobile');
     $('.detail').addClass('--mobile');
