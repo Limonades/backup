@@ -168,6 +168,10 @@ body {
 }
 
 .homepage.--mobile {
+  & * {
+    opacity: 1 !important;
+  }
+
   & .logo {
     display: none;
   }
@@ -180,11 +184,12 @@ body {
     height: 100vh;
     width: 100%;
     overflow-y: scroll;
-    overflow-x: hidden; /* scroll-snap-points-y: repeat(100vh);
+    overflow-x: hidden;
+    scroll-snap-points-y: repeat(100vh);
     scroll-snap-destination: 0 0;
     scroll-snap-type: mandatory;
     scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch; */
+    -webkit-overflow-scrolling: touch;
 
     &.--no-scroll {
       overflow: hidden !important;
