@@ -168,10 +168,6 @@ body {
 }
 
 .homepage.--mobile {
-  & * {
-    opacity: 1 !important;
-  }
-
   & .logo {
     display: none;
   }
