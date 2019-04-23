@@ -822,67 +822,67 @@ if (document.querySelector('.homepage')) {
     $('.slideshow').addClass('--mobile');
     $('.homepage').addClass('--mobile');
 
-    let pageHeight = 0;
-    const $scrollContainer = '.year-container';
+    // let pageHeight = 0;
+    // const $scrollContainer = '.year-container';
 
-    $('section.page').each((i, e) => {
-      pageHeight += $(e).height();
-    })
-
-    var getMax = function() {
-      return pageHeight - $(window).height();
-    }
-
-    var getValue = function() {
-      return $($scrollContainer).scrollTop();
-    }
-
-    if ('max' in document.createElement('progress')) {
-      var progressBar = $('progress');
-
-      progressBar.attr({
-        max: getMax()
-      });
-
-      $($scrollContainer).on('scroll', function() {
-        progressBar.attr({
-          value: getValue()
-        });
-      });
-
-      $(window).resize(function() {
-
-        progressBar.attr({
-          max: getMax(),
-          value: getValue()
-        });
-      });
-
-    } else {
-      var max = getMax(),
-        value, width;
-
-      var getWidth = function() {
-
-        value = getValue();
-        width = (value / max) * 100;
-        width = width + '%';
-        return width;
-      }
-
-      var setWidth = function() {
-        progressBar.css({
-          width: getWidth()
-        });
-      }
-
-      $($scrollContainer).on('scroll', setWidth);
-      $(window).on('resize', function() {
-
-        max = getMax();
-        setWidth();
-      });
-    }
+    // $('section.page').each((i, e) => {
+    //   pageHeight += $(e).height();
+    // })
+    //
+    // var getMax = function() {
+    //   return pageHeight - $(window).height();
+    // }
+    //
+    // var getValue = function() {
+    //   return $($scrollContainer).scrollTop();
+    // }
+    //
+    // if ('max' in document.createElement('progress')) {
+    //   var progressBar = $('progress');
+    //
+    //   progressBar.attr({
+    //     max: getMax()
+    //   });
+    //
+    //   $($scrollContainer).on('scroll', function() {
+    //     progressBar.attr({
+    //       value: getValue()
+    //     });
+    //   });
+    //
+    //   $(window).resize(function() {
+    //
+    //     progressBar.attr({
+    //       max: getMax(),
+    //       value: getValue()
+    //     });
+    //   });
+    //
+    // } else {
+    //   var max = getMax(),
+    //     value, width;
+    //
+    //   var getWidth = function() {
+    //
+    //     value = getValue();
+    //     width = (value / max) * 100;
+    //     width = width + '%';
+    //     return width;
+    //   }
+    //
+    //   var setWidth = function() {
+    //     progressBar.css({
+    //       width: getWidth()
+    //     });
+    //   }
+    //
+    //   $($scrollContainer).on('scroll', setWidth);
+    //   $(window).on('resize', function() {
+    //
+    //     max = getMax();
+    //     setWidth();
+    //   });
+    // }
 
     // let scrollTimer
     const controller = new ScrollMagic.Controller()
