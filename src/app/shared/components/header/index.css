@@ -199,6 +199,7 @@
       margin: 0 auto;
       scroll-snap-align: start;
       scroll-snap-coordinate: 0 0;
+      scroll-snap-stop: always;
 
       @media (--notTablet) {
         font-size: 4.4rem;
@@ -216,6 +217,7 @@
       scroll-snap-align: start;
       scroll-snap-coordinate: 0 0;
       transform: translate3d(0, 0, 0);
+      scroll-snap-stop: always;
 
       @media (--notTablet) {
         font-size: 4.4rem;

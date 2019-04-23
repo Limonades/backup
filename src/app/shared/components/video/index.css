@@ -252,6 +252,7 @@
 .video.--mobile {
   scroll-snap-align: start !important;
   scroll-snap-coordinate: 0 0 !important;
+  scroll-snap-stop: always;
 
   & .video__modal {
     padding: 1rem;

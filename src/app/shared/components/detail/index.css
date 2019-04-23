@@ -152,6 +152,7 @@
     width: 100%;
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
+    scroll-snap-stop: always;
   }
 
   & .detail__bg {
@@ -228,6 +229,7 @@
     scroll-snap-coordinate: 0 0;
     opacity: 0;
     transition: opacity 0.1s ease, transform 0.3s ease;
+    scroll-snap-stop: always;
 
     &.--fixed {
       bottom: 0 !important;
@@ -280,6 +282,7 @@
       scroll-snap-align: start;
       scroll-snap-coordinate: 0 0;
       transform: translate3d(0, 0, 0);
+      scroll-snap-stop: always;
     }
   }
 
@@ -295,6 +298,7 @@
     scroll-snap-align: start;
     scroll-snap-coordinate: 0 0;
     transform: translate3d(0, 0, 0);
+    scroll-snap-stop: always;
 
     &.--snap-off {
       scroll-snap-align: none;
