@@ -168,8 +168,8 @@ body {
 }
 
 .homepage.--mobile {
-  & *::before {
-    display: none;
+  & * {
+    color: white;
   }
 
   & .logo {
