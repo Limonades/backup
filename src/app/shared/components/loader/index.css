@@ -1,0 +1,66 @@
+.page-loader-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1.5s ease, visibility 1.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.page-loader {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  color: inherit;
+  vertical-align: middle;
+  pointer-events: none;
+  border: 0.2em solid transparent;
+  border-top-color: currentcolor;
+  border-radius: 50%;
+  animation: 1s loading linear infinite;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: -0.2em;
+    left: -0.2em;
+    border: 0.2em solid currentcolor;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+}
+
+body.--loading {
+  overflow: hidden !important;
+
+  & .page-loader-wrap {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  & .year-container {
+    overflow: hidden !important;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
