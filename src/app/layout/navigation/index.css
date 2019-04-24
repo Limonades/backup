@@ -68,8 +68,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: width 0.3s ease;
-    will-change: width;
+    transition: width 0.3s ease; /* will-change: width; */
 
     &::before {
       content: '';

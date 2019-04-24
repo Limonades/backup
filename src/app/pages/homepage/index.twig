@@ -2,28 +2,15 @@
 
 {% block content %}
 
+    {% include 'shared/components/loader/index.twig' %}
+
+    {% include 'shared/components/old-browser/index.twig' %}
+
     <div class="homepage">
-        {% include 'shared/components/loader/index.twig' %}
+
         {% include 'layout/navigation/index.twig' %}
+
         {% include 'layout/mobile-navigation/index.twig' %}
-
-        {#TODO refactor#}
-        {#<section class="page" id="page1">#}
-            {#<h1>Alterna Video/Feature<br/>Section</h1>#}
-        {#</section>#}
-
-        {#<section class="page page2" id="page2">#}
-            {#<div class="copy page2-copy page2-pin">#}
-                {#<h2>2019</h2>#}
-                {#<div class="divider"></div>#}
-                {#<div class="page2-copy-content">#}
-                    {#<h4>Alterna<br/>Brand History</h4>#}
-                    {#<p>Nisi vero cumque voluptatem deserunt autem nihil inventore. Excepturi soluta assumenda autem aut totam debitis dolor. Voluptas sequi architecto autem nemo. Aut est consectetur ut nemo ut. Aut dolores excepturi aut est optio suscipit. Minus aut dignissimos ullam est. Iusto maxime velit veniam iste voluptate consequuntur qui.</p>#}
-                {#</div>#}
-            {#</div>#}
-            {#<img class="page2-image1" src="assets/test-anchor-image.png">#}
-            {#<div class="page2-image2 page2-pin"></div>#}
-        {#</section>#}
 
         {% set years = craft.entries().section('year').level(1).all() %}
 
@@ -118,51 +105,6 @@
                 {% endif %}
             </ul>
         {% endif %}
-
-            {#{% include 'shared/components/slideshow/index.twig' %}#}
-
-            {#{% include 'shared/components/video/index.twig' %}#}
-
-            {#{% include 'shared/components/detail/index.twig' %}#}
-
-            {#{% include 'shared/components/header/index.twig' %}#}
-
-
-        {#<section class="page" id="page1">#}
-        {#<h1>Alterna Video/Feature<br/>Section</h1>#}
-        {#</section>#}
-
-        {#<section class="page" id="page2">#}
-        {#<div class="copy page2-copy page2-pin">#}
-        {#<h2>2019</h2>#}
-        {#<div class="divider"></div>#}
-        {#<div class="page2-copy-content">#}
-        {#<h4>Alterna<br/>Brand History</h4>#}
-        {#<p>Nisi vero cumque voluptatem deserunt autem nihil inventore. Excepturi soluta assumenda autem aut totam debitis dolor. Voluptas sequi architecto autem nemo. Aut est consectetur ut nemo ut. Aut dolores excepturi aut est optio suscipit. Minus aut dignissimos ullam est. Iusto maxime velit veniam iste voluptate consequuntur qui.</p>#}
-        {#</div>#}
-        {#</div>#}
-        {#<img class="page2-image1" src="assets/test-anchor-image.png">#}
-        {#<div class="page2-image2 page2-pin"></div>#}
-        {#</section>#}
-
-        {#<section class="page" id="page3">#}
-        {#<div class="copy page3-copy">#}
-        {#<h2>2018</h2>#}
-        {#<div class="divider"></div>#}
-        {#<div class="page3-copy-content">#}
-        {#<div>#}
-        {#<h5>Aut dolores excepturi aut est optio suscipit. Minus aut dignissimos ullam est. Iusto maxime velit veniam iste voluptate consequuntur qui.Aut dolores excepturi aut est optio suscipit. Minus aut dignissimos ullam est. Iusto maxime velit veniam iste voluptate consequuntur qui.</h5>#}
-        {#<img class="page2-image1" src="assets/test-anchor-image.png">#}
-        {#</div>#}
-        {#<div>#}
-        {#<p>Et qui omnis veritatis tenetur autem autem. Perferendis reprehenderit est assumenda mollitia consequuntur. Vel voluptatem quia consequuntur adipisci et ut vel vel. Ut enim provident rerum blanditiis sunt itaque.#}
-        {#Et qui omnis veritatis tenetur autem autem. Perferendis reprehenderit est assumenda mollitia consequuntur. Vel voluptatem quia consequuntur adipisci et ut vel vel. Ut enim provident rerum blanditiis sunt itaque.#}
-        {#</p>#}
-        {#</div>#}
-        {#</div>#}
-        {#</div>#}
-        {#</section>#}
-        {#<section class="page" id="page4"></section>#}
     </div>
 
 {% endblock %}

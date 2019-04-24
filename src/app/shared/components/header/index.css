@@ -176,8 +176,7 @@
     position: absolute;
     transform: translate3d(0, 0, 0);
     opacity: 0;
-    transition: opacity 0.3s ease;
-    will-change: opacity;
+    transition: opacity 0.3s ease; /* will-change: opacity; */
     z-index: -1;
 
     /* background: darkolivegreen !important; */

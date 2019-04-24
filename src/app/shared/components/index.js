@@ -1,4 +1,5 @@
 import './loader'
+import './old-browser'
 import './header'
 import './detail'
 import './video'

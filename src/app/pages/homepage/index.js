@@ -6,8 +6,14 @@ import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import MobileDetect from 'mobile-detect/mobile-detect.min'
+import detectOldBrowser from './../../shared/components/old-browser'
 import { detect } from 'detect-browser'
 const browser = detect();
+
+if (!detectOldBrowser()) {
+  $('.homepage').remove();
+  $('.old-b').addClass('--show');
+}
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
