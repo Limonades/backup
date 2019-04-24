@@ -10,12 +10,10 @@ import detectOldBrowser from './../../shared/components/old-browser'
 import { detect } from 'detect-browser'
 const browser = detect();
 
-// if (!detectOldBrowser()) {
-//   $('.homepage').remove();
-//   $('.old-b').addClass('--show');
-// }
-
-detectOldBrowser();
+if (!detectOldBrowser()) {
+  $('.homepage').remove();
+  $('.old-b').addClass('--show');
+}
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
