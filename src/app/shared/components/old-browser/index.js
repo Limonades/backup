@@ -5,9 +5,6 @@ const detectOldBrowser = () => {
   const browser = detect();
   const browserVersion = parseInt(browser.version);
 
-  console.log(browser)
-  console.log(browserVersion)
-
   if (browser.name === 'safari' || browser.name === 'chrome' || browser.name === 'firefox' || browser.name === 'crios' || browser.name === 'ios' || browser.name === 'fxios') {
     if (browser.name === 'chrome') {
       if (browserVersion < 69) {
