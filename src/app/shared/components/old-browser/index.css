@@ -1,5 +1,11 @@
 @import '../../styles/variables';
 
+html.a {
+  & * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 .old-b {
   display: none;
   padding: 2rem 2rem 1rem;
