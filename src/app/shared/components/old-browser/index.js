@@ -13,7 +13,7 @@ const detectOldBrowser = () => {
     }
 
     if (browser.name === 'safari') {
-      if (browserVersion < 12) {
+      if (browserVersion < 11) {
         return false;
       }
     }
