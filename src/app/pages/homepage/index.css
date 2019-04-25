@@ -6,20 +6,6 @@ body {
   @media screen and (max-width: 1023px) {
     height: auto;
   } */
-  & .detail * {
-    opacity: 1 !important;
-    color: white !important;
-  }
-
-  & .slideshow * {
-    opacity: 1 !important;
-    color: white !important;
-  }
-
-  & .video * {
-    opacity: 1 !important;
-    color: white !important;
-  }
 }
 
 .year-container {
