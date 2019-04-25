@@ -968,23 +968,23 @@ if (document.querySelector('.homepage')) {
         // .addIndicators()
         .addTo(controller)
 
-      // new ScrollMagic.Scene({
-      //   triggerElement: this,
-      //   offset: -halfViewHeight,
-      //   duration: $(this).height() + viewHeight
-      // })
-      //   .setPin($(this).find('.header__title-wrap')[0], {pushFollowers: 0})
-      //   // .addIndicators()
-      //   .addTo(controller)
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: -halfViewHeight,
+        duration: $(this).height() + viewHeight
+      })
+        .setPin($(this).find('.header__title-wrap')[0], {pushFollowers: 0})
+        // .addIndicators()
+        .addTo(controller)
 
-      // new ScrollMagic.Scene({
-      //   triggerElement: this,
-      //   offset: 0,
-      //   duration: halfViewHeight
-      // })
-      //   .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
-      //   // .addIndicators()
-      //   .addTo(controller)
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: 0,
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
+        // .addIndicators()
+        .addTo(controller)
       //
       // new ScrollMagic.Scene({
       //   triggerElement: this,
