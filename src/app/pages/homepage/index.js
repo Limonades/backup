@@ -896,7 +896,7 @@ if (document.querySelector('.homepage')) {
     const controller = new ScrollMagic.Controller()
     // const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     const viewHeight = $('.slideshow').height() || $('.video').height() || Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    // const halfViewHeight = viewHeight / 2
+    const halfViewHeight = viewHeight / 2
 
     // window.addEventListener('scroll', () => {
     //   throttle(() => {
