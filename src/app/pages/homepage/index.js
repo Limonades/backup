@@ -105,7 +105,7 @@ if (document.querySelector('.homepage')) {
     //   new ScrollMagic.Scene({
     //     triggerElement: this,
     //   })
-    // //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
+    //     .setTween($(this), 1, {autoAlpha: 0, scale: 0.7})
     //     .addTo(controller)
     // })
 
@@ -250,7 +250,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight
       })
-        .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
+        // .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
     })
@@ -262,7 +262,7 @@ if (document.querySelector('.homepage')) {
         // offset: -halfViewHeight,
         // duration: viewHeight + halfViewHeight
       })
-        // .setTween($(this).find('.header__year-photo'), 0.6, { top: 3 + 'rem' })
+        .setTween($(this).find('.header__year-photo'), 0.6, { top: 3 + 'rem' })
         // .addIndicators()
         .addTo(controller)
 
@@ -271,7 +271,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight
       })
-        .setPin($(this).find('.header__title-wrap')[0])
+        // .setPin($(this).find('.header__title-wrap')[0])
         // .addIndicators()
         .addTo(controller)
 
@@ -280,7 +280,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight,
       })
-        // .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
+        .setTween($(this).find('.header__title-wrap'), 1, { opacity: 1, backgroundPositionY: '50%' })
         // .addIndicators()
         .addTo(controller)
 
@@ -289,7 +289,7 @@ if (document.querySelector('.homepage')) {
         offset: viewHeight,
         duration: halfViewHeight,
       })
-        // .setTween($(this).find('.header__title-wrap'), 1, { opacity: 0, backgroundPositionY: '0' })
+        .setTween($(this).find('.header__title-wrap'), 1, { opacity: 0, backgroundPositionY: '0' })
         // .addIndicators()
         .addTo(controller)
 
@@ -307,7 +307,7 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: $(this).height() + viewHeight
       })
-        .setPin($(this).find('.header__year-wrap')[0], {pushFollowers: 0})
+        // .setPin($(this).find('.header__year-wrap')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
 
@@ -317,7 +317,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
 
@@ -327,7 +327,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.header__year-wrap')[0], 1.5, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
     })
@@ -341,7 +341,7 @@ if (document.querySelector('.homepage')) {
         duration: halfViewHeight
 
       })
-        // .setTween($(this).find('.detail__photo'), .6, { top: 3 + 'rem' })
+        .setTween($(this).find('.detail__photo'), .6, { top: 3 + 'rem' })
         // .addIndicators()
         .addTo(controller)
 
@@ -358,7 +358,7 @@ if (document.querySelector('.homepage')) {
         // offset: viewHeight,
         // duration: halfViewHeight
       })
-        // .setTween($(this).find('.detail__img-bg'), .5, {  opacity: 1, top: 0 })
+        .setTween($(this).find('.detail__img-bg'), .5, {  opacity: 1, top: 0 })
         // .addIndicators({ name: '.detail__img-bg' })
         .addTo(controller)
 
@@ -387,7 +387,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight + (halfViewHeight / 2)
       })
-        .setPin($(this).find('.section-header')[0], {pushFollowers: 0})
+        // .setPin($(this).find('.section-header')[0], {pushFollowers: 0})
         // .addIndicators({name: 'PIDARASSSSSSSSSS'})
         .addTo(controller)
 
@@ -396,7 +396,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight
       })
-        .setPin($(this).find('.detail__txt-description')[0])
+        // .setPin($(this).find('.detail__txt-description')[0])
         // .addIndicators()
         .addTo(controller)
 
@@ -405,7 +405,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight
       })
-        .setPin($(this).find('.detail__photo-description h3')[0])
+        // .setPin($(this).find('.detail__photo-description h3')[0])
         // .addIndicators()
         .addTo(controller)
 
@@ -415,8 +415,8 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: $(this).height() + viewHeight
       })
-        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
+        // .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+        // // .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
 
@@ -426,7 +426,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -437,7 +437,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -448,7 +448,7 @@ if (document.querySelector('.homepage')) {
       new ScrollMagic.Scene({
         triggerElement: this,
       })
-        // .setTween( $(this).find('.video__content'), 1, {  opacity: 1, left: 0 })
+        .setTween( $(this).find('.video__content'), 1, {  opacity: 1, left: 0 })
         // .addIndicators()
         .addTo(controller)
 
@@ -474,7 +474,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         triggerElement: this
       })
-        // .setTween($(this).find('.video__img-bg'), .5, {  opacity: 1, bottom: 0 })
+        .setTween($(this).find('.video__img-bg'), .5, {  opacity: 1, bottom: 0 })
         // .addIndicators({ name: '.detail__txt-description' })
         .addTo(controller)
 
@@ -483,7 +483,7 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight,
         triggerElement: this
       })
-        // .setTween($(this).find('.video__img-bg'), 4, {  y: -viewHeight })
+        .setTween($(this).find('.video__img-bg'), 4, {  y: -viewHeight })
         // .addIndicators({ name: '.detail__txt-description' })
         .addTo(controller)
 
@@ -493,8 +493,8 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: $(this).height() + viewHeight
       })
-        .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
+        // .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
+        // // .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
 
@@ -504,7 +504,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -515,7 +515,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -538,13 +538,13 @@ if (document.querySelector('.homepage')) {
         new ScrollMagic.Scene({
           triggerElement: this,
         })
-          // .setTween($(this).find('.slideshow__item.--animated img'), 1, { opacity: 1, objectPosition: 0 })
+          .setTween($(this).find('.slideshow__item.--animated img'), 1, { opacity: 1, objectPosition: 0 })
           .addTo(controller)
 
         new ScrollMagic.Scene({
           triggerElement: this,
         })
-          // .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
+          .setTween($(this).find('.slideshow__item.--first')[0], 1, { bottom : 0 })
           // .addIndicators({ name: '.detail__txt-description' })
           .addTo(controller)
 
@@ -585,7 +585,7 @@ if (document.querySelector('.homepage')) {
           duration: pinDuration
         })
           // .addIndicators()
-          .setPin(this)
+          // .setPin(this)
           .addTo(controller)
 
         // make component bg fixed for smooth fade-in/fade-out
@@ -594,8 +594,8 @@ if (document.querySelector('.homepage')) {
           offset: -halfViewHeight,
           duration: pinDuration + viewHeight + viewHeight
         })
-          .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
-          // .setClassToggle(this, '--fixed')
+          // .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+          // // .setClassToggle(this, '--fixed')
           // .addIndicators()
           .addTo(controller)
 
@@ -605,7 +605,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -616,7 +616,7 @@ if (document.querySelector('.homepage')) {
               offset: pinDuration + halfViewHeight + viewHeight,
               duration: halfViewHeight
             })
-              // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+              .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
               // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
               // .addIndicators()
               .addTo(controller)
@@ -627,8 +627,8 @@ if (document.querySelector('.homepage')) {
             offset: -halfViewHeight,
             duration: $(this).height() + viewHeight
           })
-            .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
-            // .setClassToggle(this, '--fixed')
+            // .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+            // // .setClassToggle(this, '--fixed')
             // .addIndicators()
             .addTo(controller)
 
@@ -638,7 +638,7 @@ if (document.querySelector('.homepage')) {
             offset: 0,
             duration: halfViewHeight
           })
-            // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+            .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
             // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
             // .addIndicators()
             .addTo(controller)
@@ -649,7 +649,7 @@ if (document.querySelector('.homepage')) {
             offset: $(this).height(),
             duration: halfViewHeight
           })
-            // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+            .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
             // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
             // .addIndicators()
             .addTo(controller)
@@ -674,14 +674,14 @@ if (document.querySelector('.homepage')) {
     //   new ScrollMagic.Scene({
     //     triggerElement: e,
     //   })
-    // //     .setTween(`.detail__photo`, .6, { top: 3 + 'rem' })
+    //     .setTween(`.detail__photo`, .6, { top: 3 + 'rem' })
     //     .addIndicators({ name: '.detail__photo' })
     //     .addTo(controller)
     //
     //   new ScrollMagic.Scene({
     //       triggerElement: e,
     //     })
-    // //       .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
+    //       .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
     //       .addIndicators({ name: '.detail__img-bg' })
     //       .addTo(controller)
     // })
@@ -692,7 +692,7 @@ if (document.querySelector('.homepage')) {
     //   offset: halfViewHeight,
     //   duration: halfViewHeight
     // })
-    // //   .setTween('.page2-image1', 0.5, { y: -halfViewHeight, opacity: 1 })
+    //   .setTween('.page2-image1', 0.5, { y: -halfViewHeight, opacity: 1 })
     //   .addIndicators({ name: 'page2-image1' })
     //   .addTo(controller)
     //
@@ -700,7 +700,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page2',
     //   duration: halfViewHeight,
     // })
-    //   .setPin('.page2-image1')
+    // //   .setPin('.page2-image1')
     //   .addIndicators({ name: 'page2-image1-pin' })
     //   .addTo(controller);
     //
@@ -709,7 +709,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page2',
     //   offset: halfViewHeight
     // })
-    // //   .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
+    //   .setTween('.page2-image2', 1, { opacity: 1, backgroundPositionY: '10%' })
     //   .addIndicators({ name: 'page2-image2' })
     //   .addTo(controller);
     //
@@ -719,7 +719,7 @@ if (document.querySelector('.homepage')) {
     //   offset: 250,
     //   duration: halfViewHeight - 250
     // })
-    // //   .setTween('.page2-copy', 1, { opacity: 1, y: -100 })
+    //   .setTween('.page2-copy', 1, { opacity: 1, y: -100 })
     //   .addIndicators({ name: 'page2-copy' })
     //   .addTo(controller);
     //
@@ -728,7 +728,7 @@ if (document.querySelector('.homepage')) {
     //     triggerElement: '#page2',
     //     offset: halfViewHeight,
     //   })
-    //     .setPin(element)
+    // //     .setPin(element)
     //     .addIndicators({ name: 'page2-pin' })
     //     .addTo(controller)
     // });
@@ -739,7 +739,7 @@ if (document.querySelector('.homepage')) {
     //     triggerElement: '#page2',
     //     offset: halfViewHeight * 1.5,
     //   })
-    // //     .setTween(element, 2, { opacity: 0 })
+    //     .setTween(element, 2, { opacity: 0 })
     //     .addIndicators({ name: 'page2-pin' })
     //     .removePin(element)
     //     .addTo(controller)
@@ -750,7 +750,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page2',
     //   offset: viewHeight,
     // })
-    // //   .setTween('.detail__photo', .6, { top: 3 + 'rem' })
+    //   .setTween('.detail__photo', .6, { top: 3 + 'rem' })
     //   .addIndicators({ name: '.detail__photo' })
     //   .addTo(controller)
     //
@@ -766,7 +766,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page3',
     //   offset: 250,
     // })
-    // //   .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
+    //   .setTween('.detail__img-bg', .5, {  opacity: 1, top: 0 })
     //   .addIndicators({ name: '.detail__img-bg' })
     //   .addTo(controller)
     //
@@ -775,7 +775,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page3',
     //   offset: halfViewHeight - (halfViewHeight / 2),
     // })
-    // //   .setTween('.detail__photo-description h3', 1, {  opacity: 1 })
+    //   .setTween('.detail__photo-description h3', 1, {  opacity: 1 })
     //   .addIndicators({ name: '.detail__photo-description h3' })
     //   .addTo(controller)
     //
@@ -784,7 +784,7 @@ if (document.querySelector('.homepage')) {
     //   triggerElement: '#page3',
     //   offset: halfViewHeight - (halfViewHeight / 2),
     // })
-    // //   .setTween('.detail__txt-description', 1, {  opacity: 1 })
+    //   .setTween('.detail__txt-description', 1, {  opacity: 1 })
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
     //
@@ -792,14 +792,14 @@ if (document.querySelector('.homepage')) {
     // new ScrollMagic.Scene({
     //   triggerElement: '#page4',
     // })
-    // //   .setTween('.video__content', 1, {  opacity: 1, left: 0 })
+    //   .setTween('.video__content', 1, {  opacity: 1, left: 0 })
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
     //
     // new ScrollMagic.Scene({
     //   triggerElement: '#page4',
     // })
-    // //   .setTween('.video__img-bg ', .5, {  opacity: 1, bottom: 0 })
+    //   .setTween('.video__img-bg ', .5, {  opacity: 1, bottom: 0 })
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
     //
@@ -811,14 +811,14 @@ if (document.querySelector('.homepage')) {
     // new ScrollMagic.Scene({
     //   triggerElement: '#page5',
     // })
-    // //   .setTween('.slideshow__item.--animated img', 1, { opacity: 1, objectPosition: 0 })
+    //   .setTween('.slideshow__item.--animated img', 1, { opacity: 1, objectPosition: 0 })
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
     //
     // new ScrollMagic.Scene({
     //   triggerElement: '#page5',
     // })
-    // //   .setTween('.slideshow__item.--first', 1, { bottom : 0 })
+    //   .setTween('.slideshow__item.--first', 1, { bottom : 0 })
     //   .addIndicators({ name: '.detail__txt-description' })
     //   .addTo(controller)
   } else {
@@ -964,7 +964,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight - 30,
         duration: $(this).height()
       })
-        .setClassToggle(this, '--fixed')
+        // .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -976,7 +976,7 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: $(this).height() + viewHeight
       })
-        .setPin($(this).find('.header__title-wrap')[0], {pushFollowers: 0})
+        // .setPin($(this).find('.header__title-wrap')[0], {pushFollowers: 0})
         // .addIndicators()
         .addTo(controller)
     })
@@ -988,7 +988,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
     })
@@ -1000,7 +1000,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
     })
@@ -1051,8 +1051,8 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: $(this).height() + viewHeight
       })
-        .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
-        // .setClassToggle(this, '--fixed')
+        // .setPin($(this).find('.detail__bg')[0], {pushFollowers: 0})
+        // // .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -1063,7 +1063,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1075,7 +1075,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        // .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1101,8 +1101,8 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight - 10,
         duration: (viewHeight + 10) * 2
       })
-        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
+        // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+        // .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -1126,7 +1126,7 @@ if (document.querySelector('.homepage')) {
         offset: halfViewHeight,
         duration: viewHeight + 200
       })
-        // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+        // // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.detail__photo')[0], '--animated')
         // .addIndicators()
         .addTo(controller)
@@ -1139,8 +1139,8 @@ if (document.querySelector('.homepage')) {
         offset: -halfViewHeight,
         duration: viewHeight * 2.5
       })
-        .setPin(this, {pushFollowers: 0})
-        .setClassToggle(this, '--fixed')
+        // .setPin(this, {pushFollowers: 0})
+        // .setClassToggle(this, '--fixed')
         // .addIndicators()
         .addTo(controller)
     })
@@ -1176,7 +1176,7 @@ if (document.querySelector('.homepage')) {
     //     offset: viewHeight + halfViewHeight + 100,
     //     duration: 90
     //   })
-    // //     .setTween(this, 1, {  opacity: 0 })
+    //     .setTween(this, 1, {  opacity: 0 })
     //     // .addIndicators()
     //     .addTo(controller)
     // })
@@ -1224,8 +1224,8 @@ if (document.querySelector('.homepage')) {
     //     offset: halfViewHeight,
     //     duration: $(this).height()
     //   })
-    //     .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
-    //     // .setClassToggle(this, '--fixed')
+    // //     .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
+    // //     // .setClassToggle(this, '--fixed')
     //     // .addIndicators()
     //     .addTo(controller)
     // })
@@ -1238,8 +1238,8 @@ if (document.querySelector('.homepage')) {
           offset: -halfViewHeight,
           duration: $(this).height() + viewHeight
         })
-          .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
-          // .setClassToggle(this, '--fixed')
+          // .setPin($(this).find('.video__bg')[0], {pushFollowers: 0})
+          // // .setClassToggle(this, '--fixed')
           // .addIndicators()
           .addTo(controller)
       })
@@ -1251,7 +1251,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          // .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1264,7 +1264,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          // .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1279,8 +1279,8 @@ if (document.querySelector('.homepage')) {
           offset: -halfViewHeight,
           duration: $(this).height() + viewHeight
         })
-          .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
-          // .setClassToggle(this, '--fixed')
+          // .setPin($(this).find('.slideshow__bg')[0], {pushFollowers: 0})
+          // // .setClassToggle(this, '--fixed')
           // .addIndicators()
           .addTo(controller)
       })
@@ -1303,7 +1303,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1315,7 +1315,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          // .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
