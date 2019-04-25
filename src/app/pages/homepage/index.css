@@ -6,6 +6,11 @@ body {
   @media screen and (max-width: 1023px) {
     height: auto;
   } */
+
+  & * {
+    opacity: 1 !important;
+    color: white !important;
+  }
 }
 
 .year-container {
