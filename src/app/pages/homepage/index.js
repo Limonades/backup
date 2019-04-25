@@ -576,7 +576,7 @@ if (document.querySelector('.homepage')) {
           offset: halfViewHeight,
           duration: slideShowWidth,
         })
-          // .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
+          .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
           .addTo(controller)
 
         new ScrollMagic.Scene({
