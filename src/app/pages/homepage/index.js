@@ -961,7 +961,7 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight - 30,
+        offset: halfViewHeight,
         duration: $(this).height()
       })
         .setClassToggle(this, '--fixed')
@@ -985,39 +985,57 @@ if (document.querySelector('.homepage')) {
         .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
-      //
-      // new ScrollMagic.Scene({
-      //   triggerElement: this,
-      //   offset: $(this).height(),
-      //   duration: halfViewHeight
-      // })
-      //   .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
-      //   // .addIndicators()
-      //   .addTo(controller)
 
-      // if ($(this).find('.header__year-photo').length) {
-      //   // page 3 Image 1
-      //   new ScrollMagic.Scene({
-      //     triggerElement: this,
-      //     offset: $(this).height() - (halfViewHeight - 100),
-      //     duration: viewHeight
-      //   })
-      //     .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
-      //     // .addIndicators()
-      //     .addTo(controller)
-      // }
-      //
-      // if ($(this).find('.header__video-bg').length) {
-      //   // page 3 Image 1
-      //   new ScrollMagic.Scene({
-      //     triggerElement: this,
-      //     offset: $(this).height() - (halfViewHeight - 100),
-      //     duration: viewHeight
-      //   })
-      //     .setClassToggle($(this).find('.header__video-bg')[0], '--animated')
-      //     // .addIndicators()
-      //     .addTo(controller)
-      // }
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        offset: $(this).height(),
+        duration: halfViewHeight
+      })
+        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
+        // .addIndicators()
+        .addTo(controller)
+
+      if ($(this).find('.header__year-photo').length) {
+        // page 3 Image 1
+        // new ScrollMagic.Scene({
+        //   triggerElement: this,
+        //   offset: $(this).height() - (halfViewHeight - 100),
+        //   duration: viewHeight
+        // })
+        //   .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+        //   // .addIndicators()
+        //   .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - halfViewHeight,
+          duration: halfViewHeight / 2
+        })
+          .setTween($(this).find('.header__year-photo')[0], 0.5, {  opacity: 0 })
+          // .addIndicators()
+          .addTo(controller)
+      }
+
+      if ($(this).find('.header__video-bg').length) {
+        // page 3 Image 1
+        // new ScrollMagic.Scene({
+        //   triggerElement: this,
+        //   offset: $(this).height() - (halfViewHeight - 100),
+        //   duration: viewHeight
+        // })
+        //   .setClassToggle($(this).find('.header__video-bg')[0], '--animated')
+        //   // .addIndicators()
+        //   .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: $(this).height() - halfViewHeight,
+          duration: halfViewHeight / 2
+        })
+          .setTween($(this).find('.header__video-bg')[0], 0.5, {  opacity: 0 })
+          // .addIndicators()
+          .addTo(controller)
+      }
     })
 
     // $('.header').each(function() {
