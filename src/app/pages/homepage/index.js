@@ -560,7 +560,7 @@ if (document.querySelector('.homepage')) {
         // width of one slide component
         let oneWidth = ($slide.innerWidth());
         // remove the difference of first shown elements to scroll duration
-        let horizontalScrollDuration = slideShowWidth - (oneWidth * 2.2);
+        let horizontalScrollDuration = slideShowWidth - (oneWidth * 2.1);
         // amount of height in width
         let viewPart = Math.round(slideShowWidth / viewHeight);
         // to avoid vertical scroll coord breaks
@@ -572,10 +572,10 @@ if (document.querySelector('.homepage')) {
 
         new ScrollMagic.Scene({
           triggerElement: this,
-          triggerHook: "onLeave",
           offset: halfViewHeight,
-          duration: slideShowWidth,
+          duration: pinDuration - halfViewHeight / 2,
         })
+          .addIndicators({name: 'scroll'})
           .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
           .addTo(controller)
 
@@ -584,7 +584,7 @@ if (document.querySelector('.homepage')) {
           offset: halfViewHeight,
           duration: pinDuration
         })
-          // .addIndicators()
+          .addIndicators({name: 'pin'})
           .setPin(this)
           .addTo(controller)
 
@@ -982,7 +982,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.header__title-wrap')[0], .4, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
 
@@ -991,7 +991,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.header__title-wrap')[0], .4, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
 
@@ -1049,7 +1049,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 1 })
+        .setTween($(this).find('.detail__bg')[0], .4, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1059,7 +1059,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], 1.5, {  opacity: 0 })
+        .setTween($(this).find('.detail__bg')[0], .4, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1223,7 +1223,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 1 })
+          .setTween($(this).find('.video__bg')[0], .4, {  opacity: 1 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1234,7 +1234,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          .setTween($(this).find('.video__bg')[0], 1.5, {  opacity: 0 })
+          .setTween($(this).find('.video__bg')[0], .4, {  opacity: 0 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1259,7 +1259,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 1 })
+          .setTween($(this).find('.slideshow__bg')[0], .4, {  opacity: 1 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1269,7 +1269,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          .setTween($(this).find('.slideshow__bg')[0], 1.5, {  opacity: 0 })
+          .setTween($(this).find('.slideshow__bg')[0], .4, {  opacity: 0 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
