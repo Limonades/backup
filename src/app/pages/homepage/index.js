@@ -982,7 +982,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], .4, {  opacity: 1 })
+        .setTween($(this).find('.header__title-wrap')[0], .1, {  opacity: 1 })
         // .addIndicators()
         .addTo(controller)
 
@@ -991,7 +991,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.header__title-wrap')[0], .4, {  opacity: 0 })
+        .setTween($(this).find('.header__title-wrap')[0], .1, {  opacity: 0 })
         // .addIndicators()
         .addTo(controller)
 
@@ -1049,7 +1049,7 @@ if (document.querySelector('.homepage')) {
         offset: 0,
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], .4, {  opacity: 1 })
+        .setTween($(this).find('.detail__bg')[0], .1, {  opacity: 1 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1059,7 +1059,7 @@ if (document.querySelector('.homepage')) {
         offset: $(this).height(),
         duration: halfViewHeight
       })
-        .setTween($(this).find('.detail__bg')[0], .4, {  opacity: 0 })
+        .setTween($(this).find('.detail__bg')[0], .1, {  opacity: 0 })
         // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
         // .addIndicators()
         .addTo(controller)
@@ -1223,7 +1223,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          .setTween($(this).find('.video__bg')[0], .4, {  opacity: 1 })
+          .setTween($(this).find('.video__bg')[0], .1, {  opacity: 1 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1234,7 +1234,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          .setTween($(this).find('.video__bg')[0], .4, {  opacity: 0 })
+          .setTween($(this).find('.video__bg')[0], .1, {  opacity: 0 })
           // .setClassToggle($(this).find('.video__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1259,7 +1259,7 @@ if (document.querySelector('.homepage')) {
           offset: 0,
           duration: halfViewHeight
         })
-          .setTween($(this).find('.slideshow__bg')[0], .4, {  opacity: 1 })
+          .setTween($(this).find('.slideshow__bg')[0], .1, {  opacity: 1 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
@@ -1269,7 +1269,7 @@ if (document.querySelector('.homepage')) {
           offset: $(this).height(),
           duration: halfViewHeight
         })
-          .setTween($(this).find('.slideshow__bg')[0], .4, {  opacity: 0 })
+          .setTween($(this).find('.slideshow__bg')[0], .1, {  opacity: 0 })
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
