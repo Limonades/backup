@@ -575,7 +575,7 @@ if (document.querySelector('.homepage')) {
           offset: halfViewHeight,
           duration: pinDuration - halfViewHeight / 2,
         })
-          .addIndicators({name: 'scroll'})
+          // .addIndicators({name: 'scroll'})
           .setTween($(this).find('.slideshow__container'), .4,   {x: `${-horizontalScrollDuration}px`})
           .addTo(controller)
 
@@ -584,7 +584,7 @@ if (document.querySelector('.homepage')) {
           offset: halfViewHeight,
           duration: pinDuration
         })
-          .addIndicators({name: 'pin'})
+          // .addIndicators({name: 'pin'})
           .setPin(this)
           .addTo(controller)
 
