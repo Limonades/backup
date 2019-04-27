@@ -1,3 +1,5 @@
+{% set browserWarning = craft.entries().section('browserWarning').one() %}
+
 <div class="old-b">
     <figure class="old-b__logo">
         <img src="/assets/logo-white.png" alt="logo">
@@ -5,56 +7,48 @@
 
     <div class="old-b__copy">
         <h3>
-            Explore the history of Alterna Haircare <br>
-            (on a different browser!)
+            {{ browserWarning.mainTitle | nl2br }}
         </h3>
         <br>
         <p>
-            Ensure you are viewing our site on the newest version of the following browsers:
+            {{ browserWarning.body | nl2br }}
         </p>
 
-        <ul class="old-b__links-list">
-            <li class="old-b__links-item">
-                <a class="old-b__links-link" href="https://www.google.com/chrome/">
-                    Google Chrome
-                </a>
-            </li>
-
-            <li class="old-b__links-item">
-                <a class="old-b__links-link" href="https://www.mozilla.org/en-US/firefox/new/">
-                    Mozila Firefox
-                </a>
-            </li>
-
-            <li class="old-b__links-item">
-                <a class="old-b__links-link" href="https://www.apple.com/safari/">
-                    Safari for Mac
-                </a>
-            </li>
-        </ul>
+        {% if browserWarning.links | length %}
+            <ul class="old-b__links-list">
+                {% for browser_link in browserWarning.links.all() %}
+                    <li class="old-b__links-item">
+                        <a class="old-b__links-link" href="{{ browser_link.ctaLink }}">
+                           {{ browser_link.ctaText }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 
-    <ul class="old-b__social menu-social">
-        <li class="menu-social__item">
-            <a class="menu-social__link" href="" target="_blank">
-                <img src="/assets/iconmonstr-facebook-1-white.svg" alt="social-logo">
-            </a>
-        </li>
-        <li class="menu-social__item">
-            <a class="menu-social__link" href="" target="_blank">
-                <img src="/assets/iconmonstr-twitter-1-white.svg" alt="social-logo">
-            </a>
-        </li>
+    {% if socialMedia.socialMedia | length %}
+        {% set medialLinks_b = socialMedia.socialMedia[0] %}
 
-        <li class="menu-social__item">
-            <a class="menu-social__link" href="" target="_blank">
-                <img src="/assets/iconmonstr-instagram-11-white.svg" alt="social-logo">
-            </a>
-        </li>
-        <li class="menu-social__item">
-            <a class="menu-social__link" href="" target="_blank">
-                <img src="/assets/iconfinder_pinterest_306183-white.svg" alt="social-logo">
-            </a>
-        </li>
-    </ul>
+        {% set mediaLinks_array = [
+            [{'m_link': medialLinks_b.facebook, 'm_img':'/assets/iconmonstr-facebook-1-white.svg'}],
+            [{'m_link': medialLinks_b.twitter, 'm_img':'/assets/iconmonstr-twitter-1-white.svg'}],
+            [{'m_link': medialLinks_b.instagram, 'm_img':'/assets/iconmonstr-instagram-11-white.svg'}],
+            [{'m_link': medialLinks_b.pinterest, 'm_img':'/assets/iconfinder_pinterest_306183-white.svg'}],
+        ] %}
+
+        <ul class="old-b__social menu-social">
+
+            {% for mediaLinks_item  in mediaLinks_array %}
+                {% if mediaLinks_item[0].m_link | length %}
+                    <li class="menu-social__item">
+                        <a class="menu-social__link" href="{{ mediaLinks_item[0].m_link }}" target="_blank">
+                            <img src="{{ mediaLinks_item[0].m_img }}" alt="social-logo">
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    {% endif %}
 </div>
