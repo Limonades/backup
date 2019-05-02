@@ -1,12 +1,12 @@
 import './index.css'
 import $ from 'jquery'
 
-$(window).on('load', function() {
-  // $('video').on('canplay', function() {
+$(document).ready(function() {
+  setTimeout(function() {
     $('body').removeClass('--loading');
+  }, 4000)
 
   setTimeout(function() {
-      $('.page-loader-wrap').remove();
-    }, 2000)
-  // })
+    $('.page-loader-wrap').remove();
+  }, 6000)
 })
