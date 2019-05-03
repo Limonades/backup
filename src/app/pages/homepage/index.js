@@ -252,7 +252,7 @@ if (document.querySelector('.homepage')) {
       })
         .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
         .setClassToggle($(this).find('.header__year-title')[0], '--top')
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller)
     })
 
