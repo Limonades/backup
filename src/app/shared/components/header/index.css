@@ -158,6 +158,10 @@
       align-items: center;
     }
 
+    &.--top {
+      top: auto !important;
+    }
+
     /* @media screen and (max-width: 768px) {
       position: static;
       z-index: 2;

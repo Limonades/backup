@@ -251,7 +251,8 @@ if (document.querySelector('.homepage')) {
         duration: viewHeight
       })
         .setPin($(this).not('.main-slide').find('.header__year-title')[0], {pushFollowers: 0})
-        // .addIndicators()
+        .setClassToggle($(this).find('.header__year-title')[0], '--top')
+        .addIndicators()
         .addTo(controller)
     })
 

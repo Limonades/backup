@@ -3,6 +3,7 @@ import $ from 'jquery'
 
 $(document).ready(function() {
   const $firstVideo = document.querySelector('video');
+  $($firstVideo)[0].play();
 
   if ($firstVideo) {
     $firstVideo.addEventListener('timeupdate', function() {
