@@ -4,13 +4,8 @@
 <title>Alterna | Homepage</title>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
-            document.querySelector('.old-b').classList.add('--show');
-            document.querySelector('.page-loader-wrap').style.display = "none";
-        }
-    });
-
+    // for ie detect
+    document.addEventListener("DOMContentLoaded",function(){(document.documentMode||/Edge/.test(navigator.userAgent))&&(document.querySelector(".old-b").classList.add("--show"),document.querySelector(".old-b").classList.add("ie"),document.querySelector(".page-loader-wrap").style.display="none")});
 </script>
 
 {% include 'layout/skeleton/head/favicons' %}

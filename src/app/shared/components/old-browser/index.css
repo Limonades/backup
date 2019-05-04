@@ -25,6 +25,21 @@ html.a {
   &.--show {
     display: flex;
     position: fixed;
+
+    &.ie {
+      & .old-b__copy {
+        position: absolute;
+        top: 30vh;
+        left: 10vw;
+        right: 10vw;
+        bottom: 10vh;
+        margin: auto;
+      }
+    }
+  }
+
+  &__copy {
+    margin: auto 0;
   }
 
   &__logo {
