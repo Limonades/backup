@@ -1,3 +1,8 @@
+if (!detectOldBrowser()) {
+  $('.homepage').remove();
+  $('.old-b').addClass('--show');
+}
+
 import './index.css'
 import $ from 'jquery'
 import TweenLite from 'gsap/TweenLite'
@@ -9,11 +14,6 @@ import MobileDetect from 'mobile-detect/mobile-detect.min'
 import detectOldBrowser from './../../shared/components/old-browser'
 import { detect } from 'detect-browser'
 const browser = detect();
-
-if (!detectOldBrowser()) {
-  $('.homepage').remove();
-  $('.old-b').addClass('--show');
-}
 
 // TODO REFACTORING
 if (document.querySelector('.homepage')) {
