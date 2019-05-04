@@ -38,10 +38,6 @@ html.a {
     }
   }
 
-  &__copy {
-    margin: auto 0;
-  }
-
   &__logo {
     max-width: 8rem;
     margin-bottom: 2rem;
