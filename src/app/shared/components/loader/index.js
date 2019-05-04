@@ -3,9 +3,10 @@ import $ from 'jquery'
 
 $(document).ready(function() {
   const $firstVideo = document.querySelector('video');
-  $($firstVideo)[0].play();
 
-  if ($firstVideo) {
+  if ($firstVideo && !$('.old-b').hasClass('--show')) {
+    $($firstVideo)[0].play();
+
     $firstVideo.addEventListener('timeupdate', function() {
       $('body').removeClass('--loading');
 
