@@ -24,7 +24,7 @@ if (document.querySelector('.homepage')) {
   let activeCoord;
   let lineWidth;
 
-  // $('.old-b').remove();
+  $('.old-b').remove();
 
   // no desktop
   const md = new MobileDetect(window.navigator.userAgent);
