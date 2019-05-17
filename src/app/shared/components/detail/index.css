@@ -90,7 +90,7 @@
     width: 33%;
     z-index: -1;
     opacity: 0;
-    text-align: center;
+    text-align: right;
 
     & img {
       height: 100%;
