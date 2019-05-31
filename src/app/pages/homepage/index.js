@@ -996,17 +996,17 @@ if (document.querySelector('.homepage')) {
         // .addIndicators()
         .addTo(controller)
 
-      if ($(this).find('.header__year-photo').length) {
-        // page 3 Image 1
-        new ScrollMagic.Scene({
-          triggerElement: this,
-          offset: $(this).height() - (halfViewHeight - 100),
-          duration: viewHeight
-        })
-          .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
-          // .addIndicators()
-          .addTo(controller)
-      }
+      // if ($(this).find('.header__year-photo').length) {
+      //   // page 3 Image 1
+      //   new ScrollMagic.Scene({
+      //     triggerElement: this,
+      //     offset: $(this).height() - (halfViewHeight - 100),
+      //     duration: viewHeight
+      //   })
+      //     .setClassToggle($(this).find('.header__year-photo')[0], '--animated')
+      //     // .addIndicators()
+      //     .addTo(controller)
+      // }
 
       if ($(this).find('.header__video-bg').length) {
         // page 3 Image 1

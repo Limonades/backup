@@ -97,7 +97,7 @@
     &.--mobile {
       opacity: 1;
       z-index: 1;
-      height: 100vh;
+      /* height: 100vh; */
       display: none;
       justify-content: center;
       align-items: center;
@@ -152,10 +152,11 @@
       position: static;
       opacity: 1;
       z-index: 1;
-      height: 100vh;
+      /* height: 100vh; */
       display: none;
       justify-content: center;
       align-items: center;
+      margin: 0;
     }
 
     &.--top {
@@ -188,6 +189,18 @@
     top: 0 !important;
   }
 
+  & .header__title-wrap-mobile {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    scroll-snap-align: start;
+    scroll-snap-coordinate: 0 0;
+    transform: translate3d(0, 0, 0);
+    scroll-snap-stop: always;
+  }
+
   /* & .header__video-bg-wrap {
     display: none;
   } */
@@ -200,9 +213,6 @@
       padding: 0 10px;
       max-width: 430px;
       margin: 0 auto;
-      scroll-snap-align: start;
-      scroll-snap-coordinate: 0 0;
-      scroll-snap-stop: always;
 
       @media (--notTablet) {
         font-size: 4.4rem;
@@ -217,10 +227,6 @@
     &.--mobile {
       display: flex;
       padding: 0 10px;
-      scroll-snap-align: start;
-      scroll-snap-coordinate: 0 0;
-      transform: translate3d(0, 0, 0);
-      scroll-snap-stop: always;
 
       @media (--notTablet) {
         font-size: 4.4rem;
@@ -235,6 +241,25 @@
 
   & .header__year-photo,
   & .header__video-bg {
+    display: none;
+  }
+
+  & .header__year-wrap {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0;
+    background: unset !important;
+    opacity: 1;
+  }
+}
+
+.header.--mobile.main-slide {
+  & .header__year-photo,
+  & .header__video-bg {
+    display: block;
     width: 30rem;
     height: 40rem;
     top: 0;
@@ -250,17 +275,6 @@
     &.--animated {
       opacity: 0 !important;
     }
-  }
-
-  & .header__year-wrap {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 0;
-    background: unset !important;
-    opacity: 1;
   }
 }
 

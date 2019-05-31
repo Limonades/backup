@@ -76,13 +76,15 @@
             {% endif %}
         </div>
 
-        {% if block.type !='homepage' %}
-            <h2 class="header__year-title --mobile">
-                {{ year.title }}
+        <div class="header__title-wrap-mobile">
+            {% if block.type !='homepage' %}
+                <h2 class="header__year-title --mobile">
+                    {{ year.title }}
+                </h2>
+            {% endif %}
+            <h2 class="header__title --mobile">
+                {{ block.headerTitle }}
             </h2>
-        {% endif %}
-        <h2 class="header__title --mobile">
-            {{ block.headerTitle }}
-        </h2>
+        </div>
     </div>
 </section>
