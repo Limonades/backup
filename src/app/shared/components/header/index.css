@@ -96,8 +96,7 @@
 
     &.--mobile {
       opacity: 1;
-      z-index: 1;
-      /* height: 100vh; */
+      z-index: 1; /* height: 100vh; */
       display: none;
       justify-content: center;
       align-items: center;
@@ -151,8 +150,7 @@
     &.--mobile {
       position: static;
       opacity: 1;
-      z-index: 1;
-      /* height: 100vh; */
+      z-index: 1; /* height: 100vh; */
       display: none;
       justify-content: center;
       align-items: center;
