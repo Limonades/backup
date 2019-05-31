@@ -1242,7 +1242,7 @@ if (document.querySelector('.homepage')) {
       })
     }
 
-    if ($('.slideshow').lenght) {
+    if ($('.slideshow').length) {
       $('.slideshow').each(function() {
         // page 3 Image 1
         new ScrollMagic.Scene({

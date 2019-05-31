@@ -57,7 +57,7 @@
     & img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
@@ -278,7 +278,7 @@
 
   & .slideshow__item-photo {
     width: 100%;
-    height: 40rem;
+    height: 35rem;
   }
 
   & .slideshow__title {
