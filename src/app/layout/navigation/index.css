@@ -96,7 +96,7 @@
 }
 
 ::-webkit-scrollbar {
-  /* display: none; */
+  display: none;
 
   @media (--desktop) {
     display: none;
@@ -104,7 +104,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  /* display: none; */
+  display: none;
 
   @media (--desktop) {
     display: none;

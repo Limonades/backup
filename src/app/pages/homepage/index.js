@@ -1065,37 +1065,69 @@ if (document.querySelector('.homepage')) {
         // .addIndicators()
         .addTo(controller)
 
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight - 10,
-        duration: (viewHeight + 10) * 2
-      })
-        .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
-        // .addIndicators()
-        .addTo(controller)
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: viewHeight + halfViewHeight/2,
+      //   duration:  halfViewHeight,
+      // })
+      //   .setClassToggle($(this).find('.detail__img-bg')[0], '--animated')
+      //   .addIndicators()
+      //   .addTo(controller)
+      //   // .addIndicators()
+
+      if ($(this).find('.detail__img-bg').length) {
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: viewHeight + halfViewHeight - 100,
+          duration: 100
+        })
+          .setTween($(this).find('.detail__img-bg')[0], .1, {  opacity: 1 })
+          // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: viewHeight*2 -halfViewHeight+100,
+          duration: 100
+        })
+          .setTween($(this).find('.detail__img-bg')[0], .1, {  opacity: 0 })
+          // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
+          // .addIndicators()
+          .addTo(controller)
+      }
 
       // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: viewHeight + halfViewHeight + 100,
-        duration: viewHeight
-      })
-        .setClassToggle($(this).find('.detail__photo')[0], '--top')
-        // .addIndicators()
-        .addTo(controller)
-
-      // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight,
-        duration: viewHeight + 200
-      })
-      // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
-        .setClassToggle($(this).find('.detail__photo')[0], '--animated')
-        // .addIndicators()
-        .addTo(controller)
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: halfViewHeight - 10,
+      //   duration: (viewHeight + 10) * 2
+      // })
+      //   .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+      //   .setClassToggle($(this).find('.detail__photo')[0], '--fixed')
+      //   // .addIndicators()
+      //   .addTo(controller)
+      //
+      // // page 3 Image 1
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: viewHeight + halfViewHeight + 100,
+      //   duration: viewHeight
+      // })
+      //   .setClassToggle($(this).find('.detail__photo')[0], '--top')
+      //   // .addIndicators()
+      //   .addTo(controller)
+      //
+      // // page 3 Image 1
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: halfViewHeight,
+      //   duration: viewHeight + 200
+      // })
+      // // .setPin($(this).find('.detail__photo')[0], {pushFollowers: 0})
+      //   .setClassToggle($(this).find('.detail__photo')[0], '--animated')
+      //   // .addIndicators()
+      //   .addTo(controller)
     })
 
     // to optimize fixed animation
@@ -1113,35 +1145,35 @@ if (document.querySelector('.homepage')) {
 
     $('.detail__txt-description').each(function() {
       // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: -halfViewHeight,
-        duration: viewHeight * 2.5
-      })
-        .setPin(this, {pushFollowers: 0})
-        .setClassToggle(this, '--fixed')
-        // .addIndicators()
-        .addTo(controller)
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: -halfViewHeight,
+      //   duration: viewHeight * 2.5
+      // })
+      //   .setPin(this, {pushFollowers: 0})
+      //   .setClassToggle(this, '--fixed')
+      //   // .addIndicators()
+      //   .addTo(controller)
 
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
         offset: halfViewHeight / 2,
-        duration: halfViewHeight / 2 + viewHeight + 80
+        duration: halfViewHeight
       })
         .setClassToggle(this, '--animated')
         // .addIndicators()
         .addTo(controller)
 
       // page 3 Image 1
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        offset: halfViewHeight + 50,
-        duration: viewHeight + halfViewHeight
-      })
-        .setClassToggle(this, '--bg')
-        // .addIndicators()
-        .addTo(controller)
+      // new ScrollMagic.Scene({
+      //   triggerElement: this,
+      //   offset: halfViewHeight + 50,
+      //   duration: viewHeight + halfViewHeight
+      // })
+      //   .setClassToggle(this, '--bg')
+      //   // .addIndicators()
+      //   .addTo(controller)
     })
 
     // $('.detail__txt-description').each(function() {
