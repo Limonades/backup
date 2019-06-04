@@ -87,4 +87,15 @@
             </h2>
         </div>
     </div>
+
+    {% if block.type =='homepage' %}
+        <div class="header__scroll-btn-wrap">
+            <p class="header__scroll-btn-txt">
+                Scroll down
+            </p>
+            <figure class="header__scroll-btn-img">
+                <img src="/assets/arrow-down.svg" alt="">
+            </figure>
+        </div>
+    {% endif %}
 </section>

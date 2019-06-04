@@ -235,6 +235,29 @@ if (document.querySelector('.homepage')) {
       }
     }
 
+    // to hide fixed logo on main slide
+    if ($('.header.main-slide').length) {
+      new ScrollMagic.Scene({
+        triggerElement: $('.header.main-slide')[0],
+        offset: 0,
+        duration: viewHeight + halfViewHeight - 100
+      })
+        // .addIndicators()
+        .setClassToggle($('.logo')[0], '--hidden')
+        .addTo(controller)
+    }
+
+    if ($('.header.main-slide').length) {
+      new ScrollMagic.Scene({
+        triggerElement: $('.header.main-slide')[0],
+        offset: 0,
+        duration: viewHeight
+      })
+      // .addIndicators()
+        .setClassToggle($('.header__scroll-btn-wrap')[0], '--visible')
+        .addTo(controller)
+    }
+
     // scenes for A (header) component, but not main (top) slide
     $('.header:not(.main-slide)').each(function() {
       new ScrollMagic.Scene({
@@ -1323,7 +1346,7 @@ if (document.querySelector('.homepage')) {
   }
 }
 
-$(window).resize(function() {
-  $('body').addClass('--resize');
-  document.location.reload(false);
-})
+// $(window).resize(function() {
+//   $('body').addClass('--resize');
+//   document.location.reload(false);
+// })
