@@ -1346,7 +1346,7 @@ if (document.querySelector('.homepage')) {
   }
 }
 
-$(window).resize(function() {
-  $('body').addClass('--resize');
-  document.location.reload(false);
-})
+// $(window).resize(function() {
+//   $('body').addClass('--resize');
+//   document.location.reload(false);
+// })
