@@ -1098,6 +1098,18 @@ if (document.querySelector('.homepage')) {
       //   .addTo(controller)
       //   // .addIndicators()
 
+      // if (window.matchMedia("(max-width: 640px)").matches) {
+      //   // to make images full width and full height but not cropped
+      //   new ScrollMagic.Scene({
+      //     triggerElement: $(this).find('.detail__img-bg')[0],
+      //     offset: 0,
+      //     duration: viewHeight
+      //   })
+      //     .setClassToggle($(this).find('.detail__img-bg')[0], '--custom-height')
+      //     .addIndicators()
+      //     .addTo(controller)
+      // }
+
       if ($(this).find('.detail__img-bg').length) {
         new ScrollMagic.Scene({
           triggerElement: this,
@@ -1181,8 +1193,8 @@ if (document.querySelector('.homepage')) {
       // page 3 Image 1
       new ScrollMagic.Scene({
         triggerElement: this,
-        offset: halfViewHeight / 2,
-        duration: halfViewHeight
+        offset: 0,
+        duration: viewHeight
       })
         .setClassToggle(this, '--animated')
         // .addIndicators()

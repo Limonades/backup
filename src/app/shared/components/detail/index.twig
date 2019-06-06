@@ -73,7 +73,9 @@
         </div>
 
         {% if block.parallaxImage | length %}
-            {% include "/shared/functions/addImage.twig" with { 'image': block.parallaxImage[0] , 'picture_class':'detail__img-bg' , 'format':block.parallaxImage[0].extension } %}
+            <div class="no-crop-img-mobile">
+                {% include "/shared/functions/addImage.twig" with { 'image': block.parallaxImage[0] , 'picture_class':'detail__img-bg' , 'format':block.parallaxImage[0].extension } %}
+            </div>
         {% endif %}
     </div>
 </section>
