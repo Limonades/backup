@@ -1341,6 +1341,16 @@ if (document.querySelector('.homepage')) {
           // .setClassToggle($(this).find('.detail__bg')[0], 'fade-in')
           // .addIndicators()
           .addTo(controller)
+
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          offset: halfViewHeight / 2,
+          duration: halfViewHeight
+        })
+          // .setTween($(this).find('.slideshow__bg')[0], .1, {  opacity: 0 })
+          .setClassToggle(this, '--z-index')
+          // .addIndicators()
+          .addTo(controller)
       })
 
       // $('.slideshow').each(function() {

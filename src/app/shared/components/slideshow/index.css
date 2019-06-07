@@ -212,6 +212,10 @@
     display: none;
   }
 
+  &.--z-index {
+    z-index: 20;
+  }
+
   &.--expanded {
     z-index: 101 !important;
 
@@ -221,7 +225,7 @@
 
     & .slideshow__close-btn-wrap {
       display: block;
-      z-index: 20;
+      z-index: 25;
     }
 
     & .slideshow__item-txt {
