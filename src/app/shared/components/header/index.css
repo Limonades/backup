@@ -267,6 +267,7 @@
       padding: 0 10px;
       max-width: 430px;
       margin: 0 auto;
+      text-align: center;
 
       @media (--notTablet) {
         font-size: 4.4rem;
@@ -281,6 +282,7 @@
     &.--mobile {
       display: flex;
       padding: 0 10px;
+      margin-bottom: 0.8rem;
 
       @media (--notTablet) {
         font-size: 4.4rem;
