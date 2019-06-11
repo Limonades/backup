@@ -3,8 +3,9 @@ import $ from 'jquery'
 
 $(document).ready(function() {
   const slideshowOpenCLose = ()=> {
-    $('.slideshow__item:not(.--first)').fadeToggle();
-    $('.slideshow__expand-btn').fadeToggle();
+    $('.slideshow__item:not(.--first)').toggle();
+    $('.slideshow__expand-btn.--open').fadeToggle(600);
+    $('.slideshow__expand-btn.--close').toggle();
     $('.slideshow').toggleClass('--expanded');
     $('body').toggleClass('--no-scroll');
     $('.year-container').toggleClass('--no-scroll');

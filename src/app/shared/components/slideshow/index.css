@@ -201,6 +201,13 @@
     z-index: 1;
   }
 
+  & .slideshow__close-btn-wrap {
+    & .plus-minus::before,
+    & .plus-minus::after {
+      background-color: black;
+    }
+  }
+
   & .slideshow__copy {
     z-index: 11;
     scroll-snap-align: start;
@@ -220,7 +227,7 @@
     z-index: 101 !important;
 
     &::after {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(255, 255, 255, 0.8);
     }
 
     & .slideshow__close-btn-wrap {
@@ -230,7 +237,6 @@
 
     & .slideshow__item-txt {
       display: block;
-      color: white;
     }
   }
 
@@ -319,7 +325,7 @@
       display: none;
 
       & p {
-        color: white;
+        color: black;
         font-size: 2rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -332,7 +338,7 @@
           bottom: 0;
           height: 1px;
           width: 100%;
-          background-color: white;
+          background-color: black;
         }
       }
     }
