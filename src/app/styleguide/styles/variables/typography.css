@@ -1,0 +1,14 @@
+/**
+* These Styles come directly from InVision and are named after those styles
+* So please think twice before editing these.
+*/
+
+:root {
+  /**
+  * FONT FAMILIES
+  */
+
+  --serifPrimaryFont: 'Nanum Myeongjo', serif;
+  --serifSecondaryFont: 'Karla', sans-serif;
+  --sansSerifPrimaryFont: 'brandongrotesque', Helvetica, sans-serif;
+}

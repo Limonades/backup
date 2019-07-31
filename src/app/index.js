@@ -1,7 +1,7 @@
-import './layout'
-import './shared'
-import './pages'
-
+// import './layout'
+// import './pages'
+import './styleguide'
+import './styleguide/components'
 // import Helper from './helper'
 
 // window.onload = function () {

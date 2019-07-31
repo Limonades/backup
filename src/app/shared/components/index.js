@@ -1,7 +1,1 @@
-import './loader'
-import './old-browser'
-import './header'
-import './detail'
-import './video'
-import './slideshow'
-import './scroll-down-popup'
+import './header.css'
