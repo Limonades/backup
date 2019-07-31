@@ -1,0 +1,22 @@
+.header {
+  height: 100vh;
+  position: relative;
+  background-position: 50% calc(100% - 100px);
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+
+  &__caption {
+    position: absolute;
+    bottom: 10rem;
+    right: 10rem;
+  }
+
+  & .nav {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 20px 0;
+    border-top: 1px solid black;
+  }
+}

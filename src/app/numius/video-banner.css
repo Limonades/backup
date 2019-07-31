@@ -1,0 +1,42 @@
+.video-banner {
+  &__container {
+    padding: 0;
+    display: flex;
+  }
+
+  &__txt-block {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__img {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.1s ease;
+    }
+  }
+
+  &__banner {
+    width: 50%;
+    position: relative;
+
+    &:hover {
+      & .video-banner__img img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

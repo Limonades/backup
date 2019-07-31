@@ -1,0 +1,40 @@
+.video-slider {
+  padding: 80px 0;
+  border-top: 1px solid black;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 1px;
+    height: 50px;
+    background-color: black;
+  }
+
+  &__slider {
+    margin-left: -20px;
+    margin-right: -20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &.is-fade {
+      opacity: 1;
+    }
+  }
+
+  &__slide {
+    width: 33.3%;
+    padding: 0 20px;
+  }
+
+  &__slide-bg {
+    padding-bottom: 68%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+}

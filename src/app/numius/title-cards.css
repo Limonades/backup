@@ -1,0 +1,35 @@
+.title-cards {
+  padding: 80px 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 1px;
+    height: 50px;
+    background-color: black;
+  }
+
+  &__cards {
+    display: flex;
+  }
+
+  &__card {
+    width: 33.3%;
+    padding: 32px 20px;
+    margin: 0 1px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      border: 2px solid black;
+    }
+  }
+}

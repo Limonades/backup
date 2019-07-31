@@ -1,0 +1,47 @@
+.large-title-img-txt {
+  &__container {
+    display: flex;
+    padding-bottom: 60px;
+    margin-bottom: 20px;
+  }
+
+  &__block {
+    width: 50%;
+
+    &:first-child {
+      padding-right: 20px;
+    }
+
+    &:last-child {
+      padding-left: 20px;
+    }
+
+    &.--img-wrap {
+      display: flex;
+      align-items: flex-end;
+      height: 900px;
+      padding-left: 20px;
+      border-left: 1px solid black;
+    }
+  }
+
+  &__img {
+    height: 700px;
+    width: 100%;
+    display: block;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__cta {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

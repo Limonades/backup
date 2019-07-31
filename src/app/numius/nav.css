@@ -1,0 +1,45 @@
+.nav {
+  background-color: white;
+  border-bottom: 1px solid black;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    padding: 0 16px;
+  }
+
+  &__list-link {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: black;
+      transition: width 0.3s ease;
+    }
+
+    &.--active {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

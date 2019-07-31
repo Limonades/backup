@@ -1,4 +1,2 @@
-import './styles'
-import './styleguide'
-
-console.log('pidar')
+import './styles/variables/typography.css'
+import './styles/content.css'

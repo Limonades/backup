@@ -1,11 +1,18 @@
-@import 'styleguide/styles/variables';
+@import './variables/typography.css';
+@import "./../../shared/styles/variables/media-queries.css";
+@import "./../../shared/styles/variables/color.css";
 
 html {
   & body {
+    margin: 0;
     font-family: Karla, Helvetica, sans-serif;
     font-size: 1.6rem;
     color: var(--colorNightRider);
     line-height: 2.6rem;
+
+    & * {
+      box-sizing: border-box;
+    }
 
     @media (--desktop) {
       font-size: 1.8rem;
@@ -78,4 +85,18 @@ html {
       font-size: 1.6rem;
     }
   }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  padding: 0 40px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
